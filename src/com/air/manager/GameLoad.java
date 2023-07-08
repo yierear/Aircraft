@@ -32,7 +32,7 @@ public class GameLoad {
 		String mapStr="0,0";
 		ElementObj obj1=getObj("map");
 		ElementObj map = obj1.createElement(mapStr);
-		em.addElement(map, GameElemet.MAPS);
+		em.addElement(map, GameElement.MAPS);
 	}
 	
 	/**
@@ -71,7 +71,7 @@ public class GameLoad {
 		ElementObj play = obj.createElement(playStr);
 //		ElementObj play = new Play().createElement(playStr);
 //		解耦,降低代码和代码之间的耦合度 可以直接通过 接口或者是抽象父类就可以获取到实体对象
-		em.addElement(play, GameElemet.PLAY);
+		em.addElement(play, GameElement.PLAY);
 	}
 	
 	/**
