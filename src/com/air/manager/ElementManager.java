@@ -71,11 +71,6 @@ public class ElementManager {
 	public void init() {
 		gameElements = new HashMap<GameElemet, List<ElementObj>>();
 		//将每种元素集合放入map中
-//		gameElements.put(GameElemet.PLAY, new ArrayList<ElementObj>());
-//		gameElements.put(GameElemet.MAPS, new ArrayList<ElementObj>());
-//		gameElements.put(GameElemet.ENEMY, new ArrayList<ElementObj>());
-//		gameElements.put(GameElemet.BOSS, new ArrayList<ElementObj>());
-		
 		for(GameElemet ge:GameElemet.values()) { //通过循环读取枚举类型 添加集合
 			gameElements.put(ge, new ArrayList<ElementObj>());
 		}

@@ -11,8 +11,8 @@ import javax.swing.ImageIcon;
  *
  */
 public abstract class ElementObj {
-	private int x;
-	private int y;
+	protected int x;
+	protected int y;
 	private int w;
 	private int h;
 	private ImageIcon icon;
