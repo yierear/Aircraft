@@ -39,7 +39,7 @@ public class GameLoad {
 	 * */
 	public static void MapLoad(int mapid) {
 		loadObj();
-		String mapString="0,0,600,800,bg"+mapid+"";//x,y,icon
+		String mapString="0,0,600,1000,bg"+mapid+"";//x,y,icon
 //		System.out.println(mapString);
 		ElementObj mapobj=getObj("map"); 
 //		System.out.println(mapobj);
