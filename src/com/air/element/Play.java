@@ -48,6 +48,11 @@ public class Play extends ElementObj{
 		String[] split = str.split(",");
 		this.setX(Integer.parseInt(split[0]));
 		this.setY(Integer.parseInt(split[1]));
+//		System.out.println("------");
+//		for (int j = 0; j < split.length; j++) {
+//			System.out.println(split[j]);
+//		}
+		
 		ImageIcon icon2 = GameLoad.imgMap.get(split[2]);
 		this.setH(icon2.getIconHeight());
 		this.setW(icon2.getIconWidth());
