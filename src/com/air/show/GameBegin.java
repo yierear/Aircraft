@@ -18,7 +18,7 @@ public class GameBegin extends JPanel{
 	@Override
 	protected void paintComponent(Graphics g) {
 		// TODO 自动生成的方法存根
-		ImageIcon icon = new ImageIcon("image/background/8.png");
+		ImageIcon icon = new ImageIcon("image/begin.png");
 		g.drawImage(icon.getImage(), 0, 0, 600, 800, this);
 	}
 }
