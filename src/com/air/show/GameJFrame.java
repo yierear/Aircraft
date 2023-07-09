@@ -1,6 +1,7 @@
 package com.air.show;
 
 import java.awt.CardLayout;
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyListener;
@@ -10,9 +11,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 public class GameJFrame extends JFrame{
-	public static int GameX = 790;
-	public static int GameY = 700;
-	public static boolean flag = false;
+	public static int GameX = 615;
+	public static int GameY = 880;
 	private JPanel aJPanel; //整个面板
 	private JPanel mJPanel = new JPanel(); //用于显示的面板 
 	private KeyListener keyListener = null;
@@ -41,16 +41,20 @@ public class GameJFrame extends JFrame{
 	 */
 	public void addButton(JPanel jPanel, String str, int x, int y) {
 		myButton jButton = new myButton(str);
-		jButton.setBounds(x, y, 100, 50);	
-		if(!flag) {
-			jButton.addActionListener(new ActionListener() {				
-				@Override
-				public void actionPerformed(ActionEvent e) {
-					// TODO 自动生成的方法存根
-					flag = true;
+		jButton.setBounds(x, y, 110, 50);	
+		jButton.addActionListener(new ActionListener() {			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO 自动生成的方法存根
+				if(str.equals("开始游戏")) {
+					cardLayout.show(mJPanel, "gmp");
+				}else if (str.equals("选择关卡")) {
+					cardLayout.show(mJPanel, "gl");
+				}else if(str.equals("退出游戏")) {
+					cardLayout.show(mJPanel, "gb");
 				}
-			});
-		}
+			}
+		});
 		jPanel.add(jButton);
 	}
 	
@@ -79,21 +83,26 @@ public class GameJFrame extends JFrame{
 	 * @param jPanel
 	 */
 	public void setjPanel(JPanel jPanel) {
-		aJPanel = jPanel;		
+		aJPanel = jPanel; //为主面板赋值
 		aJPanel.setLayout(null); //给全局面板添加布局
-		this.setContentPane(aJPanel);
-		aJPanel.add(mJPanel);
-		this.setContentPane(mJPanel);
-		mJPanel.setBounds(0, 100, GameX, GameY-100);
+		this.setContentPane(aJPanel); //加入主面板
+		mJPanel.setLayout(cardLayout); //显示面板布局
+		aJPanel.add(mJPanel); // 加入显示面板
+		mJPanel.setBounds(0, 50, GameX, GameY-50);
+		mJPanel.setVisible(true);
 				
 		GameMainJPanel gmp = new GameMainJPanel();
 		GameBegin gb = new GameBegin();
+		GameLevel gl = new GameLevel();
 		mJPanel.add(gmp,"gmp");
 		mJPanel.add(gb,"gb");
+		mJPanel.add(gl, "gl");
+		cardLayout.show(mJPanel, "gb");
 		
-		addButton(aJPanel, "开始游戏",200,25);		
-		addButton(aJPanel, "选择关卡",345,25);
-		addButton(aJPanel, "退出游戏",490,25);
+		addButton(aJPanel, "开始游戏",100,0);		
+		addButton(aJPanel, "选择关卡",245,0);
+		addButton(aJPanel, "退出游戏",390,0);
+		
 	}
 
 	public void setKeyListener(KeyListener keyListener) {
@@ -112,7 +121,4 @@ public class GameJFrame extends JFrame{
 		this.thread = thread;
 	} 
 	
-	public void changeContentPane() {
-		
-	}
 }
