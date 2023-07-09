@@ -34,7 +34,6 @@ public class MapObj extends ElementObj{
 			ImageIcon icon2 = GameLoad.imgMap.get(split[4]);
 			System.out.println(split[3]);
 			
-			
 			this.setIcon(icon2);
 			System.out.println(split[4]);
 			
