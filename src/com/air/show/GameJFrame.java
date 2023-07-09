@@ -47,7 +47,7 @@ public class GameJFrame extends JFrame{
 	
 	public void init() {
 		this.setSize(GameX,GameY);
-		this.setTitle("测试游戏-坦克大战");
+		this.setTitle("飞机大战");
 		this.setLocationRelativeTo(null); //居中显示
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //设置退出并关闭
 		this.setFocusable(true);
@@ -91,16 +91,16 @@ public class GameJFrame extends JFrame{
 		//位置和布局
 		ajPanel.setBounds(0, 0, GameX, GameY);
 		ajPanel.setLayout(null); //给全局面板添加布局
-		jPanel.setBounds(0, 100, GameX, GameY);
+		jPanel.setBounds(0, 50, GameX, GameY-50);
 		jPanel.setLayout(cardLayout); //显示面板布局
 		GameLevel gl = new GameLevel();
 		GameMainJPanel gmj = new GameMainJPanel();
 		Thread t = new Thread(gmj);
 		t.start();
 		GameBegin gb = new GameBegin();
+		jPanel.add(gb, "gb");
 		jPanel.add(gl, "gl");
-		jPanel.add(gmj,"gmj");
-		jPanel.add(gb, "gb");	
+		jPanel.add(gmj,"gmj");			
 	}
 
 	public void setKeyListener(KeyListener keyListener) {
