@@ -29,7 +29,7 @@ import javax.swing.JPanel;
  */
 public class GameJFrame extends JFrame{
 	public static int GameX = 615;
-	public static int GameY = 888;
+	public static int GameY = 850;
 	private JPanel ajPanel = new JPanel();
 	private JPanel jPanel = new JPanel(); //正在进行显示的面板
 	private KeyListener keyListener = null;
