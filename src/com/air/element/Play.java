@@ -49,6 +49,9 @@ public class Play extends ElementObj{
 		this.setX(Integer.parseInt(split[0]));
 		this.setY(Integer.parseInt(split[1]));
 		ImageIcon icon2 = GameLoad.imgMap.get(split[2]);
+		if(icon2 == null) {
+			icon2 = GameLoad.imgMap.get("up");
+		}
 		this.setH(icon2.getIconHeight());
 		this.setW(icon2.getIconWidth());
 		this.setIcon(icon2);
