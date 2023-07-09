@@ -1,6 +1,6 @@
 play=com.air.element.Play
-map=com.air.element.MapObj
 fire=com.air.element.PlayFire
+map=com.air.element.MapObj
 enemy=com.air.element.Enemy
 boss=com.air.element.BOSS
 die=com.air.element.DIE
