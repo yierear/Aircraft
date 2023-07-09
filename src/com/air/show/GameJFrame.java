@@ -27,7 +27,7 @@ import javax.swing.JPanel;
  * 		 3.游戏主线程启动
  * 		 4.显示窗体
  */
-public class GameJFrame extends JFrame implements Runnable{
+public class GameJFrame extends JFrame{
 	public static int GameX = 615;
 	public static int GameY = 880;
 	private JPanel ajPanel = new JPanel();
@@ -142,10 +142,5 @@ public class GameJFrame extends JFrame implements Runnable{
 		jPanel1.add(jButton);
 		
 	}
-	
-	@Override
-	public void run() {
-		// TODO 自动生成的方法存根
-		jPanel.updateUI();
-	}
+
 }
