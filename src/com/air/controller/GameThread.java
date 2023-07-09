@@ -49,7 +49,7 @@ public class GameThread extends Thread{
 	 * 游戏的加载
 	 */
 	private void gameLoad() {
-		GameLoad.loadImg();//加载图片
+//		GameLoad.loadImg();//加载图片
 //		GameLoad.MapLoad(2);//可变为变量，每一关重新加载//加载地图
 //		加载主角
 		GameLoad.loadPlay();//可带参数，单机还是2人

@@ -43,7 +43,7 @@ public class GameLoad {
 	 * */
 	public static void loadPlay() {
 		loadObj();
-		String playStr="200,500";
+		String playStr="200,500,up";
 		ElementObj obj=getObj("play");  
 		ElementObj play = obj.createElement(playStr);
 //		解耦,降低代码和代码之间的耦合度 可以直接通过 接口或者是抽象父类就可以获取到实体对象
