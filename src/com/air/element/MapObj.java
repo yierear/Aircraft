@@ -24,6 +24,7 @@ public class MapObj extends ElementObj{
 	 
 	 @Override
 		public ElementObj createElement(String str) {
+		 System.out.println(str);
 			String[] split = str.split(",");
 			this.setX(Integer.parseInt(split[0]));
 			this.setY(Integer.parseInt(split[1]));

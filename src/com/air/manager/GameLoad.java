@@ -39,8 +39,9 @@ public class GameLoad {
 	 * */
 	public static void MapLoad(String g) {
 		loadObj();
-		String mapString="500,600,bg1";//x,y,icon
-		ElementObj mapobj=getObj("MapObj");  
+		String mapString="0,0,bg1";//x,y,icon
+		ElementObj mapobj=getObj("map"); 
+		System.out.println(mapobj);
 		ElementObj map = mapobj.createElement(mapString);
 //		解耦,降低代码和代码之间的耦合度 可以直接通过 接口或者是抽象父类就可以获取到实体对象
 		em.addElement(map, GameElement.MAPS);
@@ -95,8 +96,10 @@ public class GameLoad {
 	private static Map<String,Class<?>> objMap=new HashMap<>();
 	
 	public static ElementObj getObj(String str) {	
+		System.out.println(str);
 		try {
 			Class<?> class1=objMap.get(str);
+			System.out.println(class1);
 			Object newInstance;
 			newInstance = class1.newInstance();
 			if (newInstance instanceof ElementObj) {
@@ -134,5 +137,9 @@ public class GameLoad {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+	public static void main(String[] args) {
+		MapLoad("bg");
+		loadPlay();
 	}
 }
