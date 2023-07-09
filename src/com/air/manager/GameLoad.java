@@ -142,6 +142,5 @@ public class GameLoad {
 	}
 	public static void main(String[] args) {
 		MapLoad(1);
-		loadPlay();
 	}
 }

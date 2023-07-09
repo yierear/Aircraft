@@ -54,6 +54,9 @@ public class Play extends ElementObj{
 //		}
 		
 		ImageIcon icon2 = GameLoad.imgMap.get(split[2]);
+		if(icon2 == null) {
+			icon2 = GameLoad.imgMap.get("up");
+		}
 		this.setH(icon2.getIconHeight());
 		this.setW(icon2.getIconWidth());
 		this.setIcon(icon2);
@@ -124,10 +127,10 @@ public class Play extends ElementObj{
 		if (this.up  && this.getY()>0) {
 			this.setY(this.getY() - 2);
 		}
-		if (this.right && this.getX()<900-this.getW()) {  //坐标的跳转由大家来完成
+		if (this.right && this.getX()<615-this.getW()) {  //坐标的跳转由大家来完成
 			this.setX(this.getX() + 2);
 		}
-		if (this.down && this.getY()<600-this.getH()) {
+		if (this.down && this.getY()<880-this.getH()) {
 			this.setY(this.getY() + 2);
 		}
 	}
