@@ -41,13 +41,13 @@ public class PlayFile extends ElementObj{
 	@Override
 	public void showElement(Graphics g) {	
 		g.setColor(Color.red);// new Color(255,255,255)
-		g.fillOval(this.getX(), this.getY(), this.getW(), this.getH());
+		g.fillOval(this.getX()-3, this.getY()-2, this.getW(), this.getH());
 	}	
 
 	@Override
 	protected void move(int gameTime) {
-		if(this.getX()<0 || this.getX() >900 || 
-				this.getY() <0 || this.getY()>600) {
+		if(this.getX()<0 || this.getX() >615 || 
+				this.getY() <0 || this.getY()>880) {
 			this.setLive(false);
 			return;
 		}
