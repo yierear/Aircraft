@@ -48,11 +48,13 @@ public class Play extends ElementObj /* implements Comparable<Play>*/{
 		String[] split = str.split(",");
 		this.setX(Integer.parseInt(split[0]));
 		this.setY(Integer.parseInt(split[1]));
-		ImageIcon icon2 = GameLoad.imgMap.get(split[2]);
-		this.setW(icon2.getIconWidth());
-		this.setH(icon2.getIconHeight());
+		this.setW(Integer.parseInt(split[2]));
+		this.setH(Integer.parseInt(split[3]));
+		ImageIcon icon2 = GameLoad.imgMap.get(split[4]);
 		this.setIcon(icon2);
 		return this;
+		
+		
 	}
 	
 	

@@ -21,7 +21,7 @@ import com.air.manager.GameLoad;
 public class GameThread extends Thread{
 
 	private ElementManager em;
-	
+	private String bg="bg1";
 	public GameThread() {
 		em=ElementManager.getManager();
 	}
@@ -51,6 +51,10 @@ public class GameThread extends Thread{
 	private void gameLoad() {
 //		GameLoad.loadImg();//加载图片
 //		GameLoad.MapLoad(2);//可变为变量，每一关重新加载//加载地图
+
+		GameLoad.loadImg();//加载图片
+		GameLoad.MapLoad(bg);//可变为变量，每一关重新加载//加载地图
+
 //		加载主角
 		GameLoad.loadPlay();//可带参数，单机还是2人
 		
