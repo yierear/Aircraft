@@ -32,7 +32,7 @@ public class GameLoad {
 	public static void MapLoad() {
 		loadObj();
 		String mapStr="200,500";
-		ElementObj obj=getObj("play");  
+		ElementObj obj=getObj("map");  
 		ElementObj map = obj.createElement(mapStr);
 //		解耦,降低代码和代码之间的耦合度 可以直接通过 接口或者是抽象父类就可以获取到实体对象
 		em.addElement(map, GameElement.MAPS);
@@ -76,7 +76,7 @@ public class GameLoad {
 	}
 	
 	public static void loadObj() {
-		String texturl="com/tedu/text/obj.pro";//文件的命名可以更加有规律
+		String texturl="com/air/text/obj.pro";//文件的命名可以更加有规律
 		ClassLoader classLoader = GameLoad.class.getClassLoader();
 		InputStream texts = classLoader.getResourceAsStream(texturl);
 		pro.clear();
