@@ -8,7 +8,7 @@ import javax.swing.JPanel;
 
 import com.air.element.ElementObj;
 import com.air.manager.ElementManager;
-import com.air.manager.GameElemet;
+import com.air.manager.GameElement;
 
 public class GameMainJPanel extends JPanel implements Runnable{
 	private ElementManager em;
@@ -26,8 +26,8 @@ public class GameMainJPanel extends JPanel implements Runnable{
 	public void paint(Graphics g) {
 		// TODO 自动生成的方法存根
 		super.paint(g);
-		Map<GameElemet, List<ElementObj>> all = em.getGameElements();
-		for(GameElemet ge:GameElemet.values()) {
+		Map<GameElement, List<ElementObj>> all = em.getGameElements();
+		for(GameElement ge:GameElement.values()) {
 			List<ElementObj> list = all.get(ge);
 			for (int i = 0; i < list.size(); i++) {
 				ElementObj obj = list.get(i);

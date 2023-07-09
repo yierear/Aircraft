@@ -1,6 +1,6 @@
 package com.air.manager;
 
-public enum GameElemet {
+public enum GameElement {
 	/**
 	 * @说明 游戏元素
 	 * PLAY 玩家
