@@ -30,18 +30,18 @@ public class GameLoad {
 //	图片集合  使用map来进行存储     枚举类型配合移动(扩展)
 	public static Map<String,ImageIcon> imgMap = new HashMap<>();
 	
-	public static Map<String,List<ImageIcon>> imgMaps;
+//	public static Map<String,List<ImageIcon>> imgMaps;
 //	用户读取文件的类
 	private static Properties pro =new Properties();	
 	
 	/**
 	 * @说明 地图加载方法
 	 * */
-	public static void MapLoad(String g) {
+	public static void MapLoad(int mapid) {
 		loadObj();
-		String mapString="0,0,600,500,bg";//x,y,icon
+		String mapString="0,0,600,800,bg";//x,y,icon
 		ElementObj mapobj=getObj("map"); 
-		System.out.println(mapobj);
+//		System.out.println(mapobj);
 		ElementObj map = mapobj.createElement(mapString);
 //		解耦,降低代码和代码之间的耦合度 可以直接通过 接口或者是抽象父类就可以获取到实体对象
 		em.addElement(map, GameElement.MAPS);
@@ -80,8 +80,8 @@ public class GameLoad {
 	 * */
 	public static void loadPlay() {
 		loadObj();
-//		String playStr="200,500,up";
-		String playStr="200,500,20,20,up";//x,y,图片
+		String playStr="200,500,up";
+//		String playStr="200,500,20,20,up";//x,y,图片
 		ElementObj obj=getObj("play");  
 		ElementObj play = obj.createElement(playStr);
 //		解耦,降低代码和代码之间的耦合度 可以直接通过 接口或者是抽象父类就可以获取到实体对象
@@ -97,10 +97,10 @@ public class GameLoad {
 	private static Map<String,Class<?>> objMap=new HashMap<>();
 	
 	public static ElementObj getObj(String str) {	
-		System.out.println(str);
+//		System.out.println(str);
 		try {
 			Class<?> class1=objMap.get(str);
-			System.out.println(class1);
+//			System.out.println(class1);
 			Object newInstance;
 			newInstance = class1.newInstance();
 			if (newInstance instanceof ElementObj) {
@@ -140,7 +140,7 @@ public class GameLoad {
 		}
 	}
 	public static void main(String[] args) {
-		MapLoad("bg");
+		MapLoad(1);
 		loadPlay();
 	}
 }

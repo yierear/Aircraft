@@ -11,6 +11,7 @@ import com.air.element.Play;
 import com.air.manager.ElementManager;
 import com.air.manager.GameElement;
 import com.air.manager.GameLoad;
+import com.air.show.GameLevel;
 
 /**
  * @说明 游戏的主线程，用于控制游戏加载，游戏关卡，游戏运行时自动化
@@ -21,7 +22,7 @@ import com.air.manager.GameLoad;
 public class GameThread extends Thread{
 
 	private ElementManager em;
-	private String bg="bg1";
+//	private String bg="bg1";
 	public GameThread() {
 		em=ElementManager.getManager();
 	}
@@ -53,7 +54,7 @@ public class GameThread extends Thread{
 //		GameLoad.MapLoad(2);//可变为变量，每一关重新加载//加载地图
 
 		GameLoad.loadImg();//加载图片
-		GameLoad.MapLoad(bg);//可变为变量，每一关重新加载//加载地图
+		GameLoad.MapLoad(GameLevel.getLevel());//传等级
 
 //		加载主角
 		GameLoad.loadPlay();//可带参数，单机还是2人

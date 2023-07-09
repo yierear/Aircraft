@@ -30,11 +30,11 @@ public class MapObj extends ElementObj{
 			this.setY(Integer.parseInt(split[1]));
 			this.setW(Integer.parseInt(split[2]));	
 			this.setH(Integer.parseInt(split[3]));
-			System.out.println(split[2]);
-			ImageIcon icon2 = GameLoad.imgMap.get(split[4]);
-			System.out.println(split[3]);
+//			System.out.println(split[2]);
+			ImageIcon icon = GameLoad.imgMap.get(split[4]);
+//			System.out.println(split[3]);
 			
-			this.setIcon(icon2);
+			this.setIcon(icon);
 			System.out.println(split[4]);
 			
 			return this;
@@ -45,16 +45,13 @@ public class MapObj extends ElementObj{
 		 g.drawImage(this.getIcon().getImage(), 
 				 this.getX(), this.getY(),  
 				 this.getW(), this.getH(), null);
-		 g.drawImage(this.getIcon().getImage(), 
-				 this.getX(), this.getY(),  
-				 this.getW(), this.getH(), null);
 	}
 
 	@Override
 	protected void move(int gameTime) {
 		// TODO 自动生成的方法存根
-		super.move(gameTime);
-		this.setY(this.getY()+gameTime);
+//		super.move(gameTime);
+//		this.setY(this.getY()+gameTime);
 		
 //		moveY=(moveY>=800)?0:moveY;
 //		moveY+=gameTime;

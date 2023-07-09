@@ -11,7 +11,7 @@ import com.air.manager.ElementManager;
 import com.air.manager.GameElement;
 import com.air.manager.GameLoad;
 
-public class Play extends ElementObj /* implements Comparable<Play>*/{
+public class Play extends ElementObj{
 	/**
 	 * 移动属性:
 	 * 1.单属性  配合  方向枚举类型使用; 一次只能移动一个方向 
@@ -48,9 +48,9 @@ public class Play extends ElementObj /* implements Comparable<Play>*/{
 		String[] split = str.split(",");
 		this.setX(Integer.parseInt(split[0]));
 		this.setY(Integer.parseInt(split[1]));
-		this.setW(Integer.parseInt(split[2]));
-		this.setH(Integer.parseInt(split[3]));
-		ImageIcon icon2 = GameLoad.imgMap.get(split[4]);
+		ImageIcon icon2 = GameLoad.imgMap.get(split[2]);
+		this.setH(icon2.getIconHeight());
+		this.setW(icon2.getIconWidth());
 		this.setIcon(icon2);
 		return this;
 		
