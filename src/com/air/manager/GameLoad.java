@@ -39,6 +39,30 @@ public class GameLoad {
 	}
 
 	/**
+	 *@说明 加载图片代码
+	 *加载图片 代码和图片之间差 一个 路径问题 
+	 */
+	public static void loadImg() {//可以带参数，因为不同的关也可能需要不一样的图片资源
+		String texturl="com/tedu/text/GameData.pro";//文件的命名可以更加有规律
+		ClassLoader classLoader = GameLoad.class.getClassLoader();
+		InputStream texts = classLoader.getResourceAsStream(texturl);
+//		imgMap用于存放数据
+		pro.clear();
+		try {
+//			System.out.println(texts);
+			pro.load(texts);
+			Set<Object> set = pro.keySet();//是一个set集合
+			for(Object o:set) {
+				String url=pro.getProperty(o.toString());
+				imgMap.put(o.toString(), new ImageIcon(url));
+			}
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	/**
 	 * 加载玩家
 	 * */
 	public static void loadPlay() {
@@ -49,6 +73,8 @@ public class GameLoad {
 //		解耦,降低代码和代码之间的耦合度 可以直接通过 接口或者是抽象父类就可以获取到实体对象
 		em.addElement(play, GameElement.PLAY);
 	}
+	
+	
 	
 	/**
 	 * 
