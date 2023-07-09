@@ -39,7 +39,7 @@ public class GameLoad {
 	 * */
 	public static void MapLoad(String g) {
 		loadObj();
-		String mapString="0,0,bg1";//x,y,icon
+		String mapString="0,0,600,500,bg";//x,y,icon
 		ElementObj mapobj=getObj("map"); 
 		System.out.println(mapobj);
 		ElementObj map = mapobj.createElement(mapString);
@@ -80,7 +80,7 @@ public class GameLoad {
 	 * */
 	public static void loadPlay() {
 		loadObj();
-		String playStr="200,500,up";//x,y,图片
+		String playStr="200,500,20,20,up";//x,y,图片
 		ElementObj obj=getObj("play");  
 		ElementObj play = obj.createElement(playStr);
 //		解耦,降低代码和代码之间的耦合度 可以直接通过 接口或者是抽象父类就可以获取到实体对象
