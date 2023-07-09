@@ -6,12 +6,13 @@ import java.awt.Insets;
 import java.awt.Shape;
 
 import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.border.Border;
 
 public class myButton extends JButton{
 	private Shape shape = null;
-	private Color quit = new Color(253,206,70);// 离开时颜色
+	private Color quit = new Color(253, 209, 73);// 离开时颜色
 	
 	public myButton(String s) {
 		super(s);
@@ -21,12 +22,12 @@ public class myButton extends JButton{
         setContentAreaFilled(false);//取消原先画矩形的设置
         //setBorderPainted(false);//会导致按钮没有明显边界
         setFocusPainted(false);//去除文字周围的虚线框
-        
 	}
 	
 	public void paintComponent(Graphics g) {
 		if (getModel().isArmed()) {
-            g.setColor(Color.orange);//按下后按钮变成绿色
+            g.setColor(new Color(196,98,0));//按下后按钮变成橙色
+			
         } else {
             g.setColor(quit);
         }
