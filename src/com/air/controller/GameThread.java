@@ -74,11 +74,9 @@ public class GameThread extends Thread{
 			Map<GameElement, List<ElementObj>> all = em.getGameElements();
 			List<ElementObj> enemys = em.getElementsByKey(GameElement.ENEMY);
 			List<ElementObj> files = em.getElementsByKey(GameElement.PLAYFILE);
-			List<ElementObj> maps = em.getElementsByKey(GameElement.MAPS);
 			moveAndUpdate(all, gameTime);//	游戏元素自动化方法
 			
 			ElementPK(enemys,files);
-			ElementPK(files,maps);
 			
 			gameTime++;//唯一的时间控制
 			try {
