@@ -96,7 +96,7 @@ public class GameThread extends Thread{
 				if (enemy.pk(file)) {
 //					攻击boss：将setLive(false)变为一个受攻击方法，还可以传入另外一个对象的攻击力
 //					当受攻击方法里执行时，如果血量减为0，再将生存设置为false
-					System.out.println();
+//					System.out.println();
 					enemy.setLive(false);
 					file.setLive(false);
 					break;
