@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
+import java.util.Random;
 import java.util.Set;
 
 import javax.lang.model.element.Element;
@@ -94,11 +95,16 @@ public class GameLoad {
 	/**
 	 * 
 	 * */
-	public static void loadNpc() {
+	public static void loadNpc(int mapId) {
 		
 		loadObj();
+		Random random=new Random();
+		int x;
+		x=random.nextInt(500);
+//		String enemyStr=x+",0,enemy"+mapId+"";
+		String enemyStr=x+",0,enemy"+mapId+"";
 		ElementObj enemyobj=getObj("enemy");
-		ElementObj enemy = enemyobj.createElement("");
+		ElementObj enemy = enemyobj.createElement(enemyStr);
 		em.addElement(enemy, GameElement.ENEMY);
 		
 	}

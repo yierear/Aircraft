@@ -6,7 +6,7 @@ import java.util.Map;
 import javax.swing.ImageIcon;
 
 import com.air.element.ElementObj;
-import com.air.element.Enemy1;
+import com.air.element.Enemy;
 import com.air.element.Play;
 import com.air.manager.ElementManager;
 import com.air.manager.GameElement;
@@ -60,7 +60,7 @@ public class GameThread extends Thread{
 		GameLoad.loadPlay();//可带参数，单机还是2人
 		
 //		加载敌人NPC
-//		GameLoad.loadEnemy();
+		GameLoad.loadNpc(GameLevel.getLevel());
 	}
 	/**
 	 * 游戏进行时
