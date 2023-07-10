@@ -29,7 +29,7 @@ import javax.swing.JPanel;
  */
 public class GameJFrame extends JFrame{
 	public static int GameX = 615;
-	public static int GameY = 880;
+	public static int GameY = 850;
 	private JPanel ajPanel = new JPanel();
 	private JPanel jPanel = new JPanel(); //正在进行显示的面板
 	private KeyListener keyListener = null;
@@ -90,6 +90,7 @@ public class GameJFrame extends JFrame{
 	public void setjPanel() {
 		//位置和布局
 		ajPanel.setBounds(0, 0, GameX, GameY);
+		ajPanel.setBackground(Color.white);
 		ajPanel.setLayout(null); //给全局面板添加布局
 		jPanel.setBounds(0, 50, GameX, GameY-50);
 		jPanel.setLayout(cardLayout); //显示面板布局

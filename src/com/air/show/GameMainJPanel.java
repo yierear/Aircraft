@@ -27,6 +27,7 @@ public class GameMainJPanel extends JPanel implements Runnable{
 		// TODO 自动生成的方法存根
 		super.paint(g);
 		Map<GameElement, List<ElementObj>> all = em.getGameElements();
+		
 		for(GameElement ge:GameElement.values()) {
 			List<ElementObj> list = all.get(ge);
 			for (int i = 0; i < list.size(); i++) {
