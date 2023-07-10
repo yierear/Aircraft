@@ -24,17 +24,12 @@ public class Prop extends ElementObj{
 		this.setW(Integer.parseInt(split[2]));	
 		this.setH(Integer.parseInt(split[3]));
 		ImageIcon icon = GameLoad.imgMap.get(split[4]);
-		for (int i = 0; i < split.length; i++) {
-			System.out.println(split[i]);
-		}
 		this.setIcon(icon);
 		return this;
 		
 	}
 	@Override
 	protected void move(int gameTime) {
-		// TODO 自动生成的方法存根
-		super.move(gameTime);
 		this.setY(this.getY() + 1);
 	}
 	
