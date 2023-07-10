@@ -53,7 +53,6 @@ public class Play extends ElementObj{
 	
 	public Play() {}
 	public Play(int x, int y, int w, int h, int hp, ImageIcon icon) {
-		super(x, y, w, h, hp,icon);
 	}
 	//题外话: 过时的方法能用吗？ 可以用，也能够用，因为你不用jdk底层使用
 	@Override
