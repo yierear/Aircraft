@@ -45,7 +45,7 @@ public class Play extends ElementObj{
 	
 	//	变量专门用来记录当前主角面向的方向,默认为是up
 	private String fx="up";
-	private boolean pkType=false;//攻击状态 true 攻击  false停止
+	private boolean pkType=true;//攻击状态 true 攻击  false停止
 	
 	public Play() {}
 	public Play(int x, int y, int w, int h, ImageIcon icon) {
@@ -106,8 +106,8 @@ public class Play extends ElementObj{
 			case 40: 
 				this.right=false;this.left=false;
 				this.up=false; this.down=true;  this.fx="down";break;
-			case 32:
-				this.pkType=true;break;//开启攻击状态
+//			case 32:
+//				this.pkType=true;break;//开启攻击状态
 			}
 		}else {
 			switch(key) {
@@ -115,7 +115,7 @@ public class Play extends ElementObj{
 			case 38: this.up=false;    break;
 			case 39: this.right=false; break;
 			case 40: this.down=false;  break;
-			case 32: this.pkType=false; break;//关闭攻击状态
+//			case 32: this.pkType=false; break;//关闭攻击状态
 			}
 		//a a
 		}	
@@ -172,22 +172,21 @@ public class Play extends ElementObj{
 		if(!this.pkType) {//如果是不发射状态 就直接return
 			return;
 		}
-//		if(gameTime-filetime>21) {
-//			filetime=gameTime;
-//		}
-//		if(gameTime-filetime==20) {
+		if(gameTime-filetime>21) {
+			filetime=gameTime;
+		}
+		if(gameTime-filetime==20) {
 			//		传递一个固定格式   {X:3,y:5,f:up} json格式
-		this.pkType=false;
 		ElementObj obj=GameLoad.getObj("file");  		
 		ElementObj element = obj.createElement(this.toString());
 //		System.out.println("子弹是否为空"+element);
 //		装入到集合中
 		ElementManager.getManager().addElement(element, GameElement.PLAYFILE);
 //		如果要控制子弹速度等等。。。。还需要代码编写
-//		}
-//		else {
-//			return;
-//		}
+		}
+		else {
+			return;
+		}
 //		this.pkType=false;//按一次，发射一个子弹。拼手速(也可以增加变量来控制)
 //		new PlayFile(); // 构造一个类 需要做比较多的工作  可以选择一种方式，使用小工厂
 //		将构造对象的多个步骤进行封装成为一个方法，返回值直接是这个对象	
