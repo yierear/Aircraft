@@ -93,7 +93,7 @@ public class GameLoad {
 	
 	
 	/**
-	 * 
+	 * 加载敌人
 	 * */
 	public static void loadNpc(int mapId) {
 		
