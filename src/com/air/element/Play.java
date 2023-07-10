@@ -130,7 +130,7 @@ public class Play extends ElementObj{
 		if (this.right && this.getX()<615-this.getW()) {  //坐标的跳转由大家来完成
 			this.setX(this.getX() + 2);
 		}
-		if (this.down && this.getY()<880-this.getH()) {
+		if (this.down && this.getY()<830-this.getH()) {
 			this.setY(this.getY() + 2);
 		}
 	}

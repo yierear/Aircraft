@@ -34,14 +34,14 @@ public class PlayFile extends ElementObj{
 			case "f":this.fx=split2[1];break;
 			}
 		}
-		this.setW(10);
-		this.setH(10);
+		this.setW(7);
+		this.setH(7);
 		return this;
 	}
 	@Override
 	public void showElement(Graphics g) {	
 		g.setColor(Color.red);// new Color(255,255,255)
-		g.fillOval(this.getX()-3, this.getY()-2, this.getW(), this.getH());
+		g.fillOval(this.getX()-2, this.getY()-4, this.getW(), this.getH());
 	}	
 
 	@Override
