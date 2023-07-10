@@ -108,12 +108,12 @@ public class GameThread extends Thread{
 				if (character.pk(thing)) {
 					thing.setLive(false);
 					if (flag==1) {//子弹和敌人&玩家
-						if (character.) {
-							character.setLive(false);	//碰到子弹 血量无 人物死亡					
-						}
-						else {
-							character.setLive(true);//还有血量 生存
-						}
+//						if (character.) {
+//							character.setLive(false);	//碰到子弹 血量无 人物死亡					
+//						}
+//						else {
+//							character.setLive(true);//还有血量 生存
+//						}
 					}
 					else if (flag==0) {//道具和玩家
 						character.setLive(true);//人物生存
@@ -136,7 +136,7 @@ public class GameThread extends Thread{
 				if (play.pk(prop)) {
 					play.setLive(true);
 					prop.setLive(false);
-					propType = Prop.getPropType();
+					
 //					System.out.println(propType);
 				}
 			}
