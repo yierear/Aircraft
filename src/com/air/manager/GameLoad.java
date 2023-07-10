@@ -39,11 +39,11 @@ public class GameLoad {
 	 * */
 	public static void MapLoad(int mapid) {
 		loadObj();
-		String mapString="0,0,600,1000,bg"+mapid+"";//x,y,icon
+		String mapString="0,0,600,1000,"+mapid+"bg";//x,y,icon
 //		System.out.println(mapString);
 		ElementObj mapobj=getObj("map"); 
 //		System.out.println(mapobj);
-		ElementObj map = mapobj.createElement(mapString.toString());
+		ElementObj map = mapobj.createElement(mapString);
 //		解耦,降低代码和代码之间的耦合度 可以直接通过 接口或者是抽象父类就可以获取到实体对象
 		em.addElement(map, GameElement.MAPS);
 		
