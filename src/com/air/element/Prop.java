@@ -3,8 +3,11 @@ package com.air.element;
 import java.awt.Graphics;
 import java.util.Random;
 
+import javax.swing.ImageIcon;
+
+import com.air.manager.GameLoad;
+
 public class Prop extends ElementObj{
-//	private int speed=2;
 	
 	@Override
 	public void showElement(Graphics g) {
@@ -16,15 +19,15 @@ public class Prop extends ElementObj{
 	
 	@Override
 	public ElementObj createElement(String str) {
-		Random random  = new Random();
-		int x=random.nextInt(800);
-		int y=0;
-		this.setX(x);
-		this.setY(y);
-		this.setW(30);
-		this.setH(30);
 		String[] split = str.split(",");
 		this.setX(Integer.parseInt(split[0]));
+		this.setY(Integer.parseInt(split[1]));
+		ImageIcon icon = GameLoad.imgMap.get(split[2]);
+		this.setW(icon.getIconWidth());
+		this.setY(icon.getIconHeight());
+		for (int i = 0; i < split.length; i++) {
+			System.out.println(split[i]);
+		}
 		return null;
 		
 	}
