@@ -32,15 +32,15 @@ public class Play extends ElementObj{
 	private boolean up=false;   //上
 	private boolean right=false;//右
 	private boolean down=false; //下
-	private int hp = 100; //玩家血条
+	private static int hp = 100; //玩家血条
 	
 
-	public int getHp() {
+	public static int getHp() {
 		return hp;
 	}
 	
-	public void setHp(int hp) {
-		this.hp = hp;
+	public static void setHp(int hp) {
+		Play.hp = hp;
 	}
 	
 	//	变量专门用来记录当前主角面向的方向,默认为是up

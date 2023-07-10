@@ -22,7 +22,7 @@ public class GameLive extends JPanel implements Runnable{
 		super.paint(g);
 		g.setColor(Color.red);
 		g.drawRect(50, 10, 100, 10);
-		g.fillRect(50, 10, WIDTH, HEIGHT);
+		g.fillRect(50, 10, Play.getHp(), HEIGHT);
 	}
 	
 	@Override
