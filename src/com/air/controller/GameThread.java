@@ -59,6 +59,8 @@ public class GameThread extends Thread{
 		
 //		加载敌人NPC
 		GameLoad.loadNpc(GameLevel.getLevel());
+//		加载道具
+		GameLoad.loadProp(GameLevel.getLevel());
 	}
 	/**
 	 * 游戏进行时
