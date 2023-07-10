@@ -14,7 +14,6 @@ public class GameLive extends JPanel implements Runnable{
 
 	public GameLive() {
 		// TODO 自动生成的构造函数存根
-		init();
 	}
 	
 	public void init() {
@@ -24,6 +23,7 @@ public class GameLive extends JPanel implements Runnable{
 		jLabel.setBounds(0, 10, 30, 15);
 		Font font = new Font("Broadway", Font.BOLD, 35);
 		String str = GameLevel.getLevel()+"";
+//		System.out.println(str);
  		JLabel jLabel0 = new JLabel(str);
  		jLabel0.setForeground(Color.ORANGE);
  		jLabel0.setFont(font);
@@ -48,7 +48,7 @@ public class GameLive extends JPanel implements Runnable{
 		JLabel jLabel3 = new JLabel("得分:");
 		jLabel3.setBounds(0, 75, 30, 15);
 		String str2 = GameThread.getScore()+"";
-		System.out.println(str2);
+//		System.out.println(str2);
 		JLabel jLabel4 = new JLabel(str2);
 		jLabel4.setFont(font2);
 		jLabel4.setForeground(Color.BLUE);
@@ -60,6 +60,7 @@ public class GameLive extends JPanel implements Runnable{
 	@Override
 	public void paint(Graphics g) {
 		// TODO 自动生成的方法存根
+		init();
 		super.paint(g);
 		g.setColor(Color.red);
 		g.drawRect(25, 40, 100, 15);
@@ -70,6 +71,7 @@ public class GameLive extends JPanel implements Runnable{
 	public void run() {
 		// TODO 自动生成的方法存根
 		while(true) {
+			this.removeAll();
 			this.repaint();
 			try {
 				Thread.sleep(50);
