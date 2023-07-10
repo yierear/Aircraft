@@ -11,14 +11,14 @@ up=image/play/13.png
 6bg=image/background/6.jpg
 
 enemy1=image/enemy/1.png
-2enemy=image/enemy/2.png
-3enemy=image/enemy/3.png
-4enemy=image/enemy/4.png
-5enemy=image/enemy/5.png
-6enemy=image/enemy/6.png
-7enemy=image/enemy/7.png
-8enemy=image/enemy/8.png
-9enemy=image/enemy/9.png
+enemy2=image/enemy/2.png
+enemy3=image/enemy/3.png
+enemy4=image/enemy/4.png
+enemy5=image/enemy/5.png
+enemy6=image/enemy/6.png
+enemy7=image/enemy/7.png
+enemy8=image/enemy/8.png
+enemy9=image/enemy/9.png
 
 1fireType=image/fire/4.png
 2fireType=image/fire/25.png

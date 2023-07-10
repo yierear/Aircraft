@@ -100,7 +100,7 @@ public class GameLoad {
 		Random random=new Random();
 		int x;
 		x=random.nextInt(500);
-//		String enemyStr=x+",0,30,30,enemy"+mapId+"";
+//		String enemyStr=x+",0,enemy"+mapId+"";
 		String enemyStr=x+",0,30,30,enemy"+mapId+"";
 		ElementObj enemyobj=getObj("enemy");
 		ElementObj enemy = enemyobj.createElement(enemyStr);
@@ -116,7 +116,7 @@ public class GameLoad {
 		Random random = new Random();
 		int x;
 		x=random.nextInt(600);
-		String propStr=x+",10,30,30,"+mapid+"prop";
+		String propStr=x+",-10,30,30,"+mapid+"prop";
 		ElementObj propobj=getObj("prop");
 		ElementObj prop = propobj.createElement(propStr);
 		em.addElement(prop, GameElement.PROP);
