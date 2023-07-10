@@ -35,24 +35,9 @@ public class Prop extends ElementObj{
 	@Override
 	public void setLive(boolean live) {
 		this.hp--;
-	}
-	
-	/**
-	 * @Override  //说明 这个设置扣血等的方法 需要自己思考重新编写。
-		public void setLive(boolean live) {
-//			被调用一次 就减少一次血。
-			if("IRON".equals(name)) {// 水泥墙需要4下
-				this.hp--;
-				if(this.hp >0) {
-					return;
-				}
-			}
-			super.setLive(live);
+		if (this.hp>0) {
+			return;
 		}
-	 * */
-	
+	}
 
-	
-	
-	
 }
