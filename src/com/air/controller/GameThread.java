@@ -58,10 +58,10 @@ public class GameThread extends Thread{
 		GameLoad.MapLoad(GameLevel.getLevel());//传等级
 
 //		加载主角
-		ElementObj play=GameLoad.loadPlay();//可带参数，单机还是2人
+		GameLoad.loadPlay();//可带参数，单机还是2人
 		
 //		加载敌人NPC
-		GameLoad.loadNpc(GameLevel.getLevel(),play);
+		GameLoad.loadNpc(GameLevel.getLevel());
 //		加载道具
 		GameLoad.loadProp(GameLevel.getLevel());
 	}
