@@ -110,50 +110,23 @@ public class GameThread extends Thread{
 				if (character.pk(thing)) {
 					thing.setLive(false);
 					if (flag==1) {//子弹和敌人&玩家
-<<<<<<< HEAD
+
 						if (character.getHp()<=0) {
 							character.setLive(false);	//碰到子弹 血量无 人物死亡					
 						}
 						else {
 							character.setLive(true);//还有血量 生存
 						}
-=======
-//						if (character.) {
-//							character.setLive(false);	//碰到子弹 血量无 人物死亡					
-//						}
-//						else {
-//							character.setLive(true);//还有血量 生存
-//						}
->>>>>>> b0f5a5244ba7dd75217f912640dd197d8ff6bbd3
 					}
 					else if (flag==0) {//道具和玩家
 						character.setLive(true);//人物生存
 						thing.setLive(false);//道具消失
 					}
-									
+				}			
 					break;
 				}
 			}
 		}
-<<<<<<< HEAD
-=======
-
-//		prop和play碰撞
-		for (int i = 0; i < listA.size(); i++) {
-			ElementObj play = listA.get(i);
-			for (int j = 0; j < listB.size(); j++) {
-				ElementObj prop = listB.get(j);
-				if (play.pk(prop)) {
-					play.setLive(true);
-					prop.setLive(false);
-					
-//					System.out.println(propType);
-				}
-			}
-		}
->>>>>>> b0f5a5244ba7dd75217f912640dd197d8ff6bbd3
-		
-	}
 
 //	游戏元素自动化方法
 	public void moveAndUpdate(Map<GameElement, List<ElementObj>> all,int gameTime) {
