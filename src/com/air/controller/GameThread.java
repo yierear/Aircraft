@@ -50,8 +50,6 @@ public class GameThread extends Thread{
 	 * 游戏的加载
 	 */
 	private void gameLoad() {
-//		GameLoad.loadImg();//加载图片
-//		GameLoad.MapLoad(2);//可变为变量，每一关重新加载//加载地图
 
 		GameLoad.loadImg();//加载图片
 		GameLoad.MapLoad(GameLevel.getLevel());//传等级
