@@ -32,7 +32,7 @@ public class Play extends ElementObj{
 	private boolean up=false;   //上
 	private boolean right=false;//右
 	private boolean down=false; //下
-	private static int hp = 110; //玩家血条
+	private static int hp = 100; //玩家血条
 	
 
 	public static int getHp() {
