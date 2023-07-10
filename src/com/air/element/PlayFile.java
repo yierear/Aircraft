@@ -7,6 +7,7 @@ import javax.swing.ImageIcon;
 
 import com.air.manager.ElementManager;
 import com.air.manager.GameElement;
+import com.air.manager.GameLoad;
 
 /**
  * @说明 玩家子弹类，本类的实体对象是由玩家对象调用和创建
@@ -20,9 +21,11 @@ public class PlayFile extends ElementObj{
 	private int attack;//攻击力
 	private int moveNum=3;//移动速度值
 	private String fx;
+	private String fireType;
 //	剩下的大家扩展; 可以扩展出多种子弹： 激光，导弹等等。(玩家类就需要有子弹类型)
 	public PlayFile() {}//一个空的构造方法
 //	对创建这个对象的过程进行封装，外界只需要传输必要的约定参数，返回值就是对象实体
+	
 	@Override   //{X:3,y:5,f:up}
 	public  ElementObj createElement(String str) {//定义字符串的规则
 		String[] split = str.split(",");
@@ -31,17 +34,25 @@ public class PlayFile extends ElementObj{
 			switch(split2[0]) {
 			case "x": this.setX(Integer.parseInt(split2[1]));break;
 			case "y":this.setY(Integer.parseInt(split2[1]));break;
-			case "f":this.fx=split2[1];break;
+			case "f":this.fx=split2[1]; System.out.println(split2[1]); break;
+			case "type":
+				this.fireType=split[1]; 
+				ImageIcon icon1 = GameLoad.imgMap.get(split[2]);
+				if(icon1 == null) {
+					icon1 = GameLoad.imgMap.get("1fireType");
+				}
+				this.setIcon(icon1); break;
 			}
 		}
-		this.setW(7);
-		this.setH(7);
+		this.setW(10);
+		this.setH(10);
 		return this;
 	}
 	@Override
-	public void showElement(Graphics g) {	
-		g.setColor(Color.red);// new Color(255,255,255)
-		g.fillOval(this.getX()-2, this.getY()-4, this.getW(), this.getH());
+	public void showElement(Graphics g) {
+		g.drawImage(this.getIcon().getImage(), 
+				this.getX(), this.getY(), 
+				this.getW(), this.getH(), null);
 	}	
 
 	@Override
@@ -73,15 +84,19 @@ public class PlayFile extends ElementObj{
 //		em.addElement(obj,GameElement.DIE);//直接添加
 //	}
 	
-//    /**子弹变装*/
+    /**子弹变装*/
 //	private long time=0;
 //	protected void updateImage(long gameTime) {
+//		ImageIcon icon2=GameLoad.imgMap.get(fireType);
+//		System.out.println(icon2.getIconHeight());//得到图片的高度
+////		如果高度是小于等于0 就说明你的这个图片路径有问题
+//		this.setIcon(GameLoad.imgMap.get(fireType));
 //		if(gameTime-time>5) {
 //			time=gameTime;//为下次变装做准备
 //			this.setW(this.getW()+2);
 //			this.setH(this.getH()+2);
 ////			你变图片不就完啦
-//		}
+////		}
 //	}
 	
 	
