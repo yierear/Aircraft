@@ -16,7 +16,7 @@ public abstract class ElementObj {
 	private int w;
 	private int h;
 	private ImageIcon icon;
-//	private int hp;
+	private int hp;
 //	还有各种必要的状态值（生存）
 	private boolean live = true; //生存状态 true--存活 false--死亡
 						  //可以采用枚举值来定义状态【状态之间不能冲突】
@@ -39,7 +39,7 @@ public abstract class ElementObj {
 		this.y = y;
 		this.w = w;
 		this.h = h;
-//		this.hp = hp;
+		this.hp = hp;
 		this.icon = icon;
 	}
 	
