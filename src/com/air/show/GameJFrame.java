@@ -28,8 +28,8 @@ import javax.swing.JPanel;
  * 		 4.显示窗体
  */
 public class GameJFrame extends JFrame{
-	public static int GameX = 615;
-	public static int GameY = 850;
+	public static int GameX = 800;
+	public static int GameY = 838;
 	private JPanel ajPanel = new JPanel();
 	private JPanel jPanel = new JPanel(); //正在进行显示的面板
 	private KeyListener keyListener = null;
@@ -64,9 +64,9 @@ public class GameJFrame extends JFrame{
 		if(jPanel != null) {
 			this.add(jPanel);
 			this.add(ajPanel);
-			addButton(ajPanel, "开始游戏",100,0);		
-			addButton(ajPanel, "选择关卡",245,0);
-			addButton(ajPanel, "退出游戏",390,0);
+			addButton(ajPanel, "开始游戏",615,50);		
+			addButton(ajPanel, "选择关卡",615,130);
+			addButton(ajPanel, "退出游戏",615,210);
 		}
 		if(keyListener != null) {
 			this.addKeyListener(keyListener);
@@ -92,7 +92,7 @@ public class GameJFrame extends JFrame{
 		ajPanel.setBounds(0, 0, GameX, GameY);
 		ajPanel.setBackground(Color.white);
 		ajPanel.setLayout(null); //给全局面板添加布局
-		jPanel.setBounds(0, 50, GameX, GameY-50);
+		jPanel.setBounds(0, 0, GameX-200, GameY);
 		jPanel.setLayout(cardLayout); //显示面板布局
 		GameLevel gl = new GameLevel();
 		GameMainJPanel gmj = new GameMainJPanel();
@@ -125,7 +125,7 @@ public class GameJFrame extends JFrame{
 	
 	public void addButton(JPanel jPanel1, String str, int x, int y) {
 		myButton jButton = new myButton(str);
-		jButton.setBounds(x, y, 110, 50);	
+		jButton.setBounds(x, y, 160, 50);	
 		jButton.addActionListener(new ActionListener() {			
 			@Override
 			public void actionPerformed(ActionEvent e) {
