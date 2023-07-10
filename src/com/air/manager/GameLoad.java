@@ -98,13 +98,32 @@ public class GameLoad {
 	public static void loadNpc(int mapId) {
 		loadObj();
 		Random random=new Random();
-		int x;
-		x=random.nextInt(500);
-//		String enemyStr=x+",0,enemy"+mapId+"";
-		String enemyStr=x+",0,30,30,enemy"+mapId+"";
-		ElementObj enemyobj=getObj("enemy");
-		ElementObj enemy = enemyobj.createElement(enemyStr);
-		em.addElement(enemy, GameElement.ENEMY);
+		int x,y,num;
+		switch(mapId) {
+		case 1:
+			for (int i = 1; i < 5; i++) {
+				x=random.nextInt(500);
+				y=-random.nextInt(500);
+//				num=random.nextInt(4);//敌机图片编号
+				String enemyStr=x+","+y+",50,50,enemy"+i+"";
+				ElementObj enemyobj=getObj("enemy");
+				ElementObj enemy = enemyobj.createElement(enemyStr);
+				em.addElement(enemy, GameElement.ENEMY);
+			}
+			break;
+//		case 2:
+//			for (int i = 1; i < 10; i++) {
+//				x=random.nextInt(500);
+//				y=-random.nextInt(500);
+//				num=random.nextInt(9);//敌机图片编号
+//				String enemyStr=x+","+y+",50,50,enemy"+num+"";
+//				ElementObj enemyobj=getObj("enemy");
+//				ElementObj enemy = enemyobj.createElement(enemyStr);
+//				em.addElement(enemy, GameElement.ENEMY);
+//			}
+//			break;
+		}
+		
 		
 	}
 	

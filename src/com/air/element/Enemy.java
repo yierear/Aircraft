@@ -53,10 +53,10 @@ public class Enemy extends ElementObj{
 		if(!this.pkType) {//如果是不发射状态 就直接return
 			return;
 		}
-		if(gameTime-filetime>51) {
+		if(gameTime-filetime>201) {
 			filetime=gameTime;
 		}
-		if(gameTime-filetime==50) {
+		if(gameTime-filetime==200) {
 //			//		传递一个固定格式   {X:3,y:5,f:up} json格式
 		ElementObj obj=GameLoad.getObj("enemyfire");  		
 		ElementObj element = obj.createElement(this.toString());
@@ -77,9 +77,9 @@ public class Enemy extends ElementObj{
 	@Override
 	public String toString() {
 		int x=this.getX();
-		int y=this.getY();
+		int y=this.getY()+this.getIcon().getIconHeight();
 		x+=(this.getIcon().getIconWidth())/2;
-		return "x:"+x+",y:"+y+",f:"+this.fx+",type:fireType2";
+		return "x:"+x+",y:"+y+",f:"+this.fx+",type:fireType3";
 	}
 	
 	
