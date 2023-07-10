@@ -8,6 +8,7 @@ import java.util.concurrent.TimeUnit;
 
 import javax.swing.ImageIcon;
 
+import com.air.controller.GameThread;
 import com.air.manager.ElementManager;
 import com.air.manager.GameElement;
 import com.air.manager.GameLoad;
@@ -34,8 +35,10 @@ public class Play extends ElementObj{
 	private boolean right=false;//右
 	private boolean down=false; //下
 	private static int hp = 100; //玩家血条
-	private String playType="1playType";
+	private String playType="1playType";//玩家飞机类型
+	private int speed = 2;//速度
 	
+	private String effect = null;//增益类型
 
 	public static int getHp() {
 		return hp;
@@ -55,7 +58,7 @@ public class Play extends ElementObj{
 	}
 	//题外话: 过时的方法能用吗？ 可以用，也能够用，因为你不用jdk底层使用
 	@Override
-	public ElementObj createElement(String str) {
+	public ElementObj createElement(String str) {	
 		String[] split = str.split(",");
 		this.setX(Integer.parseInt(split[0]));
 		this.setY(Integer.parseInt(split[1]));
@@ -72,8 +75,6 @@ public class Play extends ElementObj{
 		this.setW(icon2.getIconWidth());
 		this.setIcon(icon2);
 		return this;
-		
-		
 	}
 	
 	
@@ -82,6 +83,7 @@ public class Play extends ElementObj{
 	 */
 	@Override
 	public void showElement(Graphics g) {
+		EffectType();
 		ImageIcon icon2 = GameLoad.imgMap.get(playType);
 		this.setIcon(icon2);
 //		绘画图片
@@ -137,16 +139,16 @@ public class Play extends ElementObj{
 	@Override
 	protected void move(int gameTime) {
 		if (this.left && this.getX()>0) {
-			this.setX(this.getX() - 2);
+			this.setX(this.getX() - speed);
 		}
 		if (this.up  && this.getY()>0) {
-			this.setY(this.getY() - 2);
+			this.setY(this.getY() - speed);
 		}
 		if (this.right && this.getX()<615-this.getW()) {  //坐标的跳转由大家来完成
-			this.setX(this.getX() + 2);
+			this.setX(this.getX() + speed);
 		}
 		if (this.down && this.getY()<830-this.getH()) {
-			this.setY(this.getY() + 2);
+			this.setY(this.getY() + speed);
 		}
 	}
 	
@@ -214,6 +216,17 @@ public class Play extends ElementObj{
 		return "x:"+x+",y:"+y+",f:"+this.fx;
 	}
 	
+	public void EffectType() {
+		effect = GameThread.getPropType();
+		System.out.println(effect);
+		if(effect!=null) {
+			switch(effect) {
+			case "1prop": hp-=5; GameThread.setPropType(null); break;
+			case "2prop": hp-=10; GameThread.setPropType(null); break;
+			case "3prop": hp-=20; GameThread.setPropType(null); break;
+			}
+		}
+	}
 	
 	
 }
