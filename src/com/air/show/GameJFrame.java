@@ -32,6 +32,7 @@ public class GameJFrame extends JFrame{
 	public static int GameY = 838;
 	private JPanel ajPanel = new JPanel();
 	private JPanel jPanel = new JPanel(); //正在进行显示的面板
+	private GameLive ljPanel = new GameLive(); //血条 
 	private KeyListener keyListener = null;
 	private MouseMotionListener mouseMotionListener = null; //鼠标监听
 	private MouseListener mouseListener = null;
@@ -63,10 +64,13 @@ public class GameJFrame extends JFrame{
 	public void start() {		
 		if(jPanel != null) {
 			this.add(jPanel);
+			this.add(ljPanel);
+			Thread th = new Thread(ljPanel);
+			th.start();
 			this.add(ajPanel);
 			addButton(ajPanel, "开始游戏",615,50);		
 			addButton(ajPanel, "选择关卡",615,130);
-			addButton(ajPanel, "退出游戏",615,210);
+			addButton(ajPanel, "退出游戏",615,210);			
 		}
 		if(keyListener != null) {
 			this.addKeyListener(keyListener);
@@ -92,12 +96,14 @@ public class GameJFrame extends JFrame{
 		ajPanel.setBounds(0, 0, GameX, GameY);
 		ajPanel.setBackground(Color.white);
 		ajPanel.setLayout(null); //给全局面板添加布局
+		ljPanel.setLayout(null);
+		ljPanel.setBounds(615, 650, 160, 100);
 		jPanel.setBounds(0, 0, GameX-200, GameY);
 		jPanel.setLayout(cardLayout); //显示面板布局
 		GameLevel gl = new GameLevel();
 		GameMainJPanel gmj = new GameMainJPanel();
-		Thread t = new Thread(gmj);
-		t.start();
+		Thread t1 = new Thread(gmj);
+		t1.start();
 		GameBegin gb = new GameBegin();
 		jPanel.add(gb, "gb");
 		jPanel.add(gl, "gl");

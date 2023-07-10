@@ -20,7 +20,7 @@ import com.air.show.GameLevel;
  * @继承 使用继承的方式实现多线程（一般建议使用接口实现）
  */
 public class GameThread extends Thread{
-
+	private static int score = 0;	
 	private ElementManager em;
 //	private String bg="bg1";
 	public GameThread() {
@@ -96,7 +96,7 @@ public class GameThread extends Thread{
 				if (enemy.pk(file)) {
 //					攻击boss：将setLive(false)变为一个受攻击方法，还可以传入另外一个对象的攻击力
 //					当受攻击方法里执行时，如果血量减为0，再将生存设置为false
-					System.out.println();
+//					System.out.println();
 					enemy.setLive(false);
 					file.setLive(false);
 					break;
@@ -125,6 +125,12 @@ public class GameThread extends Thread{
 		}
 	}
 	
+	/**
+	 * 游戏分数计算
+	 */
+	public static int getScore() {
+		return score;
+	}
 	
 	/**
 	 * 游戏切换关卡
@@ -132,5 +138,7 @@ public class GameThread extends Thread{
 	private void gameOver() {
 		
 	}
+
+	
 	
 }

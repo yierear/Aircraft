@@ -34,7 +34,9 @@ public class PlayFile extends ElementObj{
 			switch(split2[0]) {
 			case "x": this.setX(Integer.parseInt(split2[1]));break;
 			case "y":this.setY(Integer.parseInt(split2[1]));break;
-			case "f":this.fx=split2[1]; System.out.println(split2[1]); break;
+			case "f":this.fx=split2[1]; 
+//				System.out.println(split2[1]); 
+				break;
 //			case "type":
 //				this.fireType=split[1]; 
 //				ImageIcon icon1 = GameLoad.imgMap.get(split[2]);
