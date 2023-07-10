@@ -13,6 +13,8 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import com.air.controller.GameThread;
+
 
 /**
  * @说明 游戏窗体 主要实现的功能：关闭、显示、最大最小化
@@ -137,11 +139,28 @@ public class GameJFrame extends JFrame{
 			public void actionPerformed(ActionEvent e) {
 				// TODO 自动生成的方法存根
 				if(str.equals("开始游戏")) {
-					cardLayout.show(jPanel, "gmj");					
+					GameLevel.flag = false;
+					cardLayout.show(jPanel, "gmj");	
+//					thread = new Thread(new GameThread());
+//					thread.start();
+//					synchronized (thread) {
+//						System.out.println(GameLevel.flag);
+//						if(GameLevel.flag)
+//							thread.re;
+//						else
+//							thread.notify();
+//					}					
 				}else if (str.equals("选择关卡")) {
-					cardLayout.show(jPanel, "gl");
+					cardLayout.show(jPanel, "gl");	
 				}else if(str.equals("退出游戏")) {
 					cardLayout.show(jPanel, "gb");
+					try {
+						Thread.sleep(500);
+					} catch (InterruptedException e1) {
+						// TODO 自动生成的 catch 块
+						e1.printStackTrace();
+					}
+					System.exit(0);
 				}
 				requestFocus();
 			}

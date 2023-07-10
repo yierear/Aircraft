@@ -14,6 +14,8 @@ import javax.swing.JPanel;
 
 public class GameLevel extends JPanel{
 	private static int Level = 1;
+	private int primary = 0; //leve初始值
+	public static boolean flag = false; //true则变了
 	private static final int BUTTON_WIDTH = 180;
 	private static final int BUTTON_HEIGHT = 100;
 	
@@ -46,6 +48,7 @@ public class GameLevel extends JPanel{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO 自动生成的方法存根
+				primary = getLevel();
 				switch(str){
 				case "1": Level = 1; break;
 				case "2": Level = 2; break;
@@ -55,6 +58,11 @@ public class GameLevel extends JPanel{
 				case "6": Level = 6; break;
 				}
 //				System.out.println(Level);
+				if(primary != getLevel()) {
+					flag = true;
+				}else {
+					flag = false;
+				}
 			}
 		});		
 		jPanel.add(jButton);
