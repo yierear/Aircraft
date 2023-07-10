@@ -34,7 +34,6 @@ public class Enemy extends ElementObj{
 	}
 	
 	public void move() {
-		
 		this.setY(this.getY() + 1);
 	}
 	

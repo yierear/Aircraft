@@ -96,7 +96,6 @@ public class GameLoad {
 	 * 加载敌人
 	 * */
 	public static void loadNpc(int mapId) {
-		
 		loadObj();
 		Random random=new Random();
 		int x;
