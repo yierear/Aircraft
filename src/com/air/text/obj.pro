@@ -1,5 +1,6 @@
-play=com.air.element.Play
 map=com.air.element.MapObj
-enemy=com.air.element.Enemy
+play=com.air.element.Play
 file=com.air.element.PlayFile
+enemy=com.air.element.Enemy
 prop=com.air.element.Prop
+enemyfire=com.air.element.EnemyFire

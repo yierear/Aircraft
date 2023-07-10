@@ -112,7 +112,7 @@ public class GameThread extends Thread{
 		for (int i = 0; i < listA.size(); i++) {
 			ElementObj play = listA.get(i);
 			for (int j = 0; j < listB.size(); j++) {
-				ElementObj prop = listB.get(i);
+				ElementObj prop = listB.get(j);
 				if (play.pk(prop)) {
 					play.setLive(true);
 					prop.setLive(false);

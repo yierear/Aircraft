@@ -62,7 +62,7 @@ public abstract class ElementObj {
 	 * @说明 移动方法；需要移动的子类，请重写这个方法
 	 */
 	protected void move(int gameTime) {	
-		gameTime++;
+
 	}
 	
 	/**

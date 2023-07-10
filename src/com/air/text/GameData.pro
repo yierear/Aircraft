@@ -5,15 +5,20 @@ up=image/play/13.png
 
 1bg=image/background/1.png
 2bg=image/background/2.png
-3bg=image/background/3.png
-4bg=image/background/4.png
-5bg=image/background/5.png
-6bg=image/background/6.png
+3bg=image/background/3.jpg
+4bg=image/background/4.jpg
+5bg=image/background/5.jpg
+6bg=image/background/6.jpg
 
 enemy1=image/enemy/1.png
 enemy2=image/enemy/2.png
 enemy3=image/enemy/3.png
 enemy4=image/enemy/4.png
+enemy5=image/enemy/5.png
+enemy6=image/enemy/6.png
+enemy7=image/enemy/7.png
+enemy8=image/enemy/8.png
+enemy9=image/enemy/9.png
 
 1fireType=image/fire/4.png
 2fireType=image/fire/25.png
@@ -32,3 +37,5 @@ enemy4=image/enemy/4.png
 2prop=image/prop/blood.png
 3prop=image/prop/bomb.png
 4prop=image/prop/shield.png
+5prop=image/prop/heal.png
+6prop=image/prop/blood.png
