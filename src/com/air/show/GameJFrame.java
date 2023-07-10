@@ -3,6 +3,7 @@ package com.air.show;
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyListener;
@@ -11,7 +12,10 @@ import java.awt.event.MouseMotionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
 
 import com.air.controller.GameThread;
 
@@ -70,9 +74,10 @@ public class GameJFrame extends JFrame{
 			Thread th = new Thread(ljPanel);
 			th.start();
 			this.add(ajPanel);
-			addButton(ajPanel, "开始游戏",615,50);		
-			addButton(ajPanel, "选择关卡",615,130);
-			addButton(ajPanel, "退出游戏",615,210);			
+			addButton(ajPanel, "开始游戏",615,50);	
+			addButton(ajPanel, "游戏说明", 615,130);
+			addButton(ajPanel, "选择关卡",615,210);
+			addButton(ajPanel, "退出游戏",615,290);			
 		}
 		if(keyListener != null) {
 			this.addKeyListener(keyListener);
@@ -98,7 +103,6 @@ public class GameJFrame extends JFrame{
 		ajPanel.setBounds(0, 0, GameX, GameY);
 		ajPanel.setBackground(Color.white);
 		ajPanel.setLayout(null); //给全局面板添加布局
-		ljPanel.setLayout(null);
 		ljPanel.setBounds(615, 650, 160, 100);
 		jPanel.setBounds(0, 0, GameX-200, GameY);
 		jPanel.setLayout(cardLayout); //显示面板布局
@@ -155,12 +159,14 @@ public class GameJFrame extends JFrame{
 				}else if(str.equals("退出游戏")) {
 					cardLayout.show(jPanel, "gb");
 					try {
-						Thread.sleep(500);
+						Thread.sleep(1000);
 					} catch (InterruptedException e1) {
 						// TODO 自动生成的 catch 块
 						e1.printStackTrace();
 					}
 					System.exit(0);
+				}else if (str.equals("游戏说明")) {
+					explain();
 				}
 				requestFocus();
 			}
@@ -168,5 +174,37 @@ public class GameJFrame extends JFrame{
 		jPanel1.add(jButton);
 		
 	}
-
+	
+	private void explain() {
+		// TODO 自动生成的方法存根
+		JFrame jFrame = new JFrame();
+		jFrame.setBounds(1150,100,300,500);
+		jFrame.setTitle("游戏说明");
+		jFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); //设置退出并关闭
+		jFrame.setVisible(true);
+		
+		JPanel jPanel = new JPanel();
+		jPanel.setBounds(0, 0, 300, 500);
+		jPanel.setBackground(new Color(253, 209, 73));
+		jFrame.add(jPanel);
+		
+		JLabel jLabel = new JLabel("游戏说明");
+		Font font = new Font("华文楷体", Font.BOLD, 50);
+		jLabel.setBounds(140, 10, 40, 50);
+		jLabel.setFont(font);
+		jPanel.add(jLabel);
+		
+		Font font1 = new Font("华文楷体", Font.PLAIN, 15);
+		String string = "1.按钮说明：\n"
+				+ "①“开始游戏”：点击可以直接开始游戏，系统将根据得分自动进入下一关\n"
+				+ "②“选择关卡”：点击可以选择游戏关卡，点击此按钮后再次点击开始游戏即可进入所选关卡\n"
+				+ "③“退出游戏”：点击1s后将退出游戏";
+		JTextArea jArea = new JTextArea(string,5,5);
+		jArea.setBounds(20, 80, 260, 450);
+		jArea.setFont(font1);
+		jArea.setLineWrap(true);
+//		jArea.enable(false);
+		jArea.setBackground(new Color(251,248,211));
+		jPanel.add(jArea);
+	}
 }
