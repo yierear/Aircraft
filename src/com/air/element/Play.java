@@ -3,6 +3,7 @@ package com.air.element;
 import java.awt.Graphics;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 import javax.swing.ImageIcon;
@@ -33,6 +34,7 @@ public class Play extends ElementObj{
 	private boolean right=false;//右
 	private boolean down=false; //下
 	private static int hp = 100; //玩家血条
+	private String playType="1playType";
 	
 
 	public static int getHp() {
@@ -80,6 +82,8 @@ public class Play extends ElementObj{
 	 */
 	@Override
 	public void showElement(Graphics g) {
+		ImageIcon icon2 = GameLoad.imgMap.get(playType);
+		this.setIcon(icon2);
 //		绘画图片
 		g.drawImage(this.getIcon().getImage(), 
 				this.getX(), this.getY(), 
@@ -92,6 +96,8 @@ public class Play extends ElementObj{
 	@Override   // 注解 通过反射机制，为类或者方法或者属性 添加的注释(相当于身份证判定)
 	public void keyClick(boolean bl,int key) { //只有按下或者鬆開才會 调用这个方法
 //		System.out.println("测试："+key);
+		Random random = new Random();
+		int ran=random.nextInt(5)+1;
 		if(bl) {//按下
 			switch(key) {  //怎么优化 大家中午思考;加 监听会持续触发；有没办法触发一次
 			case 37: 
@@ -106,8 +112,8 @@ public class Play extends ElementObj{
 			case 40: 
 				this.right=false;this.left=false;
 				this.up=false; this.down=true;  this.fx="down";break;
-//			case 32:
-//				this.pkType=true;break;//开启攻击状态
+			case 32:
+				this.playType=ran+"playType";break;//换装
 			}
 		}else {
 			switch(key) {
