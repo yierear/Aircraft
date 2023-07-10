@@ -175,6 +175,10 @@ public class GameThread extends Thread{
 		return propType;
 	}
 
+	public static void setPropType(String propType) {
+		GameThread.propType = propType;
+	}
+
 	
 	
 }
