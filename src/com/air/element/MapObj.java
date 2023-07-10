@@ -67,10 +67,7 @@ public class MapObj extends ElementObj{
 		if (this.getY()>=this.getH()) {
 			this.setY(0);
 		}
-//		moveY=(moveY>=800)?0:moveY;
-//		moveY+=gameTime;
-//		moveYY=(moveYY<=0)?800:moveYY;
-//		 moveYY-=gameTime; 
+ 
 	}
 	
 //	protected void updateImage() {
