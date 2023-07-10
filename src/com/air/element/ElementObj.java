@@ -33,7 +33,7 @@ public abstract class ElementObj {
 	 * @param h h高度
 	 * @param icon 图片
 	 */
-	public ElementObj(int x, int y, int w, int h, ImageIcon icon) {
+	public ElementObj(int x, int y, int w, int h,int hp, ImageIcon icon) {
 		super();
 		this.x = x;
 		this.y = y;
@@ -109,6 +109,14 @@ public abstract class ElementObj {
 	 */
 	public boolean pk(ElementObj obj){
 		return this.getRectangle().intersects(obj.getRectangle());
+	}
+
+	public int getHp() {
+		return hp;
+	}
+
+	public void setHp(int hp) {
+		this.hp = hp;
 	}
 
 	public int getX() {
