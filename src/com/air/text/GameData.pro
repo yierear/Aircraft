@@ -12,7 +12,7 @@ up=image/play/13.png
 
 enemy1=image/enemy/1.png
 enemy2=image/enemy/2.png
-enemy3=image/enemy/3.png
+enemy3=image/enemy/11.png
 enemy4=image/enemy/4.png
 enemy5=image/enemy/5.png
 enemy6=image/enemy/6.png

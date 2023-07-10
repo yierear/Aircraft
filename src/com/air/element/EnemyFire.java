@@ -46,16 +46,16 @@ public class EnemyFire extends ElementObj{
 	}
 	@Override
 	public void showElement(Graphics g) {
-		ImageIcon icon1 = GameLoad.imgMap.get("2fireType");
+		ImageIcon icon1 = GameLoad.imgMap.get("3fireType");
 		this.setIcon(icon1);
 		g.drawImage(this.getIcon().getImage(), 
-				this.getX()-3, this.getY()-5, 
+				this.getX(), this.getY(), 
 				this.getW(), this.getH(), null);
 	}	
 
 	@Override
 	protected void move(int gameTime) {
-		if(this.getY()>880) {
+		if(this.getY()<0 ||this.getY()>880) {
 			this.setLive(false);
 			return;
 		}
