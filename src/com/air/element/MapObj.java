@@ -50,6 +50,9 @@ public class MapObj extends ElementObj{
 		// TODO 自动生成的方法存根
 		 
 		 Graphics2D g2d=(Graphics2D) g;
+		 if (this.getIcon().getImage()==null) {
+			return;
+		}
 		 g.drawImage(this.getIcon().getImage(), 
 				 this.getX(), this.getY(),  
 				 this.getW(), this.getH(), null);
