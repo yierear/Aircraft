@@ -10,9 +10,9 @@ public class Explode extends ElementObj{
 	
 	static int explodeCount=0; //限制爆炸次数为一次
 	
-	static {
+	public void loadExplode() {
 		for (int i=0; i<pic.length ;i++) {
-			pic[0] = new ImageIcon("image/bang/bang" + (i+1) + ".png").getImage();
+			pic[i] = new ImageIcon("image/bang/bang" + (i+1) + ".png").getImage();
 		}
 	}
 	
