@@ -78,9 +78,14 @@ public class GameThread extends Thread{
 			List<ElementObj> plays = em.getElementsByKey(GameElement.PLAY);
 			List<ElementObj> props = em.getElementsByKey(GameElement.PROP);
 			moveAndUpdate(all, gameTime);//	游戏元素自动化方法
+//			参数flag 
+//			-1 道具和敌人/boss 大家都不变
+//			0 道具vs玩家 道具-1 玩家不变
+//			1 子弹vs敌人 子弹vs玩家 子弹vs大boss 子弹-1 敌人/玩家-1 
 			
-			ElementPK(enemys,files);
-			ElementPK(plays, props);
+			ElementPK(enemys,files,0);
+			ElementPK(plays, props,1);
+						
 			
 			gameTime++;//唯一的时间控制
 			try {
@@ -92,33 +97,34 @@ public class GameThread extends Thread{
 		}
 	}
 	
-	private void ElementPK(List<ElementObj> listA,List<ElementObj> listB) {
-//		enenmy和fire的碰撞
+	private void ElementPK(List<ElementObj> listA,List<ElementObj> listB,int flag) {
 		for (int i = 0; i < listA.size(); i++) {
-			ElementObj enemy=listA.get(i);
+			ElementObj character=listA.get(i);
 			for (int j = 0; j < listB.size(); j++) {
-				ElementObj file=listB.get(j);
-				if (enemy.pk(file)) {
-//					攻击boss：将setLive(false)变为一个受攻击方法，还可以传入另外一个对象的攻击力
-//					当受攻击方法里执行时，如果血量减为0，再将生存设置为false
-//					System.out.println();
-					enemy.setLive(false);
-					file.setLive(false);
+				ElementObj thing=listB.get(j);				
+				if (character.pk(thing)) {
+					thing.setLive(false);
+					if (flag==1) {//子弹和敌人&玩家
+//						if (character) {
+//							character.setLive(false);	//碰到子弹 血量无 人物死亡					
+//						}
+//						else {
+//							character.setLive(true);//还有血量 生存
+//						}
+					}
+					else if (flag==0) {//道具和玩家
+						character.setLive(true);//人物生存
+						thing.setLive(false);//道具消失
+					}
+					else if (flag==-1) {//道具和敌人&boss
+						character.setLive(true);
+						thing.setLive(true);
+					} 				
 					break;
 				}
 			}
 		}
-//		prop和play碰撞
-		for (int i = 0; i < listA.size(); i++) {
-			ElementObj play = listA.get(i);
-			for (int j = 0; j < listB.size(); j++) {
-				ElementObj prop = listB.get(j);
-				if (play.pk(prop)) {
-					play.setLive(true);
-					prop.setLive(false);
-				}
-			}
-		}
+
 		
 	}
 
