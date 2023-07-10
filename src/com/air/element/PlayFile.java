@@ -8,6 +8,7 @@ import javax.swing.ImageIcon;
 import com.air.manager.ElementManager;
 import com.air.manager.GameElement;
 import com.air.manager.GameLoad;
+import com.air.show.GameLevel;
 
 /**
  * @说明 玩家子弹类，本类的实体对象是由玩家对象调用和创建
@@ -25,6 +26,7 @@ public class PlayFile extends ElementObj{
 //	剩下的大家扩展; 可以扩展出多种子弹： 激光，导弹等等。(玩家类就需要有子弹类型)
 	public PlayFile() {}//一个空的构造方法
 //	对创建这个对象的过程进行封装，外界只需要传输必要的约定参数，返回值就是对象实体
+	private int level = GameLevel.getLevel();
 	
 	@Override   //{X:3,y:5,f:up}
 	public  ElementObj createElement(String str) {//定义字符串的规则
@@ -52,7 +54,7 @@ public class PlayFile extends ElementObj{
 	}
 	@Override
 	public void showElement(Graphics g) {
-		ImageIcon icon1 = GameLoad.imgMap.get("2fireType");
+		ImageIcon icon1 = GameLoad.imgMap.get(level+"fireType");
 		this.setIcon(icon1);
 		g.drawImage(this.getIcon().getImage(), 
 				this.getX()-3, this.getY()-5, 
