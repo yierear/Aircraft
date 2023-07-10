@@ -8,3 +8,7 @@ up=image/play/13.png
 4bg=image/background/4.png
 5bg=image/background/5.png
 6bg=image/background/6.png
+enemy1=image/enemy/1.png
+enemy2=image/enemy/2.png
+enemy3=image/enemy/3.png
+enemy4=image/enemy/4.png
