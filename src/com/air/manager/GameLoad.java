@@ -108,6 +108,20 @@ public class GameLoad {
 		
 	}
 	
+	/**
+	 * 加载道具
+	 * */
+	public static void loadProp(int mapid) {
+		loadObj();
+		Random random = new Random();
+		int x;
+		x=random.nextInt(600);
+		String propStr=x+",10,"+mapid+"prop";
+		ElementObj propobj=getObj("prop");
+		ElementObj prop = propobj.createElement(propStr);
+		em.addElement(prop, GameElement.PROP);
+	}
+	
 	private static Map<String,Class<?>> objMap=new HashMap<>();
 	
 	public static ElementObj getObj(String str) {	
@@ -154,6 +168,7 @@ public class GameLoad {
 		}
 	}
 	public static void main(String[] args) {
-		MapLoad(1);
+		loadNpc(1);
+		loadProp(1);
 	}
 }

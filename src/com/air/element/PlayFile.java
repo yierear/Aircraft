@@ -35,13 +35,13 @@ public class PlayFile extends ElementObj{
 			case "x": this.setX(Integer.parseInt(split2[1]));break;
 			case "y":this.setY(Integer.parseInt(split2[1]));break;
 			case "f":this.fx=split2[1]; System.out.println(split2[1]); break;
-			case "type":
-				this.fireType=split[1]; 
-				ImageIcon icon1 = GameLoad.imgMap.get(split[2]);
-				if(icon1 == null) {
-					icon1 = GameLoad.imgMap.get("1fireType");
-				}
-				this.setIcon(icon1); break;
+//			case "type":
+//				this.fireType=split[1]; 
+//				ImageIcon icon1 = GameLoad.imgMap.get(split[2]);
+//				if(icon1 == null) {
+//					icon1 = GameLoad.imgMap.get("1fireType");
+//				}
+//				this.setIcon(icon1); break;
 			}
 		}
 		this.setW(10);
@@ -50,8 +50,10 @@ public class PlayFile extends ElementObj{
 	}
 	@Override
 	public void showElement(Graphics g) {
+		ImageIcon icon1 = GameLoad.imgMap.get("2fireType");
+		this.setIcon(icon1);
 		g.drawImage(this.getIcon().getImage(), 
-				this.getX(), this.getY(), 
+				this.getX()-3, this.getY()-5, 
 				this.getW(), this.getH(), null);
 	}	
 
