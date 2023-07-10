@@ -55,7 +55,7 @@ public class MapObj extends ElementObj{
 	protected void move(int gameTime) {
 		// TODO 自动生成的方法存根
 //		super.move(gameTime);		
-		this.setY(this.getY()+1);
+		this.setY(this.getY()+2);
 		if (this.getY()>=this.getH()) {
 			this.setY(0);
 		}

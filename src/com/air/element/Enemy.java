@@ -33,7 +33,8 @@ public class Enemy extends ElementObj{
 		return this;
 	}
 	
-	public void move() {
+	@Override
+	public void move(int gametime) {
 		this.setY(this.getY() + 1);
 	}
 	
