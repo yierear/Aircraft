@@ -10,7 +10,7 @@ import com.air.manager.GameLoad;
 import com.air.show.GameJFrame;
 
 public class MapObj extends ElementObj{
-	
+	private int hp=-1;//血量
 	// private ImageIcon img=new ImageIcon("img/Background/1.png");
 	 private int moveY=0; //从图片顶端向下滚动
 	 private int moveYY=800;//从图片底端向上滚动，大小等于图片的长度
