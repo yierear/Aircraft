@@ -8,6 +8,7 @@ import javax.swing.ImageIcon;
 import com.air.element.ElementObj;
 import com.air.element.Enemy;
 import com.air.element.Play;
+import com.air.element.Prop;
 import com.air.manager.ElementManager;
 import com.air.manager.GameElement;
 import com.air.manager.GameLoad;
@@ -22,6 +23,8 @@ import com.air.show.GameLevel;
 public class GameThread extends Thread{
 	private static int score = 0;	
 	private ElementManager em;
+	
+	private static String propType = null;
 //	private String bg="bg1";
 	public GameThread() {
 		em=ElementManager.getManager();
@@ -116,6 +119,8 @@ public class GameThread extends Thread{
 				if (play.pk(prop)) {
 					play.setLive(true);
 					prop.setLive(false);
+					propType = Prop.getPropType();
+					System.out.println(propType);
 				}
 			}
 		}
@@ -164,6 +169,10 @@ public class GameThread extends Thread{
 				list.remove(i);
 			}
 		}		
+	}
+
+	public static String getPropType() {
+		return propType;
 	}
 
 	
