@@ -33,13 +33,12 @@ public abstract class ElementObj {
 	 * @param h h高度
 	 * @param icon 图片
 	 */
-	public ElementObj(int x, int y, int w, int h,int hp, ImageIcon icon) {
+	public ElementObj(int x, int y, int w, int h, ImageIcon icon) {
 		super();
 		this.x = x;
 		this.y = y;
 		this.w = w;
 		this.h = h;
-		this.hp = hp;
 		this.icon = icon;
 	}
 	

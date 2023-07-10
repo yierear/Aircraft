@@ -24,11 +24,11 @@ public class Enemy extends ElementObj{
 	@Override
 	public ElementObj createElement(String str) {
 		String[] split = str.split(",");
-		this.setX(new Integer(split[0]));
-		this.setY(new Integer(split[1]));
+		this.setX(Integer.parseInt(split[0]));
+		this.setY(Integer.parseInt(split[1]));
 		this.setW(Integer.parseInt(split[2]));	
 		this.setH(Integer.parseInt(split[3]));
-		this.setHp(10);;
+		this.setHp(10);
 		ImageIcon icon = GameLoad.imgMap.get(split[4]);
 		this.setIcon(icon);
 		return this;
