@@ -168,6 +168,7 @@ public class GameLoad {
 		}
 	}
 	public static void main(String[] args) {
+		loadNpc(1);
 		loadProp(1);
 	}
 }
