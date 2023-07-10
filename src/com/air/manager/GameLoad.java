@@ -115,11 +115,15 @@ public class GameLoad {
 		loadObj();
 		Random random = new Random();
 		int x;
-		x=random.nextInt(600);
-		String propStr=x+",-10,30,30,"+mapid+"prop";
-		ElementObj propobj=getObj("prop");
-		ElementObj prop = propobj.createElement(propStr);
-		em.addElement(prop, GameElement.PROP);
+		for (int i = 0; i < mapid; i++) {
+			x=random.nextInt(600);
+			String propStr=x+",-10,30,30,"+mapid+"prop";
+			ElementObj propobj=getObj("prop");
+			ElementObj prop = propobj.createElement(propStr);
+			em.addElement(prop, GameElement.PROP);
+		}
+		
+		
 	}
 	
 	private static Map<String,Class<?>> objMap=new HashMap<>();
