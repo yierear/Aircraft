@@ -83,15 +83,13 @@ public class GameThread extends Thread{
 			List<ElementObj> props = em.getElementsByKey(GameElement.PROP);
 			moveAndUpdate(all, gameTime);//	游戏元素自动化方法
 //			参数flag 
-//			-1 道具和敌人/boss 大家都不变
 //			0 道具vs玩家 道具-1 玩家不变
 //			1 子弹vs敌人 子弹vs玩家 子弹vs大boss 子弹-1 敌人/玩家-1 
 			
 			ElementPK(enemys,fires,0);//敌人和玩家子弹
 			ElementPK(plays, props,1);//玩家和道具
-			ElementPK(plays, props, gameTime);//
-						
-			
+			ElementPK(plays, enemyfires,0);//玩家和敌人子弹
+
 			gameTime++;//唯一的时间控制
 			try {
 				sleep(10);
@@ -110,7 +108,6 @@ public class GameThread extends Thread{
 				if (character.pk(thing)) {
 					thing.setLive(false);
 					if (flag==1) {//子弹和敌人&玩家
-
 						if (character.getHp()<=0) {
 							character.setLive(false);	//碰到子弹 血量无 人物死亡					
 						}

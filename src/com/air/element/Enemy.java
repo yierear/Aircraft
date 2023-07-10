@@ -81,5 +81,10 @@ public class Enemy extends ElementObj{
 		return "x:"+x+",y:"+y+",f:"+this.fx+",type:fireType3";
 	}
 	
-	
+	@Override
+	public void setLive(boolean live) {
+		super.setLive(live);
+		int hp = this.getHp();
+		hp-=5;
+	}
 }
