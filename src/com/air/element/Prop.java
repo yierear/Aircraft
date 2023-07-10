@@ -9,8 +9,6 @@ import com.air.manager.GameLoad;
 
 public class Prop extends ElementObj{
 	
-	private static String propType = null;
-	
 	@Override
 	public void showElement(Graphics g) {
 		g.drawImage(this.getIcon().getImage(), 
@@ -27,10 +25,9 @@ public class Prop extends ElementObj{
 		this.setH(Integer.parseInt(split[3]));
 		ImageIcon icon = GameLoad.imgMap.get(split[4]);
 		this.setIcon(icon);
-		propType = split[4];
 		return this;
+		
 	}
-	
 	@Override
 	protected void move(int gameTime) {
 		this.setY(this.getY() + 1);

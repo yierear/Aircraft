@@ -135,6 +135,7 @@ public class GameLoad {
 		Random random = new Random();
 		int x;
 		for (int i = 0; i < mapid; i++) {
+			
 			x=random.nextInt(600);
 			String propStr=x+",-10,30,30,"+mapid+"prop";
 			ElementObj propobj=getObj("prop");
