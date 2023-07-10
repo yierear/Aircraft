@@ -26,10 +26,13 @@ public class Enemy extends ElementObj{
 		String[] split = str.split(",");
 		this.setX(new Integer(split[0]));
 		this.setY(new Integer(split[1]));
-		ImageIcon icon3=GameLoad.imgMap.get(split[2]);
-		this.setW(icon3.getIconWidth());
-		this.setH(icon3.getIconHeight());
-		this.setIcon(icon3);
+		this.setW(Integer.parseInt(split[2]));	
+		this.setH(Integer.parseInt(split[3]));
+		ImageIcon icon = GameLoad.imgMap.get(split[4]);
+
+//		this.setW(icon3.getIconWidth());
+//		this.setH(icon3.getIconHeight());
+		this.setIcon(icon);
 		return this;
 	}
 	
