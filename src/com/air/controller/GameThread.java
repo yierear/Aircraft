@@ -154,8 +154,8 @@ public class GameThread extends Thread{
 	 */
 	private void gameOver() {
 //		插入结束显示		
-		System.out.println("通关成功！5秒后进入下一关......");
-		System.out.println("当前得分："+score);
+//		System.out.println("通关成功！5秒后进入下一关......");
+//		System.out.println("当前得分："+score);
 //		资源回收
 		Map<GameElement,List<ElementObj>> all = em.getGameElements();
 		for(GameElement ge: GameElement.values()) {
