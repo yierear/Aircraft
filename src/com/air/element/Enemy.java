@@ -14,7 +14,6 @@ public class Enemy extends ElementObj{
 	private int speed = 2;
 	private String fx="down";
 	private boolean pkType=true;
-	private int hp;
 	
 	@Override
 	public void showElement(Graphics g) {
@@ -29,7 +28,7 @@ public class Enemy extends ElementObj{
 		this.setY(new Integer(split[1]));
 		this.setW(Integer.parseInt(split[2]));	
 		this.setH(Integer.parseInt(split[3]));
-		this.hp=2;
+		this.setHp(10);;
 		ImageIcon icon = GameLoad.imgMap.get(split[4]);
 		this.setIcon(icon);
 		return this;
