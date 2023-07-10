@@ -5,6 +5,8 @@ import java.awt.Graphics;
 
 import javax.swing.JPanel;
 
+import com.air.element.Play;
+
 public class GameLive extends JPanel implements Runnable{
 
 	public GameLive() {

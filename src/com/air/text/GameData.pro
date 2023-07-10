@@ -12,3 +12,7 @@ enemy1=image/enemy/1.png
 enemy2=image/enemy/2.png
 enemy3=image/enemy/3.png
 enemy4=image/enemy/4.png
+1fireType=image/fire/24.png
+2fireType=image/fire/20.png
+1playType=image/play/13.png
+2playType=image/play/14.png
