@@ -75,9 +75,12 @@ public class GameThread extends Thread{
 			Map<GameElement, List<ElementObj>> all = em.getGameElements();
 			List<ElementObj> enemys = em.getElementsByKey(GameElement.ENEMY);
 			List<ElementObj> files = em.getElementsByKey(GameElement.PLAYFILE);
+			List<ElementObj> plays = em.getElementsByKey(GameElement.PLAY);
+			List<ElementObj> props = em.getElementsByKey(GameElement.PROP);
 			moveAndUpdate(all, gameTime);//	游戏元素自动化方法
 			
 			ElementPK(enemys,files);
+			ElementPK(plays, props);
 			
 			gameTime++;//唯一的时间控制
 			try {
@@ -90,7 +93,7 @@ public class GameThread extends Thread{
 	}
 	
 	private void ElementPK(List<ElementObj> listA,List<ElementObj> listB) {
-		
+//		enenmy和fire的碰撞
 		for (int i = 0; i < listA.size(); i++) {
 			ElementObj enemy=listA.get(i);
 			for (int j = 0; j < listB.size(); j++) {
@@ -105,6 +108,18 @@ public class GameThread extends Thread{
 				}
 			}
 		}
+//		prop和play碰撞
+		for (int i = 0; i < listA.size(); i++) {
+			ElementObj play = listA.get(i);
+			for (int j = 0; j < listB.size(); j++) {
+				ElementObj prop = listB.get(i);
+				if (play.pk(prop)) {
+					play.setLive(true);
+					prop.setLive(false);
+				}
+			}
+		}
+		
 	}
 
 //	游戏元素自动化方法
