@@ -64,6 +64,7 @@ public class GameLevel extends JPanel{
 	 * @说明 对全局变量 游戏关卡的设置
 	 * @return
 	 */
+	
 	public static int getLevel() {
 		return Level;
 	}
