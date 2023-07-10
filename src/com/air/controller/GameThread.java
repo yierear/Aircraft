@@ -71,7 +71,7 @@ public class GameThread extends Thread{
 	 */
 	private int gameTime=0;
 	private void gameRun() {
-		while (true) {//true可以变为变量，用于控制关卡结束等
+		while (!GameLevel.flag) {//true可以变为变量，用于控制关卡结束等
 			Map<GameElement, List<ElementObj>> all = em.getGameElements();
 			List<ElementObj> enemys = em.getElementsByKey(GameElement.ENEMY);
 			List<ElementObj> files = em.getElementsByKey(GameElement.PLAYFILE);
