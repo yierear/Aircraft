@@ -34,40 +34,31 @@ public class Play extends ElementObj{
 	private boolean up=false;   //上
 	private boolean right=false;//右
 	private boolean down=false; //下
-	private static int hp = 100; //玩家血条
 	private String playType="1playType";//玩家飞机类型
 	private int speed = 2;//速度
 	
 	private String effect = null;//增益类型
 
-
 //	public static int getHp() {
 //		return hp;
 //	}
-//
+//	
 //	public static void setHp(int hp) {
-//		// TODO 自动生成的方法存根
-//		Play.hp=  hp;
+//		Play.hp = hp;
 //	}
-	public static int getHp() {
-		return hp;
-	}
-	
-	public static void setHp(int hp) {
-		Play.hp = hp;
-	}
 	
 	//	变量专门用来记录当前主角面向的方向,默认为是up
 	private String fx="up";
 	private boolean pkType=true;//攻击状态 true 攻击  false停止
 	
 	public Play() {}
-	public Play(int x, int y, int w, int h, ImageIcon icon) {
-		super(x, y, w, h, icon);
+	public Play(int x, int y, int w, int h, int hp, ImageIcon icon) {
+		super(x, y, w, h, hp,icon);
 	}
 	//题外话: 过时的方法能用吗？ 可以用，也能够用，因为你不用jdk底层使用
 	@Override
 	public ElementObj createElement(String str) {	
+		this.setHp(100);
 		String[] split = str.split(",");
 		this.setX(Integer.parseInt(split[0]));
 		this.setY(Integer.parseInt(split[1]));
@@ -230,9 +221,9 @@ public class Play extends ElementObj{
 		System.out.println(effect);
 		if(effect!=null) {
 			switch(effect) {
-			case "1prop": hp-=5; GameThread.setPropType(null); break;
-			case "2prop": hp-=10; GameThread.setPropType(null); break;
-			case "3prop": hp-=20; GameThread.setPropType(null); break;
+			case "1prop": this.setHp(this.getHp()-5); GameThread.setPropType(null); break;
+			case "2prop": this.setHp(this.getHp()-5); GameThread.setPropType(null); break;
+			case "3prop": this.setHp(this.getHp()-5); GameThread.setPropType(null); break;
 			}
 		}
 	}
