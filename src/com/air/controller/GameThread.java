@@ -153,7 +153,17 @@ public class GameThread extends Thread{
 	 * 游戏切换关卡
 	 */
 	private void gameOver() {
-		
+//		插入结束显示		
+		System.out.println("通关成功！5秒后进入下一关......");
+		System.out.println("当前得分："+score);
+//		资源回收
+		Map<GameElement,List<ElementObj>> all = em.getGameElements();
+		for(GameElement ge: GameElement.values()) {
+			List<ElementObj> list = all.get(ge);
+			for (int i = list.size()-1; i >=0; i--) {
+				list.remove(i);
+			}
+		}		
 	}
 
 	
