@@ -71,7 +71,7 @@ public class GameThread extends Thread{
 	 */
 	private int gameTime=0;
 	private void gameRun() {
-		while (!GameLevel.flag) {//true可以变为变量，用于控制关卡结束等
+		while (true) {//true可以变为变量，用于控制关卡结束等
 			Map<GameElement, List<ElementObj>> all = em.getGameElements();
 			List<ElementObj> enemys = em.getElementsByKey(GameElement.ENEMY);
 			List<ElementObj> files = em.getElementsByKey(GameElement.PLAYFILE);
@@ -112,7 +112,7 @@ public class GameThread extends Thread{
 		for (int i = 0; i < listA.size(); i++) {
 			ElementObj play = listA.get(i);
 			for (int j = 0; j < listB.size(); j++) {
-				ElementObj prop = listB.get(i);
+				ElementObj prop = listB.get(j);
 				if (play.pk(prop)) {
 					play.setLive(true);
 					prop.setLive(false);
