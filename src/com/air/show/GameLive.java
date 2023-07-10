@@ -5,6 +5,8 @@ import java.awt.Graphics;
 
 import javax.swing.JPanel;
 
+import com.air.element.Play;
+
 public class GameLive extends JPanel implements Runnable{
 
 	public GameLive() {
@@ -22,7 +24,7 @@ public class GameLive extends JPanel implements Runnable{
 		super.paint(g);
 		g.setColor(Color.red);
 		g.drawRect(50, 10, 100, 10);
-		g.fillRect(50, 10, WIDTH, HEIGHT);
+		g.fillRect(50, 10, Play.getHp(), HEIGHT);
 	}
 	
 	@Override
