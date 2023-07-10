@@ -120,7 +120,7 @@ public class GameThread extends Thread{
 					play.setLive(true);
 					prop.setLive(false);
 					propType = Prop.getPropType();
-					System.out.println(propType);
+//					System.out.println(propType);
 				}
 			}
 		}
