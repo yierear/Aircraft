@@ -11,10 +11,12 @@ import com.air.manager.GameElement;
 import com.air.manager.GameLoad;
 
 public class Enemy extends ElementObj{
-	private int speed = 2;
+	private int speed = 1;
 	private String fx="down";
 	private boolean pkType=true;
 	private int hp;
+	Random random=new Random();
+	int x=random.nextInt(400);
 	
 	@Override
 	public void showElement(Graphics g) {
@@ -37,7 +39,17 @@ public class Enemy extends ElementObj{
 	
 	@Override
 	public void move(int gametime) {
-		this.setY(this.getY() + 1);
+		
+		if (this.getX()>x+200) {
+			this.setX(this.getX()-1);
+		}
+		if (this.getX()<x) {
+			this.setX(this.getX()+1);
+		}
+		if (this.getX()>10&&this.getX()<600) {
+			this.setY(this.getY() + speed);
+		}
+		
 	}
 	
 //	@Override

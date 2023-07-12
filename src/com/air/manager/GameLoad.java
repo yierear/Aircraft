@@ -15,6 +15,7 @@ import javax.swing.ImageIcon;
 
 import com.air.element.ElementObj;
 import com.air.element.MapObj;
+import com.air.element.Play;
 import com.air.manager.ElementManager;
 import com.air.manager.GameLoad;
 
@@ -88,6 +89,7 @@ public class GameLoad {
 		ElementObj play = playobj.createElement(playStr);
 //		解耦,降低代码和代码之间的耦合度 可以直接通过 接口或者是抽象父类就可以获取到实体对象
 		em.addElement(play, GameElement.PLAY);
+		
 	}
 	
 	
@@ -99,29 +101,31 @@ public class GameLoad {
 		loadObj();
 		Random random=new Random();
 		int x,y,num;
+		int [] a= {-1,1};
 		switch(mapId) {
 		case 1:
-			for (int i = 1; i < 5; i++) {
-				x=random.nextInt(500);
+			for (int i = 1; i < 15; i++)  {
+				
+				x=a[random.nextInt(2)]*random.nextInt(1000);
 				y=-random.nextInt(500);
-//				num=random.nextInt(4);//敌机图片编号
-				String enemyStr=x+","+y+",50,50,enemy"+i+"";
+				num=random.nextInt(2)+1;//敌机图片编号
+				String enemyStr=x+","+y+",50,50,enemy"+num+"";
 				ElementObj enemyobj=getObj("enemy");
 				ElementObj enemy = enemyobj.createElement(enemyStr);
 				em.addElement(enemy, GameElement.ENEMY);
 			}
 			break;
 //		case 2:
-//			for (int i = 1; i < 10; i++) {
-//				x=random.nextInt(500);
-//				y=-random.nextInt(500);
-//				num=random.nextInt(9);//敌机图片编号
-//				String enemyStr=x+","+y+",50,50,enemy"+num+"";
-//				ElementObj enemyobj=getObj("enemy");
-//				ElementObj enemy = enemyobj.createElement(enemyStr);
-//				em.addElement(enemy, GameElement.ENEMY);
-//			}
-//			break;
+//			for (int i = 1; i < 25; i++) {
+//			x=a[random.nextInt(2)]*random.nextInt(1000);
+//			y=-random.nextInt(500);
+//			num=random.nextInt(4)+1;//敌机图片编号
+//			String enemyStr=x+","+y+",50,50,enemy"+num+"";
+//			ElementObj enemyobj=getObj("enemy");
+//			ElementObj enemy = enemyobj.createElement(enemyStr);
+//			em.addElement(enemy, GameElement.ENEMY);
+//		}
+//		break;
 		}
 		
 		
@@ -192,7 +196,7 @@ public class GameLoad {
 		}
 	}
 	public static void main(String[] args) {
-		loadNpc(1);
-		loadProp(1);
+//		loadNpc(1);
+//		loadProp(1);
 	}
 }
