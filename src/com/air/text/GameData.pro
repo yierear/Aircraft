@@ -5,7 +5,7 @@ up=image/play/13.png
 
 1bg=image/background/1.png
 2bg=image/background/2.png
-3bg=image/background/3.jpg
+3bg=image/background/3.png
 4bg=image/background/4.jpg
 5bg=image/background/5.jpg
 6bg=image/background/6.jpg
