@@ -52,12 +52,12 @@ public class GameLevel extends JPanel{
 				// TODO 自动生成的方法存根
 				primary = getLevel();
 				switch(str){
-				case "1": Level = 1; Play.setHp(100); break;
-				case "2": Level = 2; Play.setHp(100); break;
-				case "3": Level = 3; Play.setHp(100); break;
-				case "4": Level = 4; Play.setHp(100); break;
-				case "5": Level = 5; Play.setHp(100); break;
-				case "6": Level = 6; Play.setHp(100); break;
+				case "1": Level = 1; break;
+				case "2": Level = 2; break;
+				case "3": Level = 3; break;
+				case "4": Level = 4; break;
+				case "5": Level = 5; break;
+				case "6": Level = 6; break;
 				}
 //				System.out.println(Level);
 				if(primary != getLevel()) {

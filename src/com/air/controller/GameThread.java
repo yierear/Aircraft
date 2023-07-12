@@ -77,19 +77,19 @@ public class GameThread extends Thread{
 		while (!GameLevel.flag) {//true可以变为变量，用于控制关卡结束等
 			Map<GameElement, List<ElementObj>> all = em.getGameElements();
 			List<ElementObj> enemys = em.getElementsByKey(GameElement.ENEMY);
-			List<ElementObj> files = em.getElementsByKey(GameElement.PLAYFILE);
+			List<ElementObj> fires = em.getElementsByKey(GameElement.PLAYFILE);
+			List<ElementObj> enemyfires = em.getElementsByKey(GameElement.ENEMYFILE);
 			List<ElementObj> plays = em.getElementsByKey(GameElement.PLAY);
 			List<ElementObj> props = em.getElementsByKey(GameElement.PROP);
 			moveAndUpdate(all, gameTime);//	游戏元素自动化方法
 //			参数flag 
-//			-1 道具和敌人/boss 大家都不变
 //			0 道具vs玩家 道具-1 玩家不变
 //			1 子弹vs敌人 子弹vs玩家 子弹vs大boss 子弹-1 敌人/玩家-1 
 			
-			ElementPK(enemys,files,0);
-			ElementPK(plays, props,1);
-						
-			
+			ElementPK(enemys,fires,0);//敌人和玩家子弹
+			ElementPK(plays, props,1);//玩家和道具
+			ElementPK(plays, enemyfires,0);//玩家和敌人子弹
+
 			gameTime++;//唯一的时间控制
 			try {
 				sleep(10);
@@ -108,41 +108,22 @@ public class GameThread extends Thread{
 				if (character.pk(thing)) {
 					thing.setLive(false);
 					if (flag==1) {//子弹和敌人&玩家
-//						if (character.) {
-//							character.setLive(false);	//碰到子弹 血量无 人物死亡					
-//						}
-//						else {
-//							character.setLive(true);//还有血量 生存
-//						}
+						if (character.getHp()<=0) {
+							character.setLive(false);	//碰到子弹 血量无 人物死亡					
+						}
+						else {
+							character.setLive(true);//还有血量 生存
+						}
 					}
 					else if (flag==0) {//道具和玩家
 						character.setLive(true);//人物生存
 						thing.setLive(false);//道具消失
 					}
-					else if (flag==-1) {//道具和敌人&boss
-						character.setLive(true);
-						thing.setLive(true);
-					} 				
+				}			
 					break;
 				}
 			}
 		}
-
-//		prop和play碰撞
-		for (int i = 0; i < listA.size(); i++) {
-			ElementObj play = listA.get(i);
-			for (int j = 0; j < listB.size(); j++) {
-				ElementObj prop = listB.get(j);
-				if (play.pk(prop)) {
-					play.setLive(true);
-					prop.setLive(false);
-					
-//					System.out.println(propType);
-				}
-			}
-		}
-		
-	}
 
 //	游戏元素自动化方法
 	public void moveAndUpdate(Map<GameElement, List<ElementObj>> all,int gameTime) {

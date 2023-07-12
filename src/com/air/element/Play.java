@@ -30,44 +30,26 @@ public class Play extends ElementObj{
 	 *       2.什么时候进行修改图片(因为图片是在父类中的属性存储)
 	 *       3.图片应该使用什么集合进行存储
 	 */
+	private static int HP = 100; //设一个全局传参
 	private boolean left=false; //左
 	private boolean up=false;   //上
 	private boolean right=false;//右
 	private boolean down=false; //下
-	private static int hp = 100; //玩家血条
 	private String playType="1playType";//玩家飞机类型
 	private int speed = 2;//速度
-	
 	private String effect = null;//增益类型
-
-
-//	public static int getHp() {
-//		return hp;
-//	}
-//
-//	public static void setHp(int hp) {
-//		// TODO 自动生成的方法存根
-//		Play.hp=  hp;
-//	}
-	public static int getHp() {
-		return hp;
-	}
-	
-	public static void setHp(int hp) {
-		Play.hp = hp;
-	}
 	
 	//	变量专门用来记录当前主角面向的方向,默认为是up
 	private String fx="up";
 	private boolean pkType=true;//攻击状态 true 攻击  false停止
 	
 	public Play() {}
-	public Play(int x, int y, int w, int h, ImageIcon icon) {
-		super(x, y, w, h, icon);
+	public Play(int x, int y, int w, int h, int hp, ImageIcon icon) {
 	}
 	//题外话: 过时的方法能用吗？ 可以用，也能够用，因为你不用jdk底层使用
 	@Override
 	public ElementObj createElement(String str) {	
+		this.setHp(100);
 		String[] split = str.split(",");
 		this.setX(Integer.parseInt(split[0]));
 		this.setY(Integer.parseInt(split[1]));
@@ -220,43 +202,43 @@ public class Play extends ElementObj{
 		case "left":x+=(this.getIcon().getIconWidth())/2;break;
 		case "right": x+=(this.getIcon().getIconWidth())/2; break;
 		case "down": x+=(this.getIcon().getIconWidth())/2; break;
-		}//个人认为： 玩游戏有助于 理解面向对象思想;不能专门玩，需要思考，父类应该怎么抽象，子类应该怎么实现
-//		学习技术不犯法，但是不要用技术做犯法的事.
+		}
 		return "x:"+x+",y:"+y+",f:"+this.fx;
 	}
 	
 	public void EffectType() {
 		effect = GameThread.getPropType();
-		System.out.println(effect);
+//		System.out.println(effect);
 		if(effect!=null) {
 			switch(effect) {
-			case "1prop": hp-=5; GameThread.setPropType(null); break;
-			case "2prop": hp-=10; GameThread.setPropType(null); break;
-			case "3prop": hp-=20; GameThread.setPropType(null); break;
+			case "1prop": this.setHp(this.getHp()-5); GameThread.setPropType(null); break;
+			case "2prop": this.setHp(this.getHp()-5); GameThread.setPropType(null); break;
+			case "3prop": this.setHp(this.getHp()-5); GameThread.setPropType(null); break;
 			}
+//			System.out.println(this.getHp());
+//			System.out.println(Play.getHP());
+//			System.out.println("----------");
 		}
 	}
 	
+	/**
+	 * @说明 进行重写 在给对象hp赋值时，同时给类的HP赋值
+	 */
+	@Override
+	public void setHp(int hp) {
+		// TODO 自动生成的方法存根
+		Play.setHP(hp);
+		super.setHp(hp);
+	}
 	
+	/**
+	 * HP指代play类的HP
+	 * @return
+	 */
+	public static int getHP() {
+		return HP;
+	}
+	public static void setHP(int hP) {
+		HP = hP;
+	}
 }
-
-//try {
-//Class<?> forName = Class.forName("com.tedu.....");
-//ElementObj element = forName.newInstance().createElement("");
-//} catch (InstantiationException e) {
-//// TODO Auto-generated catch block
-//e.printStackTrace();
-//} catch (IllegalAccessException e) {
-//// TODO Auto-generated catch block
-//e.printStackTrace();
-//} //以后的框架学习中会碰到
-//// 会帮助你返回对象的实体，并初始化数据
-//catch (ClassNotFoundException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//}
-
-
-
-
-

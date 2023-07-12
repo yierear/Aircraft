@@ -39,7 +39,6 @@ public abstract class ElementObj {
 		this.y = y;
 		this.w = w;
 		this.h = h;
-		this.hp = hp;
 		this.icon = icon;
 	}
 	
@@ -109,6 +108,14 @@ public abstract class ElementObj {
 	 */
 	public boolean pk(ElementObj obj){
 		return this.getRectangle().intersects(obj.getRectangle());
+	}
+
+	public int getHp() {
+		return hp;
+	}
+
+	public void setHp(int hp) {
+		this.hp = hp;
 	}
 
 	public int getX() {

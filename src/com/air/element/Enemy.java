@@ -11,13 +11,9 @@ import com.air.manager.GameElement;
 import com.air.manager.GameLoad;
 
 public class Enemy extends ElementObj{
-	private int speed = 1;
-	private String fx="down";
-	private boolean pkType=true;
 	private int hp;
 	Random random=new Random();
 	int x=random.nextInt(400);
-	
 	@Override
 	public void showElement(Graphics g) {
 		g.drawImage(this.getIcon().getImage(), 
@@ -27,11 +23,11 @@ public class Enemy extends ElementObj{
 	@Override
 	public ElementObj createElement(String str) {
 		String[] split = str.split(",");
-		this.setX(new Integer(split[0]));
-		this.setY(new Integer(split[1]));
+		this.setX(Integer.parseInt(split[0]));
+		this.setY(Integer.parseInt(split[1]));
 		this.setW(Integer.parseInt(split[2]));	
 		this.setH(Integer.parseInt(split[3]));
-		this.hp=2;
+		this.setHp(10);
 		ImageIcon icon = GameLoad.imgMap.get(split[4]);
 		this.setIcon(icon);
 		return this;
@@ -94,5 +90,10 @@ public class Enemy extends ElementObj{
 		return "x:"+x+",y:"+y+",f:"+this.fx+",type:fireType3";
 	}
 	
-	
+	@Override
+	public void setLive(boolean live) {
+		super.setLive(live);
+		int hp = this.getHp();
+		hp-=5;
+	}
 }

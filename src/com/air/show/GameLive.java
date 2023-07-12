@@ -35,7 +35,7 @@ public class GameLive extends JPanel implements Runnable{
 		Font font1 = new Font("Broadway", Font.ITALIC, 15);
 		JLabel jLabel1 = new JLabel("hp:");
 		jLabel1.setBounds(0, 40, 20, 15);
-		String str1 = Play.getHp()+"";
+		String str1 = Play.getHP()+"";
 		JLabel jLabel2 = new JLabel(str1);
 		jLabel2.setFont(font1);
 		jLabel2.setForeground(Color.RED);
@@ -64,7 +64,7 @@ public class GameLive extends JPanel implements Runnable{
 		super.paint(g);
 		g.setColor(Color.red);
 		g.drawRect(25, 40, 100, 15);
-		g.fillRect(25, 40, Play.getHp(), 15);
+		g.fillRect(25, 40, Play.getHP(), 15);
 	}
 	
 	@Override
