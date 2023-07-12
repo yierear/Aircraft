@@ -11,6 +11,9 @@ import com.air.manager.GameElement;
 import com.air.manager.GameLoad;
 
 public class Enemy extends ElementObj{
+	private int speed = 1;
+	private String fx="down";
+	private boolean pkType=true;
 	private int hp;
 	Random random=new Random();
 	int x=random.nextInt(400);
