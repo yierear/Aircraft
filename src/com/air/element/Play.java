@@ -206,6 +206,9 @@ public class Play extends ElementObj{
 		return "x:"+x+",y:"+y+",f:"+this.fx;
 	}
 	
+	/**
+	 * 判断道具类型实现相应效果
+	 */
 	public void EffectType() {
 		this.setEffect(GameThread.getPropType());
 //		System.out.println(effect);
@@ -214,6 +217,7 @@ public class Play extends ElementObj{
 			case "1prop": this.setHp(this.getHp()+5); GameThread.setPropType(null); break;
 			case "2prop": this.setHp(this.getHp()+10); GameThread.setPropType(null); break;
 			case "3prop": this.setHp(this.getHp()-20); GameThread.setPropType(null); break;
+			case "5prop": this.setSpeed(3); GameThread.setPropType(null); break;
 			}
 //			System.out.println(this.getHp());
 //			System.out.println(Play.getHP());
@@ -259,6 +263,8 @@ public class Play extends ElementObj{
 	public static void setPlayAndFire(int playAndFire) {
 		Play.playAndFire = playAndFire;
 	}
-	
+	public void setSpeed(int speed) {
+		this.speed = speed;
+	}
 	
 }

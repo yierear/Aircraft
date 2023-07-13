@@ -59,7 +59,7 @@ public class PlayFile extends ElementObj{
 		ImageIcon icon1 = GameLoad.imgMap.get(fireType);
 		this.setIcon(icon1);
 		g.drawImage(this.getIcon().getImage(), 
-				this.getX()-5, this.getY()-5, 
+				this.getX()-20, this.getY()-8, 
 				this.getW(), this.getH(), null);
 	}	
 
