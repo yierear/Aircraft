@@ -211,9 +211,9 @@ public class Play extends ElementObj{
 //		System.out.println(effect);
 		if(effect!=null) {
 			switch(effect) {
-			case "1prop": this.setHp(this.getHp()-5); GameThread.setPropType(null); break;
-			case "2prop": this.setHp(this.getHp()-5); GameThread.setPropType(null); break;
-			case "3prop": this.setHp(this.getHp()-5); GameThread.setPropType(null); break;
+			case "1prop": this.setHp(this.getHp()+5); GameThread.setPropType(null); break;
+			case "2prop": this.setHp(this.getHp()+10); GameThread.setPropType(null); break;
+			case "3prop": this.setHp(this.getHp()-20); GameThread.setPropType(null); break;
 			}
 //			System.out.println(this.getHp());
 //			System.out.println(Play.getHP());

@@ -3,6 +3,7 @@ package com.air.controller;
 import java.util.List;
 import java.util.Map;
 import com.air.element.ElementObj;
+import com.air.element.Prop;
 import com.air.manager.ElementManager;
 import com.air.manager.GameElement;
 import com.air.manager.GameLoad;
@@ -129,6 +130,9 @@ public class GameThread extends Thread{
 					}
 					else if (flag==0) {//道具和玩家
 						character.setLive(true);//人物生存
+						if(thing instanceof Prop) {
+							GameThread.setPropType(((Prop)thing).getPropType());//得到当前碰撞道具类型
+						}
 					}
 					break;
 				}			
