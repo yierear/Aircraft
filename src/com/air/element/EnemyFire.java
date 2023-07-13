@@ -61,6 +61,18 @@ public class EnemyFire extends ElementObj{
 		}
 		
 		this.setY(this.getY()+this.moveNum);
-		
 	}
+	
+	@Override
+	public void setATK(int aTK) {
+		// TODO 自动生成的方法存根
+		switch(fireType) {
+		case "1fireType": this.ATK = 1; break;
+		case "2fireType": this.ATK = 2; break;
+		case "3fireType": this.ATK = 3; break;
+		case "4fireType": this.ATK = 4; break;
+		case "5fireType": this.ATK = 5; break;
+		}
+	}
+
 }

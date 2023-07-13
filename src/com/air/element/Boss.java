@@ -24,6 +24,7 @@ public class Boss extends ElementObj{
 			g.setColor(Color.RED);
 			g.drawRect(50, 0, 80, 15);
 			g.fillRect(50, 0, this.getHp(), 15);
+			g.drawString(this.getHp()+"", 135, 10);
 		}
 		
 	}

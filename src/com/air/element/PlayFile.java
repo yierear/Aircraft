@@ -78,39 +78,21 @@ public class PlayFile extends ElementObj{
 		}
 	}
 	
-	/**
-	 * 对于子弹来说：1.出边界  2.碰撞  3.玩家放保险
-	 * 处理方式就是，当达到死亡的条件时，只进行 修改死亡状态的操作。
-	 */
-//	@Override
-//	public void die() {
-//		ElementManager em=ElementManager.getManager();
-//		ImageIcon icon=new ImageIcon("image/tank/play2/player2_up.png");
-//		ElementObj obj=new Play(this.getX(),this.getY(),50,50,icon);//实例化对象
-////		讲对象放入到 元素管理器中
-////		em.getElementsByKey(GameElement.PLAY).add(obj);
-//		em.addElement(obj,GameElement.DIE);//直接添加
-//	}
-	
-    /**子弹变装*/
-//	private long time=0;
-//	protected void updateImage(long gameTime) {
-//		ImageIcon icon2=GameLoad.imgMap.get(fireType);
-//		System.out.println(icon2.getIconHeight());//得到图片的高度
-////		如果高度是小于等于0 就说明你的这个图片路径有问题
-//		this.setIcon(GameLoad.imgMap.get(fireType));
-//		if(gameTime-time>5) {
-//			time=gameTime;//为下次变装做准备
-//			this.setW(this.getW()+2);
-//			this.setH(this.getH()+2);
-////			你变图片不就完啦
-////		}
-//	}
-	
 	public static void changeFire() {
 		PlayFile.fireType = Play.getPlayAndFire()+"fireType";
 	}
-		
+	
+	@Override
+	public void setATK(int aTK) {
+		// TODO 自动生成的方法存根
+		switch(fireType) {
+		case "1fireType": this.ATK = 1; break;
+		case "2fireType": this.ATK = 2; break;
+		case "3fireType": this.ATK = 3; break;
+		case "4fireType": this.ATK = 4; break;
+		case "5fireType": this.ATK = 5; break;
+		}
+	}
 }
 
 
