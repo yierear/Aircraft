@@ -32,8 +32,8 @@ enemy9=image/enemy/12.png
 4playType=image/play/18.png
 5playType=image/play/20.png
 
-1prop=image/prop/heal.png
-2prop=image/prop/blood.png
-3prop=image/prop/bomb.png
-4prop=image/prop/shield.png
-5prop=image/prop/accelerate.png
+
+1prop=image/prop/blood.png
+2prop=image/prop/bomb.png
+3prop=image/prop/accelerate.png
+4prop=image/prop/attack.png

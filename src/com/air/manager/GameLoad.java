@@ -181,10 +181,10 @@ public class GameLoad {
 		loadObj();
 		Random random = new Random();
 		int propx,propy,num;
-		for (int i = 0; i < mapid*30; i++) {//道具数等于关卡*15
+		for (int i = 0; i < mapid*20; i++) {//道具数等于关卡*15
 			propy=-800-random.nextInt(3000);
 			propx=random.nextInt(600);			
-			num=random.nextInt(5)+1;//道具 1~5
+			num=random.nextInt(4)+1;//道具 1~4
 			String propStr=propx+","+propy+",30,30,"+num+"prop";
 			ElementObj propobj=getObj("prop");
 			ElementObj prop = propobj.createElement(propStr);
