@@ -59,8 +59,8 @@ public class Play extends ElementObj{
 		if(icon2 == null) {
 			icon2 = GameLoad.imgMap.get("up");
 		}
-		this.setH(icon2.getIconHeight());
-		this.setW(icon2.getIconWidth());
+		this.setH(100);
+		this.setW(70);
 		this.setIcon(icon2);
 		return this;
 	}
