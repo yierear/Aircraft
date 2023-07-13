@@ -94,7 +94,7 @@ public class GameLoad {
 		loadObj();
 		Random random=new Random();
 		int x,y,num;
-		y = -random.nextInt(500);
+		y = -random.nextInt(300);
 		String enemyStr="";
 		switch(mapId) {
 		default:
