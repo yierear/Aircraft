@@ -36,9 +36,9 @@ up=image/play/13.png
 3prop=image/prop/accelerate.png
 4prop=image/prop/attack.png
 
-1boss=image/boss/1.png
-2boss=image/boss/2.png
-3boss=image/boss/3.png
-4boss=image/boss/4.png
-5boss=image/boss/5.png
-6boss=image/boss/6.png
+1boss=image/boss/2.png
+2boss=image/boss/13.png
+3boss=image/boss/12.png
+4boss=image/boss/11.png
+5boss=image/boss/10.png
+6boss=image/boss/1.png

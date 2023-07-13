@@ -61,6 +61,7 @@ public class Enemy extends ElementObj{
 //	}
 	
 	private long filetime=0L;
+
 	protected void add(int gameTime) {
 		if(!this.pkType) {//如果是不发射状态 就直接return
 			return;
@@ -93,7 +94,17 @@ public class Enemy extends ElementObj{
 		x+=(this.getW())/2;
 		int w=10;
 		int h=10;
-		return "x:"+x+",y:"+y+",w:"+w+",h:"+h+",f:"+this.fx+",type:3fireType";
+		String fireType="";	//子弹类型
+		switch(enemyType) {
+		case "1enemy": fireType="1fireType"; break;
+		case "2enemy": fireType="1fireType"; break;
+		case "3enemy": fireType="2fireType"; break;
+		case "4enemy": fireType="3fireType"; break;
+		case "5enemy": fireType="4fireType"; break;
+		case "6enemy": fireType="5fireType"; break;
+		case "7enemy": fireType="5fireType"; break;
+		}
+		return "x:"+x+",y:"+y+",w:"+w+",h:"+h+",f:"+this.fx+",type:"+fireType;
 	}
 	
 	@Override

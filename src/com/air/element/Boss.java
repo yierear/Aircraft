@@ -13,6 +13,7 @@ public class Boss extends ElementObj{
 	private boolean pkType=true;
 	private int hp;
 	private String bossType;
+	private int fireType;
 	
 	@Override
 	public void showElement(Graphics g) {
@@ -37,7 +38,7 @@ public class Boss extends ElementObj{
 		this.setW(Integer.parseInt(split[2]));	
 		this.setH(Integer.parseInt(split[3]));
 		bossType=split[4];
-		this.setHp(80);
+		this.setHp(80);//设置boss血量和子弹类型
 		ImageIcon icon = GameLoad.imgMap.get(bossType);
 		this.setIcon(icon);
 		return this;
@@ -84,19 +85,28 @@ public class Boss extends ElementObj{
 		int w=30;
 		int h=30;
 		x+=(this.getW())/2;
-		return "x:"+x+",y:"+y+",w:"+w+",h:"+h+",f:"+this.fx+",type:4fireType";
+		String fireType="";	//子弹类型
+		switch(bossType) {
+		case "1boss": fireType="1fireType"; break;
+		case "2boss": fireType="1fireType"; break;
+		case "3boss": fireType="2fireType"; break;
+		case "4boss": fireType="3fireType"; break;
+		case "5boss": fireType="4fireType"; break;
+		case "6boss": fireType="5fireType"; break;
+		}
+		return "x:"+x+",y:"+y+",w:"+w+",h:"+h+",f:"+this.fx+",type:"+fireType;
 	}
 	
 	@Override
 	public void setHp(int hp) {
 		// TODO 自动生成的方法存根
 		switch(bossType) {
-		case "1boss": this.hp = 10; break;
-		case "2boss": this.hp = 20; break;
-		case "3boss": this.hp = 30; break;
-		case "4boss": this.hp = 40; break;
-		case "5boss": this.hp = 60; break;
-		case "6boss": this.hp = 80; break;
+		case "1boss": this.hp = 10;this.fireType=1; break;
+		case "2boss": this.hp = 20;this.fireType=1; break;
+		case "3boss": this.hp = 30;this.fireType=2; break;
+		case "4boss": this.hp = 40;this.fireType=3; break;
+		case "5boss": this.hp = 60;this.fireType=4; break;
+		case "6boss": this.hp = 80;this.fireType=5; break;
 		}
 	}
 }
