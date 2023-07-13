@@ -19,7 +19,6 @@ public class GameThread extends Thread{
 	private ElementManager em;
 	
 	private static String propType = null;
-//	private String bg="bg1";
 	public GameThread() {
 		em=ElementManager.getManager();
 	}
