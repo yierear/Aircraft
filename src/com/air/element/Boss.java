@@ -1,5 +1,6 @@
 package com.air.element;
 
+import java.awt.Color;
 import java.awt.Graphics;
 
 public class Boss extends Enemy{
@@ -7,6 +8,10 @@ public class Boss extends Enemy{
 	public void showElement(Graphics g) {
 		// TODO 自动生成的方法存根
 		super.showElement(g);
+		g.drawString("BOSS:", 0, 10);
+		g.setColor(Color.RED);
+		g.drawRect(50, 0, 100, 15);
+		g.fillRect(50, 0, this.getHp(), 15);
 	}
 	@Override
 	public ElementObj createElement(String str) {
