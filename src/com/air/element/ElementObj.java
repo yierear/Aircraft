@@ -115,7 +115,12 @@ public abstract class ElementObj {
 	}
 
 	public void setHp(int hp) {
-		this.hp = hp;
+		if(hp<=100&&hp>=0)
+			this.hp = hp;
+		else if(hp>100)
+			this.hp = 100;
+		else if(hp<0)
+			this.hp = 0;
 	}
 
 	public int getX() {
