@@ -35,6 +35,7 @@ public class Play extends ElementObj{
 	private String effect = null;//增益类型
 	
 	private static int playAndFire = 1;//传参决定玩家和子弹类型
+	private int gapTime = 31;//发射子弹时间间隔
 	
 	//	变量专门用来记录当前主角面向的方向,默认为是up
 	private String fx="up";
@@ -171,10 +172,10 @@ public class Play extends ElementObj{
 		if(!this.pkType) {//如果是不发射状态 就直接return
 			return;
 		}
-		if(gameTime-filetime>21) {
+		if(gameTime-filetime>gapTime) {
 			filetime=gameTime;
 		}
-		if(gameTime-filetime==20) {
+		if(gameTime-filetime==gapTime-1) {
 			//		传递一个固定格式   {X:3,y:5,f:up} json格式
 		ElementObj obj=GameLoad.getObj("file");  		
 		ElementObj element = obj.createElement(this.toString());
@@ -189,6 +190,8 @@ public class Play extends ElementObj{
 //		this.pkType=false;//按一次，发射一个子弹。拼手速(也可以增加变量来控制)
 //		new PlayFile(); // 构造一个类 需要做比较多的工作  可以选择一种方式，使用小工厂
 //		将构造对象的多个步骤进行封装成为一个方法，返回值直接是这个对象	
+		checkSpeed(gameTime);
+		checkAttack(gameTime);
 	}
 	
 	@Override
@@ -214,16 +217,38 @@ public class Play extends ElementObj{
 //		System.out.println(effect);
 		if(effect!=null) {
 			switch(effect) {
-			case "1prop": this.setHp(this.getHp()+5); GameThread.setPropType(null); break;
-			case "2prop": this.setHp(this.getHp()+10); GameThread.setPropType(null); break;
-			case "3prop": this.setHp(this.getHp()-20); GameThread.setPropType(null); break;
-			case "5prop": this.setSpeed(3); GameThread.setPropType(null); break;
+			case "1prop": this.setHp(this.getHp()+10); GameThread.setPropType(null); break;
+			case "2prop": this.setHp(this.getHp()-20); GameThread.setPropType(null); break;
+			case "3prop": this.setSpeed(4); GameThread.setPropType(null); break;
+			case "4prop": this.setGapTime(12); GameThread.setPropType(null); break;
 			}
 //			System.out.println(this.getHp());
 //			System.out.println(Play.getHP());
 //			System.out.println("----------");
 		}
 	}
+	
+	private int speedTime = 0;
+	//一定时间后恢复初始速度
+	private void checkSpeed(int gameTime) {	
+			if(gameTime-speedTime>600) {
+			speedTime=gameTime;
+		}
+			if(gameTime-speedTime>550) {
+				this.setSpeed(2);
+			}		
+	}
+	
+	private int attackTime = 0;
+	//一定时间后恢复子弹发射速度
+	private void checkAttack(int gameTime) {
+		if(gameTime-attackTime>600) {
+			attackTime=gameTime;
+	}
+		if(gameTime-attackTime>550) {
+			this.setGapTime(31);
+		}		
+}
 	
 	/**
 	 * @说明 进行重写 在给对象hp赋值时，同时给类的HP赋值
@@ -270,6 +295,9 @@ public class Play extends ElementObj{
 	}
 	public void setSpeed(int speed) {
 		this.speed = speed;
+	}
+	public void setGapTime(int gapTime) {
+		this.gapTime = gapTime;
 	}
 	
 }
