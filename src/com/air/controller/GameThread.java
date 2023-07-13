@@ -75,7 +75,7 @@ public class GameThread extends Thread{
 			moveAndUpdate(all, gameTime);//	游戏元素自动化方法
 			
 //			加载敌人NPC
-			if(!plays.isEmpty() && gameTime%5000==0) {
+			if(!plays.isEmpty() && gameTime%200==0) {
 				GameLoad.loadNpc(GameLevel.getLevel());
 			}
 //			flag=1 玩家/敌人和子弹
