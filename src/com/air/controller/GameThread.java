@@ -74,6 +74,7 @@ public class GameThread extends Thread{
 		while (!GameLevel.flag) {//true可以变为变量，用于控制关卡结束等
 			Map<GameElement, List<ElementObj>> all = em.getGameElements();
 			List<ElementObj> enemys = em.getElementsByKey(GameElement.ENEMY);//敌人
+			List<ElementObj> bosses = em.getElementsByKey(GameElement.BOSS);//BOSS
 			List<ElementObj> fires = em.getElementsByKey(GameElement.PLAYFILE);//玩家子弹
 			List<ElementObj> enemyfires = em.getElementsByKey(GameElement.ENEMYFILE);//敌人子弹
 			List<ElementObj> plays = em.getElementsByKey(GameElement.PLAY);//玩家
@@ -87,7 +88,8 @@ public class GameThread extends Thread{
 
 			ElementPK(plays,enemys,2);//玩家和敌人
 			ElementPK(enemys,fires,1);//敌人和玩家子弹
-			ElementPK(plays, enemyfires,1);//玩家和敌人子弹	
+			ElementPK(bosses,fires,1);//boss和玩家子弹
+			ElementPK(plays, enemyfires,1);//玩家和敌人/Boss子弹	
 			ElementPK(plays, props,0);//玩家和道具
 
 			if(getScore()==50*GameLevel.getLevel()) {//分数条件

@@ -12,6 +12,7 @@ public class Boss extends ElementObj{
 	private String fx="down";
 	private boolean pkType=true;
 	private int hp;
+	private String bossType;
 	
 	@Override
 	public void showElement(Graphics g) {
@@ -35,8 +36,9 @@ public class Boss extends ElementObj{
 		this.setY(Integer.parseInt(split[1]));
 		this.setW(Integer.parseInt(split[2]));	
 		this.setH(Integer.parseInt(split[3]));
+		bossType=split[4];
 		this.setHp(80);
-		ImageIcon icon = GameLoad.imgMap.get(split[4]);
+		ImageIcon icon = GameLoad.imgMap.get(bossType);
 		this.setIcon(icon);
 		return this;
 	}
@@ -78,21 +80,23 @@ public class Boss extends ElementObj{
 	@Override
 	public String toString() {
 		int x=this.getX();
-		int y=this.getY()+this.getIcon().getIconHeight();
-		x+=(this.getIcon().getIconWidth())/2;
-		return "x:"+x+",y:"+y+",f:"+this.fx+",type:fireType5";
+		int y=this.getY()+getH();
+		int w=30;
+		int h=30;
+		x+=(this.getW())/2;
+		return "x:"+x+",y:"+y+",w:"+w+",h:"+h+",f:"+this.fx+",type:4fireType";
 	}
 	
-//	@Override
-//	public void setHp(int hp) {
-//		// TODO 自动生成的方法存根
-//		switch(enemyType) {
-//		case "1boss": this.hp = 10; break;
-//		case "2boss": this.hp = 20; break;
-//		case "3boss": this.hp = 30; break;
-//		case "4boss": this.hp = 40; break;
-//		case "5boss": this.hp = 60; break;
-//		case "6boss": this.hp = 80; break;
-//		}
-//	}
+	@Override
+	public void setHp(int hp) {
+		// TODO 自动生成的方法存根
+		switch(bossType) {
+		case "1boss": this.hp = 10; break;
+		case "2boss": this.hp = 20; break;
+		case "3boss": this.hp = 30; break;
+		case "4boss": this.hp = 40; break;
+		case "5boss": this.hp = 60; break;
+		case "6boss": this.hp = 80; break;
+		}
+	}
 }

@@ -89,9 +89,11 @@ public class Enemy extends ElementObj{
 	@Override
 	public String toString() {
 		int x=this.getX();
-		int y=this.getY()+this.getIcon().getIconHeight();
-		x+=(this.getIcon().getIconWidth())/2;
-		return "x:"+x+",y:"+y+",f:"+this.fx+",type:"+enemyType;
+		int y=this.getY()+getH();
+		x+=(this.getW())/2;
+		int w=10;
+		int h=10;
+		return "x:"+x+",y:"+y+",w:"+w+",h:"+h+",f:"+this.fx+",type:3fireType";
 	}
 	
 	@Override

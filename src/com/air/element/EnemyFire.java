@@ -28,26 +28,24 @@ public class EnemyFire extends ElementObj{
 			switch(split2[0]) {
 			case "x": this.setX(Integer.parseInt(split2[1]));break;
 			case "y":this.setY(Integer.parseInt(split2[1]));break;
+			case "w":this.setW(Integer.parseInt(split2[1]));break;
+			case "h":this.setH(Integer.parseInt(split2[1]));break;
 			case "f":this.fx=split2[1]; 
 //				System.out.println(split2[1]); 
 				break;
-//			case "type":
-//				this.fireType=split2[1]; 
-//				ImageIcon icon1 = GameLoad.imgMap.get(split2[1]);
-////				if(icon1 == null) {
-////					icon1 = GameLoad.imgMap.get("1fireType");
-////				}
-//				this.setIcon(icon1); break;
+			case "type":
+				this.fireType=split2[1]; 
+				ImageIcon icon1 = GameLoad.imgMap.get(split2[1]);
+//				if(icon1 == null) {
+//					icon1 = GameLoad.imgMap.get("1fireType");
+//				}
+				this.setIcon(icon1); break;
 			}
 		}
-		this.setW(10);
-		this.setH(10);
 		return this;
 	}
 	@Override
 	public void showElement(Graphics g) {
-		ImageIcon icon1 = GameLoad.imgMap.get("3fireType");
-		this.setIcon(icon1);
 		g.drawImage(this.getIcon().getImage(), 
 				this.getX(), this.getY(), 
 				this.getW(), this.getH(), null);
