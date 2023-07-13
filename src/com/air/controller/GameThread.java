@@ -84,6 +84,22 @@ public class GameThread extends Thread{
 			ElementPK(plays, props,1);//玩家和道具
 			ElementPK(plays, enemyfires,0);//玩家和敌人子弹	
 			
+			if(getScore()==50*GameLevel.getLevel()) {
+				if(GameLevel.getLevel() == 6)
+				{
+					GameLoad.next("1");
+				}else {
+					GameLoad.next("0");
+				}
+				try {
+					sleep(5000);
+				} catch (InterruptedException e) {
+					// TODO 自动生成的 catch 块
+					e.printStackTrace();
+				}
+				break;
+			}
+			
 			try {
 				sleep(10);
 			} catch (InterruptedException e) {
