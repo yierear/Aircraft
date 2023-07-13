@@ -12,13 +12,11 @@ up=image/play/13.png
 
 enemy1=image/enemy/1.png
 enemy2=image/enemy/8.png
-enemy3=image/enemy/11.png
+enemy3=image/enemy/3.png
 enemy4=image/enemy/4.png
 enemy5=image/enemy/5.png
 enemy6=image/enemy/6.png
 enemy7=image/enemy/7.png
-enemy8=image/enemy/10.png
-enemy9=image/enemy/12.png
 
 1fireType=image/fire/25.png
 2fireType=image/fire/30.png
@@ -37,3 +35,10 @@ enemy9=image/enemy/12.png
 2prop=image/prop/bomb.png
 3prop=image/prop/accelerate.png
 4prop=image/prop/attack.png
+
+boss1=image/boss/1.png
+boss2=image/boss/2.png
+boss3=image/boss/3.png
+boss4=image/boss/4.png
+boss5=image/boss/5.png
+boss6=image/boss/6.png

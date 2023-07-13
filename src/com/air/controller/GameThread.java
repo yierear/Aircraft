@@ -55,6 +55,8 @@ public class GameThread extends Thread{
 		GameLoad.loadPlay();//可带参数，单机还是2人		
 //		加载敌人NPC
 		GameLoad.loadNpc(GameLevel.getLevel());
+//		加载BOSS
+		GameLoad.loadBoss(GameLevel.getLevel());
 //		加载道具
 		GameLoad.loadProp(GameLevel.getLevel());
 	}

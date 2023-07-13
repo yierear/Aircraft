@@ -16,6 +16,8 @@ public class Enemy extends ElementObj{
 	private int hp;
 	Random random=new Random();
 	int x=random.nextInt(400);
+	private String enemyType;	//敌人类型
+	
 	@Override
 	public void showElement(Graphics g) {
 		g.drawImage(this.getIcon().getImage(), 
@@ -30,7 +32,8 @@ public class Enemy extends ElementObj{
 		this.setW(Integer.parseInt(split[2]));	
 		this.setH(Integer.parseInt(split[3]));
 		this.setHp(3);
-		ImageIcon icon = GameLoad.imgMap.get(split[4]);
+		enemyType=split[4];
+		ImageIcon icon = GameLoad.imgMap.get(enemyType);
 		this.setIcon(icon);
 		return this;
 	}
@@ -89,39 +92,7 @@ public class Enemy extends ElementObj{
 		int x=this.getX();
 		int y=this.getY()+this.getIcon().getIconHeight();
 		x+=(this.getIcon().getIconWidth())/2;
-		return "x:"+x+",y:"+y+",f:"+this.fx+",type:fireType3";
+		return "x:"+x+",y:"+y+",f:"+this.fx+",type:"+enemyType;
 	}
-	
-	@Override
-	public void setLive(boolean live) {
-		super.setLive(live);
-		int hp = this.getHp();
-		hp-=1;
-	}
-	public int getSpeed() {
-		return speed;
-	}
-	public void setSpeed(int speed) {
-		this.speed = speed;
-	}
-	public String getFx() {
-		return fx;
-	}
-	public void setFx(String fx) {
-		this.fx = fx;
-	}
-	public boolean isPkType() {
-		return pkType;
-	}
-	public void setPkType(boolean pkType) {
-		this.pkType = pkType;
-	}
-	public int getHp() {
-		return hp;
-	}
-	public void setHp(int hp) {
-		this.hp = hp;
-	}
-	
 	
 }

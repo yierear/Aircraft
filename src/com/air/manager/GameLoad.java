@@ -7,6 +7,8 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.Random;
 import java.util.Set;
+
+import javax.swing.Box;
 import javax.swing.ImageIcon;
 
 import com.air.element.ElementObj;
@@ -82,7 +84,7 @@ public class GameLoad {
 		loadObj();
 		Random random=new Random();
 		int x,y,num;
-		y = -random.nextInt(300);
+		y = -random.nextInt(100);
 		String enemyStr="";
 		switch(mapId) {
 		default:
@@ -94,10 +96,9 @@ public class GameLoad {
 				x = random.nextInt(600);break;
 			}
 			
-			
 			break;
 		case 2:
-			num = random.nextInt(4) + 1;// 敌机图片编号
+			num = random.nextInt(3) + 1;// 敌机图片编号
 			switch(num) {
 			case 2:
 			case 4:
@@ -110,7 +111,7 @@ public class GameLoad {
 			
 			break;
 		case 3:
-			num = random.nextInt(5) + 1;// 敌机图片编号
+			num = random.nextInt(4) + 1;// 敌机图片编号
 			switch(num) {
 			case 2:
 			case 4:
@@ -124,7 +125,7 @@ public class GameLoad {
 			
 			break;
 		case 4:
-			num = random.nextInt(6) + 1;// 敌机图片编号
+			num = random.nextInt(5) + 1;// 敌机图片编号
 			switch(num) {
 			case 2:
 			case 6:
@@ -138,7 +139,7 @@ public class GameLoad {
 			
 			break;
 		case 5:
-			num = random.nextInt(7) + 1;// 敌机图片编号
+			num = random.nextInt(6) + 1;// 敌机图片编号
 			switch(num) {
 			case 6:
 			case 4:
@@ -152,7 +153,7 @@ public class GameLoad {
 			
 			break;
 		case 6:
-			num = random.nextInt(9) + 1;// 敌机图片编号
+			num = random.nextInt(7) + 1;// 敌机图片编号
 			switch(num) {
 			case 9:
 			case 4:
@@ -163,15 +164,26 @@ public class GameLoad {
 			default:
 				x = random.nextInt(600);break;
 			}
-			
 			break;
 		}
 		enemyStr = x + "," + y + ",60,60,enemy" + num + "";
+		
+		//创建普通敌机
 		ElementObj enemyobj = getObj("enemy");
 		ElementObj enemy = enemyobj.createElement(enemyStr);
-		em.addElement(enemy, GameElement.ENEMY);
-		
-		
+		em.addElement(enemy, GameElement.ENEMY);		
+	}
+	
+	/**
+	 * 加载BOSS
+	 */
+	public static void loadBoss(int mapid) {
+		loadObj();
+		String bossStr="";
+		bossStr= "75,-1000,450,300,boss"+mapid+"";
+		ElementObj bossobj = getObj("boss");
+		ElementObj boss = bossobj.createElement(bossStr);
+		em.addElement(boss, GameElement.BOSS);
 	}
 	
 	/**
