@@ -19,16 +19,16 @@ up=image/play/13.png
 7enemy=image/enemy/7.png
 
 1fireType=image/fire/25.png
-2fireType=image/fire/30.png
+2fireType=image/fire/4.png
 3fireType=image/fire/28.png
 4fireType=image/fire/29.png
-5fireType=image/fire/4.png
+5fireType=image/fire/30.png
 
 1playType=image/play/13.png
-2playType=image/play/14.png
+2playType=image/play/20.png
 3playType=image/play/16.png
 4playType=image/play/18.png
-5playType=image/play/20.png
+5playType=image/play/14.png
 
 
 1prop=image/prop/blood.png
