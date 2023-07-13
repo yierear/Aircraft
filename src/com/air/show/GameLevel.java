@@ -11,6 +11,7 @@ import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
+import com.air.controller.GameThread;
 import com.air.element.Play;
 
 
@@ -52,12 +53,12 @@ public class GameLevel extends JPanel{
 				// TODO 自动生成的方法存根
 				primary = getLevel();
 				switch(str){
-				case "1": Level = 1; break;
-				case "2": Level = 2; break;
-				case "3": Level = 3; break;
-				case "4": Level = 4; break;
-				case "5": Level = 5; break;
-				case "6": Level = 6; break;
+				case "1": Level = 1; GameThread.setScore(0); break;
+				case "2": Level = 2; GameThread.setScore(0); break;
+				case "3": Level = 3; GameThread.setScore(0); break;
+				case "4": Level = 4; GameThread.setScore(0); break;
+				case "5": Level = 5; GameThread.setScore(0); break;
+				case "6": Level = 6; GameThread.setScore(0); break;
 				}
 //				System.out.println(Level);
 				if(primary != getLevel()) {

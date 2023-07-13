@@ -80,13 +80,13 @@ public class GameThread extends Thread{
 			if(!plays.isEmpty() && gameTime%200==0) {
 				GameLoad.loadNpc(GameLevel.getLevel());
 			}
-//			flag=1 玩家/敌人和子弹
-//			flag=0 玩家和道具
+
+			ElementPK(plays,enemys,2);//玩家和敌人
 			ElementPK(enemys,fires,1);//敌人和玩家子弹
 			ElementPK(plays, enemyfires,1);//玩家和敌人子弹	
 			ElementPK(plays, props,0);//玩家和道具
 
-			if(getScore()==5*GameLevel.getLevel()) {//分数条件
+			if(getScore()==50*GameLevel.getLevel()) {//分数条件
 				if(GameLevel.getLevel() == 6)
 				{
 					GameLoad.next("1");
@@ -118,6 +118,7 @@ public class GameThread extends Thread{
 	 * @param listB 子弹
 	 * @param flag 0 道具vs玩家 道具-1 玩家不变  
 	 * 			   1 子弹vs敌人 子弹vs玩家 子弹-1 敌人/玩家-1 
+	 * 
 	 */
 	private void ElementPK(List<ElementObj> listA,List<ElementObj> listB,int flag) {
 		for (int i = 0; i < listA.size(); i++) {
@@ -125,22 +126,34 @@ public class GameThread extends Thread{
 			for (int j = 0; j < listB.size(); j++) {
 				ElementObj thing=listB.get(j);					
 				if (character.pk(thing)) {
-					character.setHp(character.getHp()-1);
-					thing.setLive(false);
-					if (flag==1 && character.getHp()==0) {//子弹和敌人&玩家
-						character.setLive(false);	//碰到子弹 血量无 人物死亡
-						if(character instanceof Enemy) {
-							score += 5;  
+					if(flag==2) {
+						character.setHp(character.getHp()-5);
+						thing.setHp(thing.getHp()-3);
+						if (character.getHp()==0) {
+							character.setLive(false);
+						}else if(thing.getHp()==0) {
+							thing.setLive(false);
+							score += 5;
 						}
-					}
-					else if (flag==0 && thing instanceof Prop) {//道具和玩家
-						GameThread.setPropType(((Prop)thing).getPropType());//得到当前碰撞道具类型
-					}
-					break;
+					}else {
+						character.setHp(character.getHp()-1);
+						thing.setLive(false);
+						if (flag==1 && character.getHp()==0) {//子弹和敌人&玩家
+							character.setLive(false);	//碰到子弹 血量无 人物死亡
+							if(character instanceof Enemy) {
+								score += 5;  
+							}
+						}
+						else if (flag==0 && thing instanceof Prop) {//道具和玩家
+							GameThread.setPropType(((Prop)thing).getPropType());//得到当前碰撞道具类型
+						}
+						break;
+					}					
 				}							
 			}
 		}
 	}
+
 
 //	游戏元素自动化方法
 	public void moveAndUpdate(Map<GameElement, List<ElementObj>> all,int gameTime) {
@@ -164,11 +177,15 @@ public class GameThread extends Thread{
 	
 	/**
 	 * 游戏分数计算
-	 */
+	 */	
 	public static int getScore() {
 		return score;
 	}
 	
+	public static void setScore(int score) {
+		GameThread.score = score;
+	}
+
 	/**
 	 * 游戏切换关卡
 	 */
@@ -176,7 +193,7 @@ public class GameThread extends Thread{
 //		关卡递增
 		if(!GameLevel.flag && GameLevel.getLevel()<6)
 			GameLevel.setLevel(GameLevel.getLevel()+1);
-		GameLevel.flag = false;
+//		GameLevel.flag = false;
 //		资源回收
 		Map<GameElement,List<ElementObj>> all = em.getGameElements();
 		for(GameElement ge: GameElement.values()) {
