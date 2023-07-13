@@ -2,13 +2,7 @@ package com.air.controller;
 
 import java.util.List;
 import java.util.Map;
-
-import javax.swing.ImageIcon;
-
 import com.air.element.ElementObj;
-import com.air.element.Enemy;
-import com.air.element.Play;
-import com.air.element.Prop;
 import com.air.manager.ElementManager;
 import com.air.manager.GameElement;
 import com.air.manager.GameLoad;
