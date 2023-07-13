@@ -7,7 +7,7 @@ import com.air.manager.GameLoad;
 import com.air.manager.ElementManager;
 import com.air.manager.GameElement;
 
-public class Boss extends Enemy{
+public class Boss extends ElementObj{
 	private int speed = 1;
 	private String fx="down";
 	private boolean pkType=true;
@@ -22,7 +22,7 @@ public class Boss extends Enemy{
 		if (this.getY()+this.getH()>=0) {
 			g.drawString("BOSS:", 0, 10);
 			g.setColor(Color.RED);
-			g.drawRect(50, 0, 100, 15);
+			g.drawRect(50, 0, 80, 15);
 			g.fillRect(50, 0, this.getHp(), 15);
 		}
 		

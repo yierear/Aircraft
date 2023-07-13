@@ -110,7 +110,7 @@ public class PlayFile extends ElementObj{
 	public static void changeFire() {
 		PlayFile.fireType = Play.getPlayAndFire()+"fireType";
 	}
-	
+		
 }
 
 
