@@ -1,13 +1,8 @@
 package com.air.element;
 
 import java.awt.Graphics;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Random;
-import java.util.concurrent.TimeUnit;
-
 import javax.swing.ImageIcon;
-
 import com.air.controller.GameThread;
 import com.air.manager.ElementManager;
 import com.air.manager.GameElement;
