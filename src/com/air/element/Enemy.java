@@ -98,7 +98,13 @@ public class Enemy extends ElementObj{
 	public void setHp(int hp) {
 		// TODO 自动生成的方法存根
 		switch(enemyType) {
-			
+		case "1enemy": this.hp = 1; break;
+		case "2enemy": this.hp = 3; break;
+		case "3enemy": this.hp = 5; break;
+		case "4enemy": this.hp = 7; break;
+		case "5enemy": this.hp = 10; break;
+		case "6enemy": this.hp = 15; break;
+		case "7enemy": this.hp = 20; break;
 		}
 	}
 	

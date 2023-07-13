@@ -2,6 +2,8 @@ package com.air.controller;
 
 import java.util.List;
 import java.util.Map;
+
+import com.air.element.Boss;
 import com.air.element.ElementObj;
 import com.air.element.Enemy;
 import com.air.element.Prop;
@@ -135,7 +137,10 @@ public class GameThread extends Thread{
 							character.setLive(false);
 						}else if(thing.getHp()==0) {
 							thing.setLive(false);
-							score += 5;
+							if(thing instanceof Boss)
+								score += 5*GameLevel.getLevel();
+							else 
+								score += 5;
 						}
 					}else {
 						character.setHp(character.getHp()-1);

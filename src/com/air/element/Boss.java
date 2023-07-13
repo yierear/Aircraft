@@ -82,4 +82,16 @@ public class Boss extends ElementObj{
 		return "x:"+x+",y:"+y+",f:"+this.fx+",type:fireType5";
 	}
 	
+//	@Override
+//	public void setHp(int hp) {
+//		// TODO 自动生成的方法存根
+//		switch(enemyType) {
+//		case "1boss": this.hp = 10; break;
+//		case "2boss": this.hp = 20; break;
+//		case "3boss": this.hp = 30; break;
+//		case "4boss": this.hp = 40; break;
+//		case "5boss": this.hp = 60; break;
+//		case "6boss": this.hp = 80; break;
+//		}
+//	}
 }
