@@ -94,31 +94,94 @@ public class GameLoad {
 		loadObj();
 		Random random=new Random();
 		int x,y,num;
-		int [] a= {-1,1};
+		y = -random.nextInt(500);
+		String enemyStr="";
 		switch(mapId) {
-		case 1:
-			for (int i = 1; i < 15; i++)  {				
-				x=a[random.nextInt(2)]*random.nextInt(1000);
-				y=-random.nextInt(500);
-				num=random.nextInt(2)+1;//敌机图片编号
-				String enemyStr=x+","+y+",50,50,enemy"+num+"";
-				ElementObj enemyobj=getObj("enemy");
-				ElementObj enemy = enemyobj.createElement(enemyStr);
-				em.addElement(enemy, GameElement.ENEMY);
+		default:
+			num = random.nextInt(2) + 1;// 敌机图片编号
+			switch(num) {
+			case 2:
+				x = -random.nextInt(600);break;
+			default:
+				x = random.nextInt(600);break;
 			}
+			
+			
 			break;
-//		case 2:
-//			for (int i = 1; i < 25; i++) {
-//			x=a[random.nextInt(2)]*random.nextInt(1000);
-//			y=-random.nextInt(500);
-//			num=random.nextInt(4)+1;//敌机图片编号
-//			String enemyStr=x+","+y+",50,50,enemy"+num+"";
-//			ElementObj enemyobj=getObj("enemy");
-//			ElementObj enemy = enemyobj.createElement(enemyStr);
-//			em.addElement(enemy, GameElement.ENEMY);
-//		}
-//		break;
+		case 2:
+			num = random.nextInt(4) + 1;// 敌机图片编号
+			switch(num) {
+			case 2:
+			case 4:
+				x = -random.nextInt(600);break;
+			case 3:
+				x = random.nextInt(1200);break;
+			default:
+				x = random.nextInt(600);break;
+			}
+			
+			break;
+		case 3:
+			num = random.nextInt(5) + 1;// 敌机图片编号
+			switch(num) {
+			case 2:
+			case 4:
+				x = -random.nextInt(600);break;
+			case 3:
+			case 5:
+				x = random.nextInt(1200);break;
+			default:
+				x = random.nextInt(600);break;
+			}
+			
+			break;
+		case 4:
+			num = random.nextInt(6) + 1;// 敌机图片编号
+			switch(num) {
+			case 2:
+			case 6:
+				x = -random.nextInt(600);break;
+			case 3:
+			case 5:
+				x = random.nextInt(1200);break;
+			default:
+				x = random.nextInt(600);break;
+			}
+			
+			break;
+		case 5:
+			num = random.nextInt(7) + 1;// 敌机图片编号
+			switch(num) {
+			case 6:
+			case 4:
+				x = -random.nextInt(600);break;
+			case 7:
+			case 5:
+				x = random.nextInt(1200);break;
+			default:
+				x = random.nextInt(600);break;
+			}
+			
+			break;
+		case 6:
+			num = random.nextInt(9) + 1;// 敌机图片编号
+			switch(num) {
+			case 9:
+			case 4:
+				x = -random.nextInt(600);break;
+			case 3:
+			case 8:
+				x = random.nextInt(1200);break;
+			default:
+				x = random.nextInt(600);break;
+			}
+			
+			break;
 		}
+		enemyStr = x + "," + y + ",60,60,enemy" + num + "";
+		ElementObj enemyobj = getObj("enemy");
+		ElementObj enemy = enemyobj.createElement(enemyStr);
+		em.addElement(enemy, GameElement.ENEMY);
 		
 		
 	}
