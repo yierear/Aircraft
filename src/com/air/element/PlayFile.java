@@ -50,8 +50,8 @@ public class PlayFile extends ElementObj{
 //				this.setIcon(icon1); break;
 			}
 		}
-		this.setW(12);
-		this.setH(12);
+		this.setW(10);
+		this.setH(10);
 		return this;
 	}
 	@Override
