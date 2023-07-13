@@ -29,7 +29,7 @@ public class Enemy extends ElementObj{
 		this.setY(Integer.parseInt(split[1]));
 		this.setW(Integer.parseInt(split[2]));	
 		this.setH(Integer.parseInt(split[3]));
-		this.setHp(10);
+		this.setHp(3);
 		ImageIcon icon = GameLoad.imgMap.get(split[4]);
 		this.setIcon(icon);
 		return this;

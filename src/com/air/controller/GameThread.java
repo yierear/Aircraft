@@ -3,6 +3,7 @@ package com.air.controller;
 import java.util.List;
 import java.util.Map;
 import com.air.element.ElementObj;
+import com.air.element.Enemy;
 import com.air.element.Prop;
 import com.air.manager.ElementManager;
 import com.air.manager.GameElement;
@@ -76,7 +77,7 @@ public class GameThread extends Thread{
 			moveAndUpdate(all, gameTime);//	游戏元素自动化方法
 			
 //			加载敌人NPC
-			if(!plays.isEmpty() && gameTime%5000==0) {
+			if(!plays.isEmpty() && gameTime%200==0) {
 				GameLoad.loadNpc(GameLevel.getLevel());
 			}
 //			flag=1 玩家/敌人和子弹
@@ -85,7 +86,7 @@ public class GameThread extends Thread{
 			ElementPK(plays, enemyfires,1);//玩家和敌人子弹	
 			ElementPK(plays, props,0);//玩家和道具
 
-			if(getScore()==50*GameLevel.getLevel()) {//分数条件
+			if(getScore()==5*GameLevel.getLevel()) {//分数条件
 				if(GameLevel.getLevel() == 6)
 				{
 					GameLoad.next("1");
@@ -111,36 +112,35 @@ public class GameThread extends Thread{
 		}
 	}
 	
+	/**
+	 * 
+	 * @param listA 敌人 玩家
+	 * @param listB 子弹
+	 * @param flag 0 道具vs玩家 道具-1 玩家不变  
+	 * 			   1 子弹vs敌人 子弹vs玩家 子弹-1 敌人/玩家-1 
+	 */
 	private void ElementPK(List<ElementObj> listA,List<ElementObj> listB,int flag) {
 		for (int i = 0; i < listA.size(); i++) {
 			ElementObj character=listA.get(i);
 			for (int j = 0; j < listB.size(); j++) {
 				ElementObj thing=listB.get(j);					
 				if (character.pk(thing)) {
-//					character.setLive(false);
-//					thing.setLive(false);
+					character.setHp(character.getHp()-1);
 					thing.setLive(false);
-					if (flag==1) {//子弹和敌人&玩家
-						if (character.getHp()<=0) {
-							character.setLive(false);	//碰到子弹 血量无 人物死亡					
-						}
-						else {
-							character.setLive(true);//还有血量 生存
+					if (flag==1 && character.getHp()==0) {//子弹和敌人&玩家
+						character.setLive(false);	//碰到子弹 血量无 人物死亡
+						if(character instanceof Enemy) {
+							score += 5;  
 						}
 					}
-					else if (flag==0) {//道具和玩家
-						character.setLive(true);//人物生存
-						if(thing instanceof Prop) {
-							GameThread.setPropType(((Prop)thing).getPropType());//得到当前碰撞道具类型
-						}
+					else if (flag==0 && thing instanceof Prop) {//道具和玩家
+						GameThread.setPropType(((Prop)thing).getPropType());//得到当前碰撞道具类型
 					}
 					break;
-				}			
-
-				
-				}
+				}							
 			}
 		}
+	}
 
 //	游戏元素自动化方法
 	public void moveAndUpdate(Map<GameElement, List<ElementObj>> all,int gameTime) {
@@ -174,7 +174,7 @@ public class GameThread extends Thread{
 	 */
 	private void gameOver() {
 //		关卡递增
-		if(!GameLevel.flag)
+		if(!GameLevel.flag && GameLevel.getLevel()<6)
 			GameLevel.setLevel(GameLevel.getLevel()+1);
 		GameLevel.flag = false;
 //		资源回收
