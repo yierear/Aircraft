@@ -8,7 +8,9 @@ import javax.swing.ImageIcon;
 import com.air.manager.GameLoad;
 
 public class Prop extends ElementObj{
-	private String propType = null;//道具类型
+	
+	private String propType = null;//当前道具的类型
+	
 	@Override
 	public void showElement(Graphics g) {
 		g.drawImage(this.getIcon().getImage(), 
@@ -41,9 +43,6 @@ public class Prop extends ElementObj{
 	public void setPropType(String propType) {
 		this.propType = propType;
 	}
-	
-	
-	
-	
+
 
 }

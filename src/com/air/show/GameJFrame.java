@@ -3,6 +3,7 @@ package com.air.show;
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -14,8 +15,10 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import javax.swing.ScrollPaneConstants;
 
 import com.air.controller.GameThread;
 
@@ -176,24 +179,33 @@ public class GameJFrame extends JFrame{
 	}
 	
 	private void explain() {
-		// TODO 自动生成的方法存根
+//		面板
 		JFrame jFrame = new JFrame();
 		jFrame.setBounds(1150,100,300,500);
 		jFrame.setTitle("游戏说明");
 		jFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); //设置退出并关闭
 		jFrame.setVisible(true);
-		
+//		窗体
 		JPanel jPanel = new JPanel();
 		jPanel.setBounds(0, 0, 300, 500);
 		jPanel.setBackground(new Color(253, 209, 73));
 		jFrame.add(jPanel);
-		
+//		滚动
+		JScrollPane jScrollPane = new JScrollPane(
+				ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS,
+				ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
+		jScrollPane.setViewportView(jPanel);
+		jPanel.setPreferredSize(new Dimension(200,1000));
+		jPanel.revalidate();
+		jFrame.add(jScrollPane);		
+//		标题
 		JLabel jLabel = new JLabel("游戏说明");
 		Font font = new Font("华文楷体", Font.BOLD, 50);
 		jLabel.setBounds(140, 10, 40, 50);
 		jLabel.setFont(font);
 		jPanel.add(jLabel);
-		
+//		具体说明
+		//按钮说明
 		Font font1 = new Font("华文楷体", Font.PLAIN, 15);
 		String string = "1.按钮说明：\n"
 				+ "①“开始游戏”：点击可以直接开始游戏，系统将根据得分自动进入下一关\n"
@@ -203,8 +215,40 @@ public class GameJFrame extends JFrame{
 		jArea.setBounds(20, 80, 260, 450);
 		jArea.setFont(font1);
 		jArea.setLineWrap(true);
-//		jArea.enable(false);
 		jArea.setBackground(new Color(251,248,211));
 		jPanel.add(jArea);
-	}
+		//控制说明
+		String string1 = "2.控制说明：\n"
+				+ "①“开始游戏”：点击可以直接开始游戏，系统将根据得分自动进入下一关\n"
+				+ "②“选择关卡”：点击可以选择游戏关卡，点击此按钮后再次点击开始游戏即可进入所选关卡\n"
+				+ "③“退出游戏”：点击1s后将退出游戏";
+		JTextArea jArea1 = new JTextArea(string1,5,5);
+		jArea1.setBounds(20, 680, 260, 450);
+		jArea1.setFont(font1);
+		jArea1.setLineWrap(true);
+		jArea1.setBackground(new Color(251,248,211));
+		jPanel.add(jArea1);
+		//关卡说明
+		String string2 = "3.关卡说明：\n"
+				+ "①“开始游戏”：点击可以直接开始游戏，系统将根据得分自动进入下一关\n"
+				+ "②“选择关卡”：点击可以选择游戏关卡，点击此按钮后再次点击开始游戏即可进入所选关卡\n"
+				+ "③“退出游戏”：点击1s后将退出游戏";
+		JTextArea jArea2 = new JTextArea(string2,5,5);
+		jArea2.setBounds(20, 1280, 260, 450);
+		jArea2.setFont(font1);
+		jArea2.setLineWrap(true);
+		jArea2.setBackground(new Color(251,248,211));
+		jPanel.add(jArea2);		
+		//道具说明
+		String string3 = "4.道具说明：\n"
+				+ "①“开始游戏”：点击可以直接开始游戏，系统将根据得分自动进入下一关\n"
+				+ "②“选择关卡”：点击可以选择游戏关卡，点击此按钮后再次点击开始游戏即可进入所选关卡\n"
+				+ "③“退出游戏”：点击1s后将退出游戏";
+		JTextArea jArea3 = new JTextArea(string3,5,5);
+		jArea3.setBounds(20, 1880, 260, 450);
+		jArea3.setFont(font1);
+		jArea3.setLineWrap(true);
+		jArea3.setBackground(new Color(251,248,211));
+		jPanel.add(jArea3);
+}		
 }

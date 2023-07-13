@@ -211,9 +211,9 @@ public class Play extends ElementObj{
 //		System.out.println(effect);
 		if(effect!=null) {
 			switch(effect) {
-			case "1prop": this.setHp(this.getHp()-5); GameThread.setPropType(null); break;
-			case "2prop": this.setHp(this.getHp()-5); GameThread.setPropType(null); break;
-			case "3prop": this.setHp(this.getHp()-5); GameThread.setPropType(null); break;
+			case "1prop": this.setHp(this.getHp()+5); GameThread.setPropType(null); break;
+			case "2prop": this.setHp(this.getHp()+10); GameThread.setPropType(null); break;
+			case "3prop": this.setHp(this.getHp()-20); GameThread.setPropType(null); break;
 			}
 //			System.out.println(this.getHp());
 //			System.out.println(Play.getHP());
@@ -239,7 +239,12 @@ public class Play extends ElementObj{
 		return HP;
 	}
 	public static void setHP(int hP) {
-		HP = hP;
+		if(hP<=100&&hP>=0)
+			HP = hP;
+		else if(hP>100)
+			HP = 100;
+		else if(hP<0)
+			HP = 0;
 	}
 	public String getEffect() {
 		return effect;

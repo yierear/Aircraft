@@ -71,19 +71,7 @@ public class GameLoad {
 			e.printStackTrace();
 		}
 	}
-	/**
-	 * 加载玩家
-	 * */
-	public static void loadPlay() {
-		loadObj();
-		String playStr="200,500,up";
-//		String playStr="200,500,20,20,up";//x,y,图片
-		ElementObj playobj=getObj("play");  
-		ElementObj play = playobj.createElement(playStr);
-//		解耦,降低代码和代码之间的耦合度 可以直接通过 接口或者是抽象父类就可以获取到实体对象
-		em.addElement(play, GameElement.PLAY);
-		
-	}
+	
 	
 	
 	
@@ -196,7 +184,7 @@ public class GameLoad {
 		for (int i = 0; i < mapid*30; i++) {//道具数等于关卡*15
 			propy=-800-random.nextInt(3000);
 			propx=random.nextInt(600);			
-			num=random.nextInt(3)+1;//道具 1~4
+			num=random.nextInt(5)+1;//道具 1~5
 			String propStr=propx+","+propy+",30,30,"+num+"prop";
 			ElementObj propobj=getObj("prop");
 			ElementObj prop = propobj.createElement(propStr);
@@ -204,6 +192,20 @@ public class GameLoad {
 		}		
 	}
 	
+	
+	/**
+	 * 加载玩家
+	 * */
+	public static void loadPlay() {
+		loadObj();
+		String playStr="200,500,up";
+//		String playStr="200,500,20,20,up";//x,y,图片
+		ElementObj playobj=getObj("play");  
+		ElementObj play = playobj.createElement(playStr);
+//		解耦,降低代码和代码之间的耦合度 可以直接通过 接口或者是抽象父类就可以获取到实体对象
+		em.addElement(play, GameElement.PLAY);
+		
+	}
 	private static Map<String,Class<?>> objMap=new HashMap<>();
 	
 	public static ElementObj getObj(String str) {	
