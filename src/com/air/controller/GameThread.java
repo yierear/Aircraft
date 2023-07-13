@@ -82,16 +82,16 @@ public class GameThread extends Thread{
 			
 			ElementPK(enemys,fires,0);//敌人和玩家子弹
 			ElementPK(plays, props,1);//玩家和道具
-			ElementPK(plays, enemyfires,0);//玩家和敌人子弹		
+			ElementPK(plays, enemyfires,0);//玩家和敌人子弹	
+			
+			try {
+				sleep(30);
+			} catch (InterruptedException e) {
+				// TODO 自动生成的 catch 块
+				e.printStackTrace();
+			}
+			gameTime++;//唯一的时间控制
 		}
-		
-		try {
-			sleep(30);
-		} catch (InterruptedException e) {
-			// TODO 自动生成的 catch 块
-			e.printStackTrace();
-		}
-		gameTime++;//唯一的时间控制
 	}
 	
 	private void ElementPK(List<ElementObj> listA,List<ElementObj> listB,int flag) {
@@ -149,10 +149,10 @@ public class GameThread extends Thread{
 	 * 游戏切换关卡
 	 */
 	private void gameOver() {
-////		关卡递增
-//		if(!GameLevel.flag)
-//			GameLevel.setLevel(GameLevel.getLevel()+1);
-//		GameLevel.flag = false;
+//		关卡递增
+		if(!GameLevel.flag)
+			GameLevel.setLevel(GameLevel.getLevel()+1);
+		GameLevel.flag = false;
 //		资源回收
 		Map<GameElement,List<ElementObj>> all = em.getGameElements();
 		for(GameElement ge: GameElement.values()) {
