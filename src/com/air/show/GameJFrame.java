@@ -241,9 +241,10 @@ public class GameJFrame extends JFrame{
 		jPanel.add(jArea2);		
 		//道具说明
 		String string3 = "4.道具说明：\n"
-				+ "①“开始游戏”：点击可以直接开始游戏，系统将根据得分自动进入下一关\n"
-				+ "②“选择关卡”：点击可以选择游戏关卡，点击此按钮后再次点击开始游戏即可进入所选关卡\n"
-				+ "③“退出游戏”：点击1s后将退出游戏";
+				+ "①血包：玩家获得一个血包可回血10点\n"
+				+ "②强化包：玩家获得一个强化包可以增加子弹攻击力\n"
+				+ "③加速包：玩家获得一个加速包可以提升移动速度\n"
+				+ "④炸弹：玩家触碰到一个炸弹会掉20点血";
 		JTextArea jArea3 = new JTextArea(string3,5,5);
 		jArea3.setBounds(20, 1880, 260, 450);
 		jArea3.setFont(font1);

@@ -13,6 +13,7 @@ import javax.swing.ImageIcon;
 
 import com.air.element.Boss;
 import com.air.element.ElementObj;
+import com.air.element.Explode;
 import com.air.element.Next;
 import com.air.manager.GameLoad;
 /**
@@ -87,6 +88,7 @@ public class GameLoad {
 		int x,y,num;
 		y = -random.nextInt(100);
 		String enemyStr="";
+		
 		switch(mapId) {
 		default:
 			num = random.nextInt(2) + 1;// 敌机图片编号
@@ -168,7 +170,10 @@ public class GameLoad {
 			break;
 		}
 		enemyStr = x + "," + y + ",60,60," + num + "enemy";
-		
+//		Explode explode = new Explode(0,0);
+//		explode.setX(x);
+//		explode.setY(y);
+//		explode.showElement(g);
 		//创建普通敌机
 		ElementObj enemyobj = getObj("enemy");
 		ElementObj enemy = enemyobj.createElement(enemyStr);
@@ -262,7 +267,7 @@ public class GameLoad {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	}
+	}	
 	
 	public static void next(String type) {
 		em.addElement(new Next().createElement(type), GameElement.NEXT);
