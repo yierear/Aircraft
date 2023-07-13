@@ -76,16 +76,16 @@ public class GameThread extends Thread{
 			moveAndUpdate(all, gameTime);//	游戏元素自动化方法
 			
 //			加载敌人NPC
-//			if(!plays.isEmpty() && gameTime%10000==0) {
-//				GameLoad.loadNpc(GameLevel.getLevel());
-//			}
+			if(!plays.isEmpty() && gameTime%5000==0) {
+				GameLoad.loadNpc(GameLevel.getLevel());
+			}
 			
 			ElementPK(enemys,fires,0);//敌人和玩家子弹
 			ElementPK(plays, props,1);//玩家和道具
 			ElementPK(plays, enemyfires,0);//玩家和敌人子弹	
 			
 			try {
-				sleep(30);
+				sleep(10);
 			} catch (InterruptedException e) {
 				// TODO 自动生成的 catch 块
 				e.printStackTrace();
