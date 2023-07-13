@@ -37,4 +37,3 @@ enemy9=image/enemy/12.png
 2prop=image/prop/blood.png
 3prop=image/prop/bomb.png
 4prop=image/prop/shield.png
-
