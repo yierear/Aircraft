@@ -104,8 +104,7 @@ public class GameLoad {
 		int [] a= {-1,1};
 		switch(mapId) {
 		case 1:
-			for (int i = 1; i < 15; i++)  {
-				
+			for (int i = 1; i < 15; i++)  {				
 				x=a[random.nextInt(2)]*random.nextInt(1000);
 				y=-random.nextInt(500);
 				num=random.nextInt(2)+1;//敌机图片编号
@@ -137,11 +136,12 @@ public class GameLoad {
 	public static void loadProp(int mapid) {
 		loadObj();
 		Random random = new Random();
-		int x;
-		for (int i = 0; i < mapid; i++) {
-			
-			x=random.nextInt(600);
-			String propStr=x+",-10,30,30,"+mapid+"prop";
+		int propx,propy,num;
+		for (int i = 0; i < mapid*30; i++) {//道具数等于关卡*15
+			propy=-800-random.nextInt(3000);
+			propx=random.nextInt(600);			
+			num=random.nextInt(3)+1;//道具 1~4
+			String propStr=propx+","+propy+",30,30,"+num+"prop";
 			ElementObj propobj=getObj("prop");
 			ElementObj prop = propobj.createElement(propStr);
 			em.addElement(prop, GameElement.PROP);
