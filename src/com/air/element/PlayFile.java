@@ -22,11 +22,13 @@ public class PlayFile extends ElementObj{
 	private int attack;//攻击力
 	private int moveNum=3;//移动速度值
 	private String fx;
-	private String fireType;
+	private static String fireType = "1fireType";
 //	剩下的大家扩展; 可以扩展出多种子弹： 激光，导弹等等。(玩家类就需要有子弹类型)
 	public PlayFile() {}//一个空的构造方法
 //	对创建这个对象的过程进行封装，外界只需要传输必要的约定参数，返回值就是对象实体
-	private int level = GameLevel.getLevel();
+//	private int level = GameLevel.getLevel();//获取关卡
+	
+	private int fireAndPlay = 1;
 	
 	@Override   //{X:3,y:5,f:up}
 	public  ElementObj createElement(String str) {//定义字符串的规则
@@ -48,16 +50,16 @@ public class PlayFile extends ElementObj{
 //				this.setIcon(icon1); break;
 			}
 		}
-		this.setW(10);
-		this.setH(10);
+		this.setW(12);
+		this.setH(12);
 		return this;
 	}
 	@Override
 	public void showElement(Graphics g) {
-		ImageIcon icon1 = GameLoad.imgMap.get(level+"fireType");
+		ImageIcon icon1 = GameLoad.imgMap.get(fireType);
 		this.setIcon(icon1);
 		g.drawImage(this.getIcon().getImage(), 
-				this.getX()-3, this.getY()-5, 
+				this.getX()-5, this.getY()-5, 
 				this.getW(), this.getH(), null);
 	}	
 
@@ -105,6 +107,9 @@ public class PlayFile extends ElementObj{
 ////		}
 //	}
 	
+	public static void changeFire() {
+		PlayFile.fireType = Play.getPlayAndFire()+"fireType";
+	}
 	
 }
 

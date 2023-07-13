@@ -39,6 +39,8 @@ public class Play extends ElementObj{
 	private int speed = 2;//速度
 	private String effect = null;//增益类型
 	
+	private static int playAndFire = 1;//传参决定玩家和子弹类型
+	
 	//	变量专门用来记录当前主角面向的方向,默认为是up
 	private String fx="up";
 	private boolean pkType=true;//攻击状态 true 攻击  false停止
@@ -91,6 +93,7 @@ public class Play extends ElementObj{
 //		System.out.println("测试："+key);
 		Random random = new Random();
 		int ran=random.nextInt(5)+1;
+		Play.setPlayAndFire(ran);
 		if(bl) {//按下
 			switch(key) {  //怎么优化 大家中午思考;加 监听会持续触发；有没办法触发一次
 			case 37: 
@@ -106,7 +109,9 @@ public class Play extends ElementObj{
 				this.right=false;this.left=false;
 				this.up=false; this.down=true;  this.fx="down";break;
 			case 32:
-				this.playType=ran+"playType";break;//换装
+				this.playType=ran+"playType";
+				PlayFile.changeFire();
+				break;//换装
 			}
 		}else {
 			switch(key) {
@@ -207,7 +212,7 @@ public class Play extends ElementObj{
 	}
 	
 	public void EffectType() {
-		effect = GameThread.getPropType();
+		this.setEffect(GameThread.getPropType());
 //		System.out.println(effect);
 		if(effect!=null) {
 			switch(effect) {
@@ -241,4 +246,19 @@ public class Play extends ElementObj{
 	public static void setHP(int hP) {
 		HP = hP;
 	}
+	public String getEffect() {
+		return effect;
+	}
+	public void setEffect(String effect) {
+		this.effect = effect;
+	}
+	
+	public static int getPlayAndFire() {
+		return playAndFire;
+	}
+	public static void setPlayAndFire(int playAndFire) {
+		Play.playAndFire = playAndFire;
+	}
+	
+	
 }
