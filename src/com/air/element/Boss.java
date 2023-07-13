@@ -7,7 +7,7 @@ import com.air.manager.GameLoad;
 import com.air.manager.ElementManager;
 import com.air.manager.GameElement;
 
-public class Boss extends ElementObj{
+public class Boss extends Enemy{
 	private int speed = 1;
 	private String fx="down";
 	private boolean pkType=true;
