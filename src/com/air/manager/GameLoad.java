@@ -1,22 +1,15 @@
 package com.air.manager;
 
-import java.awt.Graphics;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 import java.util.Random;
 import java.util.Set;
-
-import javax.lang.model.element.Element;
 import javax.swing.ImageIcon;
 
 import com.air.element.ElementObj;
-import com.air.element.MapObj;
-import com.air.element.Play;
-import com.air.manager.ElementManager;
 import com.air.manager.GameLoad;
 
 /**

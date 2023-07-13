@@ -17,7 +17,7 @@ import com.air.element.Play;
 public class GameLevel extends JPanel{
 	private static int Level = 1;
 	private int primary = 0; //leve初始值
-	public static boolean flag = false; //true则变了
+	public static boolean flag = false; //true则关卡改变
 	private static final int BUTTON_WIDTH = 180;
 	private static final int BUTTON_HEIGHT = 100;
 	
