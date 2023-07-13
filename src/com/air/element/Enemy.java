@@ -97,6 +97,32 @@ public class Enemy extends ElementObj{
 	public void setLive(boolean live) {
 		super.setLive(live);
 		int hp = this.getHp();
-		hp-=5;
+		hp-=1;
 	}
+	public int getSpeed() {
+		return speed;
+	}
+	public void setSpeed(int speed) {
+		this.speed = speed;
+	}
+	public String getFx() {
+		return fx;
+	}
+	public void setFx(String fx) {
+		this.fx = fx;
+	}
+	public boolean isPkType() {
+		return pkType;
+	}
+	public void setPkType(boolean pkType) {
+		this.pkType = pkType;
+	}
+	public int getHp() {
+		return hp;
+	}
+	public void setHp(int hp) {
+		this.hp = hp;
+	}
+	
+	
 }
