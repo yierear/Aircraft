@@ -82,6 +82,12 @@ public class GameThread extends Thread{
 			List<ElementObj> plays = em.getElementsByKey(GameElement.PLAY);
 			List<ElementObj> props = em.getElementsByKey(GameElement.PROP);
 			moveAndUpdate(all, gameTime);//	游戏元素自动化方法
+			
+//			加载敌人NPC
+			if(!plays.isEmpty() && gameTime%100==0) {
+				GameLoad.loadNpc(GameLevel.getLevel());
+			}
+			
 //			参数flag 
 //			0 道具vs玩家 道具-1 玩家不变
 //			1 子弹vs敌人 子弹vs玩家 子弹vs大boss 子弹-1 敌人/玩家-1 
@@ -90,13 +96,28 @@ public class GameThread extends Thread{
 			ElementPK(plays, props,1);//玩家和道具
 			ElementPK(plays, enemyfires,0);//玩家和敌人子弹
 
-			gameTime++;//唯一的时间控制
+			if(getScore()==50*GameLevel.getLevel()) {
+				if(GameLevel.getLevel()== 6)
+				{
+					GameLoad.next("1");
+				}else {
+					GameLoad.next("0");
+				}
+			}
 			try {
-				sleep(10);
+				sleep(3000);
 			} catch (InterruptedException e) {
 				// TODO 自动生成的 catch 块
 				e.printStackTrace();
 			}
+			break;			
+		}
+		gameTime++;//唯一的时间控制
+		try {
+			sleep(30);
+		} catch (InterruptedException e) {
+			// TODO 自动生成的 catch 块
+			e.printStackTrace();
 		}
 	}
 	
@@ -117,7 +138,6 @@ public class GameThread extends Thread{
 					}
 					else if (flag==0) {//道具和玩家
 						character.setLive(true);//人物生存
-						thing.setLive(false);//道具消失
 					}
 				}			
 					break;
@@ -156,9 +176,10 @@ public class GameThread extends Thread{
 	 * 游戏切换关卡
 	 */
 	private void gameOver() {
-//		插入结束显示   
-//		System.out.println("通关成功！5秒后进入下一关......");
-//		System.out.println("当前得分："+score);
+//		关卡递增
+		if(!GameLevel.flag)
+			GameLevel.setLevel(GameLevel.getLevel()+1);
+		GameLevel.flag = false;
 //		资源回收
 		Map<GameElement,List<ElementObj>> all = em.getGameElements();
 		for(GameElement ge: GameElement.values()) {
