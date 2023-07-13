@@ -5,7 +5,6 @@ import java.util.Random;
 
 import javax.swing.ImageIcon;
 
-import com.air.element.ElementObj;
 import com.air.manager.ElementManager;
 import com.air.manager.GameElement;
 import com.air.manager.GameLoad;

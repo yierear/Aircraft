@@ -13,11 +13,17 @@ public class Boss extends Enemy{
 		// TODO 自动生成的方法存根
 		return super.createElement(str);
 	}
+	
+	@Override
+	public void move(int gametime) {
+		this.setY(this.getY()+this.getSpeed());
+			
+	}
+		
 	@Override
 	public void setLive(boolean live) {
 		// TODO 自动生成的方法存根
-		this.setHp(this.getHp()-5);
-		
+		this.setHp(this.getHp()-5);		
 	}
 	
 }
