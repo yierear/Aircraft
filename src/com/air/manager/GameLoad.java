@@ -11,6 +11,7 @@ import java.util.Set;
 import javax.swing.Box;
 import javax.swing.ImageIcon;
 
+import com.air.element.Boss;
 import com.air.element.ElementObj;
 import com.air.element.Next;
 import com.air.manager.GameLoad;
@@ -180,9 +181,8 @@ public class GameLoad {
 	public static void loadBoss(int mapid) {
 		loadObj();
 		String bossStr="";
-		bossStr= "75,-500,450,300,boss"+mapid+"";
-		ElementObj bossobj = getObj("boss");
-		ElementObj boss = bossobj.createElement(bossStr);
+		bossStr= "75,-1000,450,300,boss"+mapid+"";
+		ElementObj boss = new Boss().createElement(bossStr);
 		em.addElement(boss, GameElement.BOSS);
 	}
 	

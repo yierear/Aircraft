@@ -2,14 +2,12 @@ package com.air.element;
 
 import java.awt.Color;
 import java.awt.Graphics;
-
 import javax.swing.ImageIcon;
-
+import com.air.manager.GameLoad;
 import com.air.manager.ElementManager;
 import com.air.manager.GameElement;
-import com.air.manager.GameLoad;
 
-public class Boss extends ElementObj{
+public class Boss extends Enemy{
 	private int speed = 1;
 	private String fx="down";
 	private boolean pkType=true;
@@ -36,7 +34,7 @@ public class Boss extends ElementObj{
 		this.setY(Integer.parseInt(split[1]));
 		this.setW(Integer.parseInt(split[2]));	
 		this.setH(Integer.parseInt(split[3]));
-		this.setHp(3);
+		this.setHp(80);
 		ImageIcon icon = GameLoad.imgMap.get(split[4]);
 		this.setIcon(icon);
 		return this;
