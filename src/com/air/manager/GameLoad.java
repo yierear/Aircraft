@@ -167,7 +167,7 @@ public class GameLoad {
 			}
 			break;
 		}
-		enemyStr = x + "," + y + ",60,60,enemy" + num + "";
+		enemyStr = x + "," + y + ",60,60," + num + "enemy";
 		
 		//创建普通敌机
 		ElementObj enemyobj = getObj("enemy");
