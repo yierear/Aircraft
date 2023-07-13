@@ -10,8 +10,8 @@ import java.util.Set;
 import javax.swing.ImageIcon;
 
 import com.air.element.ElementObj;
+import com.air.element.Next;
 import com.air.manager.GameLoad;
-
 /**
  * @说明  加载器(工具：用户读取配置文件的工具)工具类,大多提供的是 static方法
  * @author ch'ri's't'ye'e'e
@@ -187,6 +187,10 @@ public class GameLoad {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+	
+	public static void next(String type) {
+		em.addElement(new Next().createElement(type), GameElement.NEXT);
 	}
 	public static void main(String[] args) {
 //		loadNpc(1);

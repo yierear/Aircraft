@@ -13,5 +13,5 @@ public enum GameElement {
 	 * PROP 道具
 	 * EXPLODED 爆炸
 	 */
-	MAPS,PLAY,ENEMY,BOSS,PLAYFILE,ENEMYFILE,DIE,PROP,EXPLODED;  //枚举类型的顺序是 声明的顺序
+	MAPS,PLAY,ENEMY,BOSS,PLAYFILE,ENEMYFILE,DIE,NEXT,PROP,EXPLODED;  //枚举类型的顺序是 声明的顺序
 }

@@ -156,7 +156,7 @@ public class GameThread extends Thread{
 	 * 游戏切换关卡
 	 */
 	private void gameOver() {
-//		插入结束显示		
+//		插入结束显示   
 //		System.out.println("通关成功！5秒后进入下一关......");
 //		System.out.println("当前得分："+score);
 //		资源回收
@@ -172,11 +172,10 @@ public class GameThread extends Thread{
 	public static String getPropType() {
 		return propType;
 	}
-
+	
 	public static void setPropType(String propType) {
 		GameThread.propType = propType;
-	}
-
+	}	
 	
 	
 }
