@@ -180,7 +180,7 @@ public class GameLoad {
 	public static void loadBoss(int mapid) {
 		loadObj();
 		String bossStr="";
-		bossStr= "75,-1000,450,300,boss"+mapid+"";
+		bossStr= "75,-500,450,300,boss"+mapid+"";
 		ElementObj bossobj = getObj("boss");
 		ElementObj boss = bossobj.createElement(bossStr);
 		em.addElement(boss, GameElement.BOSS);

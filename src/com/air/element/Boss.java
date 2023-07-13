@@ -44,8 +44,10 @@ public class Boss extends ElementObj{
 	
 	@Override
 	public void move(int gametime) {
-		this.setY(this.getY()+1);
-			
+		
+		if (gametime%5==0 && this.getY()<0) {//控制移动速度
+			this.setY(this.getY()+1);
+		}
 	}
 	
 	
