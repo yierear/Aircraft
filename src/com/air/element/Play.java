@@ -239,7 +239,12 @@ public class Play extends ElementObj{
 		return HP;
 	}
 	public static void setHP(int hP) {
-		HP = hP;
+		if(hP<=100&&hP>=0)
+			HP = hP;
+		else if(hP>100)
+			HP = 100;
+		else if(hP<0)
+			HP = 0;
 	}
 	public String getEffect() {
 		return effect;
