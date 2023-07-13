@@ -36,9 +36,9 @@ enemy7=image/enemy/7.png
 3prop=image/prop/accelerate.png
 4prop=image/prop/attack.png
 
-boss1=image/boss/1.png
-boss2=image/boss/2.png
-boss3=image/boss/3.png
-boss4=image/boss/4.png
-boss5=image/boss/5.png
-boss6=image/boss/6.png
+1boss=image/boss/1.png
+2boss=image/boss/2.png
+3boss=image/boss/3.png
+4boss=image/boss/4.png
+5boss=image/boss/5.png
+6boss=image/boss/6.png
