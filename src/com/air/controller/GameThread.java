@@ -18,7 +18,7 @@ public class GameThread extends Thread{
 	private static int score = 0;	
 	private ElementManager em;
 	
-	private static String propType = null;
+	private static String propType = null;//道具类型
 	public GameThread() {
 		em=ElementManager.getManager();
 	}
@@ -67,23 +67,24 @@ public class GameThread extends Thread{
 	private void gameRun() {
 		while (!GameLevel.flag) {//true可以变为变量，用于控制关卡结束等
 			Map<GameElement, List<ElementObj>> all = em.getGameElements();
-			List<ElementObj> enemys = em.getElementsByKey(GameElement.ENEMY);
-			List<ElementObj> fires = em.getElementsByKey(GameElement.PLAYFILE);
-			List<ElementObj> enemyfires = em.getElementsByKey(GameElement.ENEMYFILE);
-			List<ElementObj> plays = em.getElementsByKey(GameElement.PLAY);
-			List<ElementObj> props = em.getElementsByKey(GameElement.PROP);
+			List<ElementObj> enemys = em.getElementsByKey(GameElement.ENEMY);//敌人
+			List<ElementObj> fires = em.getElementsByKey(GameElement.PLAYFILE);//玩家子弹
+			List<ElementObj> enemyfires = em.getElementsByKey(GameElement.ENEMYFILE);//敌人子弹
+			List<ElementObj> plays = em.getElementsByKey(GameElement.PLAY);//玩家
+			List<ElementObj> props = em.getElementsByKey(GameElement.PROP);//道具
 			moveAndUpdate(all, gameTime);//	游戏元素自动化方法
 			
 //			加载敌人NPC
 			if(!plays.isEmpty() && gameTime%5000==0) {
 				GameLoad.loadNpc(GameLevel.getLevel());
 			}
-			
-			ElementPK(enemys,fires,0);//敌人和玩家子弹
-			ElementPK(plays, props,1);//玩家和道具
-			ElementPK(plays, enemyfires,0);//玩家和敌人子弹	
-			
-			if(getScore()==50*GameLevel.getLevel()) {
+//			flag=1 玩家/敌人和子弹
+//			flag=0 玩家和道具
+			ElementPK(enemys,fires,1);//敌人和玩家子弹
+			ElementPK(plays, enemyfires,1);//玩家和敌人子弹	
+			ElementPK(plays, props,0);//玩家和道具
+
+			if(getScore()==50*GameLevel.getLevel()) {//分数条件
 				if(GameLevel.getLevel() == 6)
 				{
 					GameLoad.next("1");
@@ -113,8 +114,10 @@ public class GameThread extends Thread{
 		for (int i = 0; i < listA.size(); i++) {
 			ElementObj character=listA.get(i);
 			for (int j = 0; j < listB.size(); j++) {
-				ElementObj thing=listB.get(j);				
+				ElementObj thing=listB.get(j);					
 				if (character.pk(thing)) {
+//					character.setLive(false);
+//					thing.setLive(false);
 					thing.setLive(false);
 					if (flag==1) {//子弹和敌人&玩家
 						if (character.getHp()<=0) {
@@ -127,8 +130,10 @@ public class GameThread extends Thread{
 					else if (flag==0) {//道具和玩家
 						character.setLive(true);//人物生存
 					}
-				}			
 					break;
+				}			
+
+				
 				}
 			}
 		}

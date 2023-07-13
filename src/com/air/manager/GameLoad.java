@@ -201,9 +201,7 @@ public class GameLoad {
 			ElementObj propobj=getObj("prop");
 			ElementObj prop = propobj.createElement(propStr);
 			em.addElement(prop, GameElement.PROP);
-		}
-		
-		
+		}		
 	}
 	
 	private static Map<String,Class<?>> objMap=new HashMap<>();

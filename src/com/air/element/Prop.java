@@ -8,7 +8,7 @@ import javax.swing.ImageIcon;
 import com.air.manager.GameLoad;
 
 public class Prop extends ElementObj{
-	private String propType = null;
+	private String propType = null;//道具类型
 	@Override
 	public void showElement(Graphics g) {
 		g.drawImage(this.getIcon().getImage(), 
