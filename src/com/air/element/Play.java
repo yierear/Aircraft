@@ -218,7 +218,8 @@ public class Play extends ElementObj{
 		if(effect!=null) {
 			switch(effect) {
 			case "1prop": this.setHp(this.getHp()+10); GameThread.setPropType(null); break;
-			case "2prop": this.setHp(this.getHp()-20); GameThread.setPropType(null); break;
+			case "2prop": this.setHp(this.getHp()-20); if(this.getHp()==0) this.setLive(false);
+					GameThread.setPropType(null); break;
 			case "3prop": this.setSpeed(4); GameThread.setPropType(null); break;
 			case "4prop": this.setGapTime(12); GameThread.setPropType(null); break;
 			}
