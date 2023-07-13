@@ -4,3 +4,4 @@ file=com.air.element.PlayFile
 enemy=com.air.element.Enemy
 prop=com.air.element.Prop
 enemyfire=com.air.element.EnemyFire
+boss=com.air.element.Boss
