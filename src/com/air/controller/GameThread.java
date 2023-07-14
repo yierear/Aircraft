@@ -6,18 +6,13 @@ import java.util.Map;
 import com.air.element.Boss;
 import com.air.element.ElementObj;
 import com.air.element.Enemy;
+import com.air.element.Play;
 import com.air.element.Prop;
 import com.air.manager.ElementManager;
 import com.air.manager.GameElement;
 import com.air.manager.GameLoad;
 import com.air.show.GameLevel;
 
-/**
- * @说明 游戏的主线程，用于控制游戏加载，游戏关卡，游戏运行时自动化
- * 		游戏判定
- * @author 墨洋
- * @继承 使用继承的方式实现多线程（一般建议使用接口实现）
- */
 public class GameThread extends Thread{
 	private static int score = 0;	
 	private ElementManager em;
@@ -50,7 +45,6 @@ public class GameThread extends Thread{
 	 * 游戏的加载
 	 */
 	private void gameLoad() {
-
 		GameLoad.loadImg();//加载图片
 		GameLoad.MapLoad(GameLevel.getLevel());//传等级
 //		加载主角
@@ -62,16 +56,10 @@ public class GameThread extends Thread{
 //		加载道具
 		GameLoad.loadProp(GameLevel.getLevel());
 	}
-	/**
-	 * 游戏进行时
-	 * 1.自动化玩家的移动 碰撞 死亡
-	 * 2.新元素的增加（NPC死亡后出现道具）
-	 * 3.游戏暂停。。。
-	 * 先实现主角的移动
-	 */
+
 	private int gameTime=0;
 	private void gameRun() {
-		while (!GameLevel.flag) {//true可以变为变量，用于控制关卡结束等
+		while (!GameLevel.flag && Play.life) {//true可以变为变量，用于控制关卡结束等
 			Map<GameElement, List<ElementObj>> all = em.getGameElements();
 			List<ElementObj> enemys = em.getElementsByKey(GameElement.ENEMY);//敌人
 			List<ElementObj> bosses = em.getElementsByKey(GameElement.BOSS);//BOSS
@@ -96,6 +84,13 @@ public class GameThread extends Thread{
 				if(GameLevel.getLevel() == 6)
 				{
 					GameLoad.next("1");
+					try {
+						sleep(5000);
+					} catch (InterruptedException e) {
+						// TODO 自动生成的 catch 块
+						e.printStackTrace();
+					}
+					System.exit(0);
 				}else {
 					GameLoad.next("0");
 				}
@@ -124,7 +119,7 @@ public class GameThread extends Thread{
 	 * @param listB 子弹
 	 * @param flag 0 道具vs玩家 道具-1 玩家不变  
 	 * 			   1 子弹vs敌人 子弹vs玩家 子弹-1 敌人/玩家-1 
-	 * 
+	 * 			   2 玩家vs敌人
 	 */
 	private void ElementPK(List<ElementObj> listA,List<ElementObj> listB,int flag) {
 		for (int i = 0; i < listA.size(); i++) {
@@ -133,8 +128,8 @@ public class GameThread extends Thread{
 				ElementObj thing=listB.get(j);					
 				if (character.pk(thing)) {
 					if(flag==2) {
-						character.setHp(character.getHp()-5);
 						thing.setHp(thing.getHp()-3);
+						character.setHp(character.getHp()-1);						
 						if (character.getHp()==0) {
 							character.setLive(false);
 						}else if(thing.getHp()==0) {
@@ -148,14 +143,15 @@ public class GameThread extends Thread{
 						thing.setLive(false);
 						if (flag==1) {//子弹和敌人&玩家
 							character.setHp(character.getHp()-thing.getATK());
-							if(character.getHp()==0)
+							if(character.getHp()==0) {
 								character.setLive(false);	//碰到子弹 血量无 人物死亡
-							if(character instanceof Enemy) {
-								score += 5;  
+								if(character instanceof Boss)
+									score += 5*GameLevel.getLevel(); //大boss则得分多
+								else if(character instanceof Enemy)
+									score += 5;  
 							}
 						}
 						else if (flag==0 && thing instanceof Prop) {//道具和玩家
-							character.setHp(character.getHp()-1);
 							GameThread.setPropType(((Prop)thing).getPropType());//得到当前碰撞道具类型
 						}
 						break;
@@ -200,11 +196,23 @@ public class GameThread extends Thread{
 	/**
 	 * 游戏切换关卡
 	 */
-	private void gameOver() {
-//		关卡递增
-		if(!GameLevel.flag && GameLevel.getLevel()<6)
+	private void gameOver() {		
+//		失败界面
+		if(!Play.life) {//分数条件
+			GameLevel.setLevel(1);
+			GameLoad.next("2");
+			try {
+				sleep(5000);
+			} catch (InterruptedException e) {
+				// TODO 自动生成的 catch 块
+				e.printStackTrace();
+			}
+		}else if(!GameLevel.flag && GameLevel.getLevel()<6) //关卡递增
 			GameLevel.setLevel(GameLevel.getLevel()+1);
 //		GameLevel.flag = false;
+		
+//		变量归0
+		score = 0;
 //		资源回收
 		Map<GameElement,List<ElementObj>> all = em.getGameElements();
 		for(GameElement ge: GameElement.values()) {

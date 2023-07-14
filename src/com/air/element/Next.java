@@ -13,9 +13,6 @@ public class Next extends ElementObj{
 		g.drawImage(this.getIcon().getImage(),
 				this.getX(), this.getY(), 
 				this.getW(), this.getH(), null);
-//		Font font =new Font("楷体",Font.ITALIC,30);
-//		g.setFont(font);
-//		g.drawString(s, 300, 500);
 	}
 	
 	@Override
@@ -27,9 +24,12 @@ public class Next extends ElementObj{
 		this.setH(GameJFrame.GameY);
 		this.type = str;
 		if(type.equals("0")) //中间页
-			this.setIcon(new ImageIcon("image/level.png"));
+			this.setIcon(new ImageIcon("image/next.png"));
 		else if(type.equals("1")) //结束页
-			this.setIcon(new ImageIcon("image/level.png"));
+			this.setIcon(new ImageIcon("image/succeed.png"));
+		else { //失败页
+			this.setIcon(new ImageIcon("image/fail.png"));
+		}
 		return this;
 	}
 }

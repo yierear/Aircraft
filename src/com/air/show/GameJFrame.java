@@ -1,6 +1,5 @@
 package com.air.show;
 
-import java.awt.BorderLayout;
 import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -10,32 +9,13 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
-
-import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
-import javax.swing.JTextField;
 import javax.swing.ScrollPaneConstants;
 
-import com.air.controller.GameThread;
-
-
-/**
- * @说明 游戏窗体 主要实现的功能：关闭、显示、最大最小化
- * @author 13922
- * @功能说明：
- * 		嵌入面板
- * 		启动主线程......
- * @窗体说明 窗体大小（记录样式）swing awt
- * 
- * @分析 1.面板绑定到窗体
- * 		 2. 监听绑定
- * 		 3.游戏主线程启动
- * 		 4.显示窗体
- */
 public class GameJFrame extends JFrame{
 	public static int GameX = 800;
 	public static int GameY = 838;
@@ -195,7 +175,7 @@ public class GameJFrame extends JFrame{
 				ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS,
 				ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
 		jScrollPane.setViewportView(jPanel);
-		jPanel.setPreferredSize(new Dimension(200,1000));
+		jPanel.setPreferredSize(new Dimension(200,850));
 		jPanel.revalidate();
 		jFrame.add(jScrollPane);		
 //		标题
@@ -219,10 +199,9 @@ public class GameJFrame extends JFrame{
 		jPanel.add(jArea);
 		//控制说明
 		String string1 = "2.控制说明：\n"
-				+ "①“开始游戏”：点击可以直接开始游戏，系统将根据得分自动进入下一关\n"
-				+ "②“选择关卡”：点击可以选择游戏关卡，点击此按钮后再次点击开始游戏即可进入所选关卡\n"
-				+ "③“退出游戏”：点击1s后将退出游戏";
-		JTextArea jArea1 = new JTextArea(string1,5,5);
+				+ "①按上下左右键进行主角的控制\n"
+				+ "②按空格键进行子弹和主角皮肤的变化";
+		JTextArea jArea1 = new JTextArea(string1,4,5);
 		jArea1.setBounds(20, 680, 260, 450);
 		jArea1.setFont(font1);
 		jArea1.setLineWrap(true);
@@ -230,10 +209,10 @@ public class GameJFrame extends JFrame{
 		jPanel.add(jArea1);
 		//关卡说明
 		String string2 = "3.关卡说明：\n"
-				+ "①“开始游戏”：点击可以直接开始游戏，系统将根据得分自动进入下一关\n"
-				+ "②“选择关卡”：点击可以选择游戏关卡，点击此按钮后再次点击开始游戏即可进入所选关卡\n"
-				+ "③“退出游戏”：点击1s后将退出游戏";
-		JTextArea jArea2 = new JTextArea(string2,5,5);
+				+ "①游戏的共有6关\n"
+				+ "②游戏失败后会自动跳转至第一关\n"
+				+ "③可以自由选择关卡";
+		JTextArea jArea2 = new JTextArea(string2,4,5);
 		jArea2.setBounds(20, 1280, 260, 450);
 		jArea2.setFont(font1);
 		jArea2.setLineWrap(true);
@@ -242,7 +221,7 @@ public class GameJFrame extends JFrame{
 		//道具说明
 		String string3 = "4.道具说明：\n"
 				+ "①血包：玩家获得一个血包可回血10点\n"
-				+ "②强化包：玩家获得一个强化包可以增加子弹攻击力\n"
+				+ "②强化包：玩家获得一个强化包可以增加子弹攻击速度\n"
 				+ "③加速包：玩家获得一个加速包可以提升移动速度\n"
 				+ "④炸弹：玩家触碰到一个炸弹会掉20点血";
 		JTextArea jArea3 = new JTextArea(string3,5,5);
@@ -251,5 +230,21 @@ public class GameJFrame extends JFrame{
 		jArea3.setLineWrap(true);
 		jArea3.setBackground(new Color(251,248,211));
 		jPanel.add(jArea3);
+		
+		//飞机＆子弹形态一览
+		String string4 = "5.飞机形态及子弹形态说明：\n"
+				+"①初始形态：灰色飞机+紫色子弹。攻击力：1\n"
+				+"②第二形态：绿色飞机+绿色子弹。攻击力：2\n"
+				+"③第三形态：黑色飞机+红色子弹。攻击力：3\n"
+				+"④第四形态：红白色飞机+橙色子弹。攻击力：4\n"
+				+"⑥第五形态：蓝色飞机+蓝色子弹。攻击力：5\n"
+				+"tips:按下空格键即可随机切换形态";
+		JTextArea jArea4 = new JTextArea(string4,10,4);
+		jArea4.setBounds(20, 2480, 260, 450);
+		jArea4.setFont(font1);
+		jArea4.setLineWrap(true);
+		jArea4.setBackground(new Color(251,248,211));
+		jPanel.add(jArea4);
+		
 }		
 }

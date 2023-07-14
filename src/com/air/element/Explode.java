@@ -62,6 +62,10 @@ public class Explode extends ElementObj{
 	
 	@Override
 	public void showElement(Graphics g) {
+<<<<<<< HEAD
+=======
+		// TODO 自动生成的方法存根
+>>>>>>> 4d6c40a6c7e59fb8776c248625d540f7800be017
 		if (count<=7) {
 			g.drawImage(pic[count], 
 					x, y,

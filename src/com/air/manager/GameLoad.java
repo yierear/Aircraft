@@ -13,14 +13,8 @@ import javax.swing.ImageIcon;
 
 import com.air.element.Boss;
 import com.air.element.ElementObj;
-import com.air.element.Explode;
 import com.air.element.Next;
 import com.air.manager.GameLoad;
-/**
- * @说明  加载器(工具：用户读取配置文件的工具)工具类,大多提供的是 static方法
- * @author ch'ri's't'ye'e'e
- *
- */
 
 public class GameLoad {
 //	得到资源管理器
@@ -45,9 +39,6 @@ public class GameLoad {
 		ElementObj map = mapobj.createElement(mapString);
 //		解耦,降低代码和代码之间的耦合度 可以直接通过 接口或者是抽象父类就可以获取到实体对象
 		em.addElement(map, GameElement.MAPS);
-		
-		
-//		解耦,降低代码和代码之间的耦合度 可以直接通过 接口或者是抽象父类就可以获取到实体对象
 
 	}
 
@@ -56,7 +47,7 @@ public class GameLoad {
 	 *加载图片 代码和图片之间差 一个 路径问题 
 	 */
 	public static void loadImg() {//可以带参数，因为不同的关也可能需要不一样的图片资源
-		String texturl="com/air/text/GameData.pro";//文件的命名可以更加有规律
+		String texturl="com/air/text/GameData.pro";
 		ClassLoader classLoader = GameLoad.class.getClassLoader();
 		InputStream texts = classLoader.getResourceAsStream(texturl);
 //		imgMap用于存放数据
@@ -170,11 +161,7 @@ public class GameLoad {
 			break;
 		}
 		enemyStr = x + "," + y + ",60,60," + num + "enemy";
-//		Explode explode = new Explode(0,0);
-//		explode.setX(x);
-//		explode.setY(y);
-//		explode.showElement(g);
-		//创建普通敌机
+
 		ElementObj enemyobj = getObj("enemy");
 		ElementObj enemy = enemyobj.createElement(enemyStr);
 		em.addElement(enemy, GameElement.ENEMY);		

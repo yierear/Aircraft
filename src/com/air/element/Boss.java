@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import javax.swing.ImageIcon;
 import com.air.manager.GameLoad;
+import com.air.show.GameLevel;
 import com.air.manager.ElementManager;
 import com.air.manager.GameElement;
 
@@ -24,9 +25,9 @@ public class Boss extends ElementObj{
 		if (this.getY()+this.getH()>=0) {
 			g.drawString("BOSS:", 0, 10);
 			g.setColor(Color.RED);
-			g.drawRect(50, 0, 80, 15);
+			g.drawRect(50, 0, 50*GameLevel.getLevel(), 15);
 			g.fillRect(50, 0, this.getHp(), 15);
-			g.drawString(this.getHp()+"", 135, 10);
+			g.drawString(this.getHp()+"", 0, 30);
 		}
 		
 	}
@@ -41,6 +42,7 @@ public class Boss extends ElementObj{
 		this.setHp(80);//设置boss血量和子弹类型
 		ImageIcon icon = GameLoad.imgMap.get(bossType);
 		this.setIcon(icon);
+		HpType(bossType);
 		return this;
 	}
 	
@@ -97,16 +99,27 @@ public class Boss extends ElementObj{
 		return "x:"+x+",y:"+y+",w:"+w+",h:"+h+",f:"+this.fx+",type:"+fireType;
 	}
 	
-	@Override
-	public void setHp(int hp) {
+	public void HpType(String bossType) {
 		// TODO 自动生成的方法存根
 		switch(bossType) {
-		case "1boss": this.hp = 10;this.fireType=1; break;
-		case "2boss": this.hp = 20;this.fireType=1; break;
-		case "3boss": this.hp = 30;this.fireType=2; break;
-		case "4boss": this.hp = 40;this.fireType=3; break;
-		case "5boss": this.hp = 60;this.fireType=4; break;
-		case "6boss": this.hp = 80;this.fireType=5; break;
+		case "1boss": this.hp = 50; break;
+		case "2boss": this.hp = 100; break;
+		case "3boss": this.hp = 150; break;
+		case "4boss": this.hp = 200; break;
+		case "5boss": this.hp = 250; break;
+		case "6boss": this.hp = 300; break;
 		}
 	}
+	public int getHp() {
+		return hp;
+	}
+	public void setHp(int hp) {
+		this.hp = hp;
+		if(hp<=0) {
+			hp=0;
+			this.setLive(false);
+		}
+	}
+	
+	
 }

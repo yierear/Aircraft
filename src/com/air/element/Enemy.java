@@ -34,6 +34,7 @@ public class Enemy extends ElementObj{
 		enemyType=split[4];
 		ImageIcon icon = GameLoad.imgMap.get(enemyType);
 		this.setIcon(icon);
+		HpType(enemyType);
 		return this;
 	}
 	
@@ -52,14 +53,6 @@ public class Enemy extends ElementObj{
 		
 	}
 	
-//	@Override
-//	protected void updateImage() {
-////		ImageIcon icon=GameLoad.imgMap.get(fx);
-////		System.out.println(icon.getIconHeight());//得到图片的高度
-////		如果高度是小于等于0 就说明你的这个图片路径有问题
-//		this.setIcon(GameLoad.imgMap.get(fx));
-//	}
-	
 	private long filetime=0L;
 
 	protected void add(int gameTime) {
@@ -76,14 +69,7 @@ public class Enemy extends ElementObj{
 //		System.out.println("子弹是否为空"+element);
 //		装入到集合中
 		ElementManager.getManager().addElement(element, GameElement.ENEMYFILE);
-//		如果要控制子弹速度等等。。。。还需要代码编写
-//		}
-//		else {
-//			return;
-		}
-//		this.pkType=false;//按一次，发射一个子弹。拼手速(也可以增加变量来控制)
-//		new PlayFile(); // 构造一个类 需要做比较多的工作  可以选择一种方式，使用小工厂
-//		将构造对象的多个步骤进行封装成为一个方法，返回值直接是这个对象	
+		}	
 	}
 	
 //	
@@ -107,18 +93,22 @@ public class Enemy extends ElementObj{
 		return "x:"+x+",y:"+y+",w:"+w+",h:"+h+",f:"+this.fx+",type:"+fireType;
 	}
 	
-	@Override
-	public void setHp(int hp) {
+	public void HpType(String enemyType) {
 		// TODO 自动生成的方法存根
 		switch(enemyType) {
-		case "1enemy": this.hp = 1; break;
-		case "2enemy": this.hp = 3; break;
-		case "3enemy": this.hp = 5; break;
-		case "4enemy": this.hp = 7; break;
-		case "5enemy": this.hp = 10; break;
-		case "6enemy": this.hp = 15; break;
-		case "7enemy": this.hp = 20; break;
+		case "1enemy": this.hp = 3; break;
+		case "2enemy": this.hp = 5; break;
+		case "3enemy": this.hp = 10; break;
+		case "4enemy": this.hp = 15; break;
+		case "5enemy": this.hp = 20; break;
+		case "6enemy": this.hp = 30; break;
+		case "7enemy": this.hp = 40; break;
 		}
 	}
-	
+	public int getHp() {
+		return hp;
+	}
+	public void setHp(int hp) {
+		this.hp = hp;
+	}
 }
