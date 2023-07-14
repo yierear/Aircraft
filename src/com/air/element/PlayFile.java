@@ -23,6 +23,7 @@ public class PlayFile extends ElementObj{
 	private int moveNum=3;//移动速度值
 	private String fx;
 	private static String fireType = "1fireType";
+	private int ATK = 1;
 //	剩下的大家扩展; 可以扩展出多种子弹： 激光，导弹等等。(玩家类就需要有子弹类型)
 	public PlayFile() {}//一个空的构造方法
 //	对创建这个对象的过程进行封装，外界只需要传输必要的约定参数，返回值就是对象实体
@@ -58,6 +59,7 @@ public class PlayFile extends ElementObj{
 	public void showElement(Graphics g) {
 		ImageIcon icon1 = GameLoad.imgMap.get(fireType);
 		this.setIcon(icon1);
+		this.setATK(fireType);
 		g.drawImage(this.getIcon().getImage(), 
 				this.getX()-20, this.getY()-8, 
 				this.getW(), this.getH(), null);
@@ -82,8 +84,7 @@ public class PlayFile extends ElementObj{
 		PlayFile.fireType = Play.getPlayAndFire()+"fireType";
 	}
 	
-	@Override
-	public void setATK(int aTK) {
+	public void setATK(String fireType) {
 		// TODO 自动生成的方法存根
 		switch(fireType) {
 		case "1fireType": this.ATK = 1; break;
@@ -92,6 +93,9 @@ public class PlayFile extends ElementObj{
 		case "4fireType": this.ATK = 4; break;
 		case "5fireType": this.ATK = 5; break;
 		}
+	}
+	public int getATK() {
+		return ATK;
 	}
 }
 
