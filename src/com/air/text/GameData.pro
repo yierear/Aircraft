@@ -42,3 +42,12 @@ up=image/play/13.png
 4boss=image/boss/11.png
 5boss=image/boss/10.png
 6boss=image/boss/1.png
+
+1bang=image/bang/bang1.png
+2bang=image/bang/bang2.png
+3bang=image/bang/bang3.png
+4bang=image/bang/bang4.png
+5bang=image/bang/bang5.png
+6bang=image/bang/bang6.png
+7bang=image/bang/bang7.png
+8bang=image/bang/bang8.png
