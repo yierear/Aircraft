@@ -33,6 +33,7 @@ public class Play extends ElementObj{
 	private String playType="1playType";//玩家飞机类型
 	private int speed = 2;//速度
 	private String effect = null;//增益类型
+	public static boolean life = true;
 	
 	private static int playAndFire = 1;//传参决定玩家和子弹类型
 	private int gapTime = 31;//发射子弹时间间隔
@@ -48,6 +49,7 @@ public class Play extends ElementObj{
 	@Override
 	public ElementObj createElement(String str) {	
 		this.setHp(100);
+		this.life = true;
 		String[] split = str.split(",");
 		this.setX(Integer.parseInt(split[0]));
 		this.setY(Integer.parseInt(split[1]));
@@ -299,6 +301,14 @@ public class Play extends ElementObj{
 	}
 	public void setGapTime(int gapTime) {
 		this.gapTime = gapTime;
+	}
+	
+	@Override
+	public void setLive(boolean live) {
+		// TODO 自动生成的方法存根
+		if(live==false)
+			life = false;
+		super.setLive(live);
 	}
 	
 }

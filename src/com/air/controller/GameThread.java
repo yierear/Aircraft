@@ -6,6 +6,7 @@ import java.util.Map;
 import com.air.element.Boss;
 import com.air.element.ElementObj;
 import com.air.element.Enemy;
+import com.air.element.Play;
 import com.air.element.Prop;
 import com.air.manager.ElementManager;
 import com.air.manager.GameElement;
@@ -50,7 +51,6 @@ public class GameThread extends Thread{
 	 * 游戏的加载
 	 */
 	private void gameLoad() {
-
 		GameLoad.loadImg();//加载图片
 		GameLoad.MapLoad(GameLevel.getLevel());//传等级
 //		加载主角
@@ -71,7 +71,7 @@ public class GameThread extends Thread{
 	 */
 	private int gameTime=0;
 	private void gameRun() {
-		while (!GameLevel.flag) {//true可以变为变量，用于控制关卡结束等
+		while (!GameLevel.flag && Play.life) {//true可以变为变量，用于控制关卡结束等
 			Map<GameElement, List<ElementObj>> all = em.getGameElements();
 			List<ElementObj> enemys = em.getElementsByKey(GameElement.ENEMY);//敌人
 			List<ElementObj> bosses = em.getElementsByKey(GameElement.BOSS);//BOSS
@@ -124,7 +124,7 @@ public class GameThread extends Thread{
 	 * @param listB 子弹
 	 * @param flag 0 道具vs玩家 道具-1 玩家不变  
 	 * 			   1 子弹vs敌人 子弹vs玩家 子弹-1 敌人/玩家-1 
-	 * 
+	 * 			   2 玩家vs敌人
 	 */
 	private void ElementPK(List<ElementObj> listA,List<ElementObj> listB,int flag) {
 		for (int i = 0; i < listA.size(); i++) {
@@ -201,10 +201,24 @@ public class GameThread extends Thread{
 	 * 游戏切换关卡
 	 */
 	private void gameOver() {
+//		失败界面
+		if(!Play.life) {//分数条件
+			GameLoad.next("2");
+			try {
+				sleep(5000);
+			} catch (InterruptedException e) {
+				// TODO 自动生成的 catch 块
+				e.printStackTrace();
+			}
+		}
+		
 //		关卡递增
 		if(!GameLevel.flag && GameLevel.getLevel()<6)
 			GameLevel.setLevel(GameLevel.getLevel()+1);
 //		GameLevel.flag = false;
+		
+//		变量归0
+		score = 0;
 //		资源回收
 		Map<GameElement,List<ElementObj>> all = em.getGameElements();
 		for(GameElement ge: GameElement.values()) {
