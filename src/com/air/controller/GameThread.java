@@ -141,7 +141,7 @@ public class GameThread extends Thread{
 				if (character.pk(thing)) {
 					if(flag==2) {
 						thing.setHp(thing.getHp()-3);
-						character.setHp(character.getHp()-5);						
+						character.setHp(character.getHp()-1);						
 						if (character.getHp()==0) {
 							character.setLive(false);
 						}else if(thing.getHp()==0) {
