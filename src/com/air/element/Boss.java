@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import javax.swing.ImageIcon;
 import com.air.manager.GameLoad;
+import com.air.show.GameLevel;
 import com.air.manager.ElementManager;
 import com.air.manager.GameElement;
 
@@ -24,9 +25,9 @@ public class Boss extends ElementObj{
 		if (this.getY()+this.getH()>=0) {
 			g.drawString("BOSS:", 0, 10);
 			g.setColor(Color.RED);
-			g.drawRect(50, 0, 80, 15);
+			g.drawRect(50, 0, 50*GameLevel.getLevel(), 15);
 			g.fillRect(50, 0, this.getHp(), 15);
-			g.drawString(this.getHp()+"", 135, 10);
+			g.drawString(this.getHp()+"", 0, 30);
 		}
 		
 	}
