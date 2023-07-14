@@ -140,8 +140,8 @@ public class GameThread extends Thread{
 				ElementObj thing=listB.get(j);					
 				if (character.pk(thing)) {
 					if(flag==2) {
-						character.setHp(character.getHp()-5);
 						thing.setHp(thing.getHp()-3);
+						character.setHp(character.getHp()-5);						
 						if (character.getHp()==0) {
 							character.setLive(false);
 						}else if(thing.getHp()==0) {

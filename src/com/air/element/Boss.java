@@ -114,6 +114,10 @@ public class Boss extends ElementObj{
 	}
 	public void setHp(int hp) {
 		this.hp = hp;
+		if(hp<=0) {
+			hp=0;
+			this.setLive(false);
+		}
 	}
 	
 	
