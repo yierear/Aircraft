@@ -96,6 +96,13 @@ public class GameThread extends Thread{
 				if(GameLevel.getLevel() == 6)
 				{
 					GameLoad.next("1");
+					try {
+						sleep(5000);
+					} catch (InterruptedException e) {
+						// TODO 自动生成的 catch 块
+						e.printStackTrace();
+					}
+					System.exit(0);
 				}else {
 					GameLoad.next("0");
 				}
@@ -148,14 +155,15 @@ public class GameThread extends Thread{
 						thing.setLive(false);
 						if (flag==1) {//子弹和敌人&玩家
 							character.setHp(character.getHp()-thing.getATK());
-							if(character.getHp()==0)
+							if(character.getHp()==0) {
 								character.setLive(false);	//碰到子弹 血量无 人物死亡
-							if(character instanceof Enemy) {
-								score += 5;  
+								if(character instanceof Boss)
+									score += 5*GameLevel.getLevel(); //大boss则得分多
+								else if(character instanceof Enemy)
+									score += 5;  
 							}
 						}
 						else if (flag==0 && thing instanceof Prop) {//道具和玩家
-							character.setHp(character.getHp()-1);
 							GameThread.setPropType(((Prop)thing).getPropType());//得到当前碰撞道具类型
 						}
 						break;

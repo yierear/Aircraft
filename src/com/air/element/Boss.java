@@ -101,12 +101,12 @@ public class Boss extends ElementObj{
 	public void setHp(int hp) {
 		// TODO 自动生成的方法存根
 		switch(bossType) {
-		case "1boss": this.hp = 10;this.fireType=1; break;
-		case "2boss": this.hp = 20;this.fireType=1; break;
-		case "3boss": this.hp = 30;this.fireType=2; break;
-		case "4boss": this.hp = 40;this.fireType=3; break;
-		case "5boss": this.hp = 60;this.fireType=4; break;
-		case "6boss": this.hp = 80;this.fireType=5; break;
+		case "1boss": this.hp = 50;this.fireType=1; break;
+		case "2boss": this.hp = 100;this.fireType=1; break;
+		case "3boss": this.hp = 150;this.fireType=2; break;
+		case "4boss": this.hp = 200;this.fireType=3; break;
+		case "5boss": this.hp = 250;this.fireType=4; break;
+		case "6boss": this.hp = 300;this.fireType=5; break;
 		}
 	}
 }
