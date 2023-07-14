@@ -1,6 +1,5 @@
 package com.air.show;
 
-import java.awt.BorderLayout;
 import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -10,33 +9,13 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
-
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
-import javax.swing.JTextField;
 import javax.swing.ScrollPaneConstants;
 
-import com.air.controller.GameThread;
-
-
-/**
- * @说明 游戏窗体 主要实现的功能：关闭、显示、最大最小化
- * @author 13922
- * @功能说明：
- * 		嵌入面板
- * 		启动主线程......
- * @窗体说明 窗体大小（记录样式）swing awt
- * 
- * @分析 1.面板绑定到窗体
- * 		 2. 监听绑定
- * 		 3.游戏主线程启动
- * 		 4.显示窗体
- */
 public class GameJFrame extends JFrame{
 	public static int GameX = 800;
 	public static int GameY = 838;

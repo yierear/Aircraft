@@ -52,10 +52,6 @@ public class Explode extends ElementObj{
 	@Override
 	public void showElement(Graphics g) {
 		// TODO 自动生成的方法存根
-//		if (explodeCount < pic.length) {
-//			Image icon = pic[explodeCount];
-//			explodeCount++;
-//		}
 		if (count<=7) {
 			g.drawImage(pic[count], x, y, null);
 			count++;

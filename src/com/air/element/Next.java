@@ -13,9 +13,6 @@ public class Next extends ElementObj{
 		g.drawImage(this.getIcon().getImage(),
 				this.getX(), this.getY(), 
 				this.getW(), this.getH(), null);
-//		Font font =new Font("楷体",Font.ITALIC,30);
-//		g.setFont(font);
-//		g.drawString(s, 300, 500);
 	}
 	
 	@Override

@@ -1,10 +1,6 @@
 package com.air.show;
 
-import java.awt.FlowLayout;
 import java.awt.Graphics;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -12,7 +8,6 @@ import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
 import com.air.controller.GameThread;
-import com.air.element.Play;
 
 
 public class GameLevel extends JPanel{

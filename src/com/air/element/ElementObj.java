@@ -5,11 +5,6 @@ import java.awt.Rectangle;
 
 import javax.swing.ImageIcon;
 
-/**
- * @说明 所有元素的基类
- * @author 13922
- *
- */
 public abstract class ElementObj {
 	protected int x;
 	protected int y;

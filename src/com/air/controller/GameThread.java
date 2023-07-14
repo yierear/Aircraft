@@ -13,12 +13,6 @@ import com.air.manager.GameElement;
 import com.air.manager.GameLoad;
 import com.air.show.GameLevel;
 
-/**
- * @说明 游戏的主线程，用于控制游戏加载，游戏关卡，游戏运行时自动化
- * 		游戏判定
- * @author 墨洋
- * @继承 使用继承的方式实现多线程（一般建议使用接口实现）
- */
 public class GameThread extends Thread{
 	private static int score = 0;	
 	private ElementManager em;
@@ -62,13 +56,7 @@ public class GameThread extends Thread{
 //		加载道具
 		GameLoad.loadProp(GameLevel.getLevel());
 	}
-	/**
-	 * 游戏进行时
-	 * 1.自动化玩家的移动 碰撞 死亡
-	 * 2.新元素的增加（NPC死亡后出现道具）
-	 * 3.游戏暂停。。。
-	 * 先实现主角的移动
-	 */
+
 	private int gameTime=0;
 	private void gameRun() {
 		while (!GameLevel.flag && Play.life) {//true可以变为变量，用于控制关卡结束等

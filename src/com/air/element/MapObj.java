@@ -53,8 +53,4 @@ public class MapObj extends ElementObj{
 		}
  
 	}
-	
-//	protected void updateImage() {
-//		this.setIcon(GameLoad.imgMap.get(bg));
-//	}
 }

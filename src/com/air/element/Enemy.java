@@ -53,14 +53,6 @@ public class Enemy extends ElementObj{
 		
 	}
 	
-//	@Override
-//	protected void updateImage() {
-////		ImageIcon icon=GameLoad.imgMap.get(fx);
-////		System.out.println(icon.getIconHeight());//得到图片的高度
-////		如果高度是小于等于0 就说明你的这个图片路径有问题
-//		this.setIcon(GameLoad.imgMap.get(fx));
-//	}
-	
 	private long filetime=0L;
 
 	protected void add(int gameTime) {
@@ -77,14 +69,7 @@ public class Enemy extends ElementObj{
 //		System.out.println("子弹是否为空"+element);
 //		装入到集合中
 		ElementManager.getManager().addElement(element, GameElement.ENEMYFILE);
-//		如果要控制子弹速度等等。。。。还需要代码编写
-//		}
-//		else {
-//			return;
-		}
-//		this.pkType=false;//按一次，发射一个子弹。拼手速(也可以增加变量来控制)
-//		new PlayFile(); // 构造一个类 需要做比较多的工作  可以选择一种方式，使用小工厂
-//		将构造对象的多个步骤进行封装成为一个方法，返回值直接是这个对象	
+		}	
 	}
 	
 //	

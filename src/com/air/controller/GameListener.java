@@ -10,11 +10,6 @@ import com.air.element.ElementObj;
 import com.air.manager.ElementManager;
 import com.air.manager.GameElement;
 
-/**
- * @说明 监听类 用于监听用户的操作KeyListener
- * @author 墨洋
- *
- */
 public class GameListener implements KeyListener{
 
 	private ElementManager em=ElementManager.getManager();
@@ -25,11 +20,7 @@ public class GameListener implements KeyListener{
 	@Override
 	public void keyTyped(KeyEvent e) {
 	}
-
-	/**
-	 * 按下：左37 上38 右39 下40 按tab没有反应
-	 * 实现主角的移动
-	 */
+	
 	@Override
 	public void keyPressed(KeyEvent e) {
 //		拿到玩家集合

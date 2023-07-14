@@ -14,7 +14,7 @@ public class GameStart {
 		// TODO 自动生成的方法存根
 		
 		GameJFrame gj = new GameJFrame();
-		//实例化面板，注入到JFrame中
+//		实例化面板，注入到JFrame中
 //		实例化监听
 		GameListener listener = new GameListener();
 //		实例化游戏主线程

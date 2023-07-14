@@ -6,20 +6,14 @@ import javax.swing.ImageIcon;
 
 import com.air.manager.GameLoad;
 
-/**
- * @说明 敌人子弹类
- * @author 墨洋
- *
- */
 public class EnemyFire extends ElementObj{
 	private int attack;//攻击力
 	private int moveNum=3;//移动速度值
 	private String fx;
 	private String fireType;
 	private int ATK;
-//	剩下的大家扩展; 可以扩展出多种子弹： 激光，导弹等等。(玩家类就需要有子弹类型)
+
 	public EnemyFire() {}//一个空的构造方法
-//	对创建这个对象的过程进行封装，外界只需要传输必要的约定参数，返回值就是对象实体
 	
 	@Override   //{X:3,y:5,f:up}
 	public  ElementObj createElement(String str) {//定义字符串的规则
@@ -37,9 +31,6 @@ public class EnemyFire extends ElementObj{
 			case "type":
 				this.fireType=split2[1]; 
 				ImageIcon icon1 = GameLoad.imgMap.get(split2[1]);
-//				if(icon1 == null) {
-//					icon1 = GameLoad.imgMap.get("1fireType");
-//				}
 				this.setIcon(icon1);
 				ATKtype(fireType);
 				break;				
