@@ -41,6 +41,7 @@ public class Boss extends ElementObj{
 		this.setHp(80);//设置boss血量和子弹类型
 		ImageIcon icon = GameLoad.imgMap.get(bossType);
 		this.setIcon(icon);
+		HpType(bossType);
 		return this;
 	}
 	
@@ -97,8 +98,7 @@ public class Boss extends ElementObj{
 		return "x:"+x+",y:"+y+",w:"+w+",h:"+h+",f:"+this.fx+",type:"+fireType;
 	}
 	
-	@Override
-	public void setHp(int hp) {
+	public void HpType(String bossType) {
 		// TODO 自动生成的方法存根
 		switch(bossType) {
 		case "1boss": this.hp = 50;this.fireType=1; break;
@@ -109,4 +109,12 @@ public class Boss extends ElementObj{
 		case "6boss": this.hp = 300;this.fireType=5; break;
 		}
 	}
+	public int getHp() {
+		return hp;
+	}
+	public void setHp(int hp) {
+		this.hp = hp;
+	}
+	
+	
 }

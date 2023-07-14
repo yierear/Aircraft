@@ -16,6 +16,7 @@ public class EnemyFire extends ElementObj{
 	private int moveNum=3;//移动速度值
 	private String fx;
 	private String fireType;
+	private int ATK;
 //	剩下的大家扩展; 可以扩展出多种子弹： 激光，导弹等等。(玩家类就需要有子弹类型)
 	public EnemyFire() {}//一个空的构造方法
 //	对创建这个对象的过程进行封装，外界只需要传输必要的约定参数，返回值就是对象实体
@@ -39,7 +40,9 @@ public class EnemyFire extends ElementObj{
 //				if(icon1 == null) {
 //					icon1 = GameLoad.imgMap.get("1fireType");
 //				}
-				this.setIcon(icon1); break;
+				this.setIcon(icon1);
+				ATKtype(fireType);
+				break;				
 			}
 		}
 		return this;
@@ -61,16 +64,20 @@ public class EnemyFire extends ElementObj{
 		this.setY(this.getY()+this.moveNum);
 	}
 	
-	@Override
-	public void setATK(int aTK) {
+	public void ATKtype(String fireType) {
 		// TODO 自动生成的方法存根
 		switch(fireType) {
-		case "1fireType": this.ATK = 1; break;
-		case "2fireType": this.ATK = 2; break;
-		case "3fireType": this.ATK = 3; break;
-		case "4fireType": this.ATK = 4; break;
-		case "5fireType": this.ATK = 5; break;
+		case "1fireType": this.ATK = 2; break;
+		case "2fireType": this.ATK = 4; break;
+		case "3fireType": this.ATK = 6; break;
+		case "4fireType": this.ATK = 8; break;
+		case "5fireType": this.ATK = 10; break;
 		}
 	}
+
+	public int getATK() {
+		return ATK;
+	}
+	
 
 }
