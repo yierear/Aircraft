@@ -196,7 +196,7 @@ public class GameJFrame extends JFrame{
 				ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS,
 				ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
 		jScrollPane.setViewportView(jPanel);
-		jPanel.setPreferredSize(new Dimension(200,1000));
+		jPanel.setPreferredSize(new Dimension(200,850));
 		jPanel.revalidate();
 		jFrame.add(jScrollPane);		
 //		标题
@@ -220,10 +220,9 @@ public class GameJFrame extends JFrame{
 		jPanel.add(jArea);
 		//控制说明
 		String string1 = "2.控制说明：\n"
-				+ "①“开始游戏”：点击可以直接开始游戏，系统将根据得分自动进入下一关\n"
-				+ "②“选择关卡”：点击可以选择游戏关卡，点击此按钮后再次点击开始游戏即可进入所选关卡\n"
-				+ "③“退出游戏”：点击1s后将退出游戏";
-		JTextArea jArea1 = new JTextArea(string1,5,5);
+				+ "①按上下左右键进行主角的控制\n"
+				+ "②按空格键进行子弹和主角皮肤的变化";
+		JTextArea jArea1 = new JTextArea(string1,4,5);
 		jArea1.setBounds(20, 680, 260, 450);
 		jArea1.setFont(font1);
 		jArea1.setLineWrap(true);
@@ -231,10 +230,10 @@ public class GameJFrame extends JFrame{
 		jPanel.add(jArea1);
 		//关卡说明
 		String string2 = "3.关卡说明：\n"
-				+ "①“开始游戏”：点击可以直接开始游戏，系统将根据得分自动进入下一关\n"
-				+ "②“选择关卡”：点击可以选择游戏关卡，点击此按钮后再次点击开始游戏即可进入所选关卡\n"
-				+ "③“退出游戏”：点击1s后将退出游戏";
-		JTextArea jArea2 = new JTextArea(string2,5,5);
+				+ "①游戏的共有6关\n"
+				+ "②游戏失败后会自动跳转至第一关\n"
+				+ "③可以自由选择关卡";
+		JTextArea jArea2 = new JTextArea(string2,4,5);
 		jArea2.setBounds(20, 1280, 260, 450);
 		jArea2.setFont(font1);
 		jArea2.setLineWrap(true);
@@ -261,7 +260,7 @@ public class GameJFrame extends JFrame{
 				+"④第四形态：红白色飞机+橙色子弹。攻击力：4\n"
 				+"⑥第五形态：蓝色飞机+蓝色子弹。攻击力：5\n"
 				+"tips:按下空格键即可随机切换形态";
-		JTextArea jArea4 = new JTextArea(string4,15,4);
+		JTextArea jArea4 = new JTextArea(string4,10,4);
 		jArea4.setBounds(20, 2480, 260, 450);
 		jArea4.setFont(font1);
 		jArea4.setLineWrap(true);
