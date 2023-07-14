@@ -175,7 +175,7 @@ public class GameJFrame extends JFrame{
 				ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS,
 				ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
 		jScrollPane.setViewportView(jPanel);
-		jPanel.setPreferredSize(new Dimension(200,850));
+		jPanel.setPreferredSize(new Dimension(200,1120));
 		jPanel.revalidate();
 		jFrame.add(jScrollPane);		
 //		标题
@@ -245,6 +245,31 @@ public class GameJFrame extends JFrame{
 		jArea4.setLineWrap(true);
 		jArea4.setBackground(new Color(251,248,211));
 		jPanel.add(jArea4);
+		
+
+		//敌机＆boss
+		String string5 = "6.敌机的相关说明：\n"
+				+ "①普通敌机：\n"
+				+"初级敌机：攻击力：1	 血量：3\n"
+				+"二级敌机：攻击力：2	 血量：5\n"
+				+"三级敌机：攻击力：3	 血量：10\n"
+				+"四级敌机：攻击力：4	 血量：15\n"
+				+"五级敌机：攻击力：5	 血量：20\n"
+				+"六级敌机：攻击力：5	 血量：30\n"
+				+"终级敌机：攻击力：5	 血量：40\n"
+				+ "②BOSS:\n"
+				+"初级boss：攻击力：5	 血量：50\n"
+				+"二级boss：攻击力：10	 血量：100\n"
+				+"三级boss：攻击力：15	 血量：150\n"
+				+"四级boss：攻击力：20	 血量：200\n"
+				+"五级boss：攻击力：25	 血量：250\n"
+				+"终级boss：攻击力：30	 血量：300\n";
+		JTextArea jArea5 = new JTextArea(string5,25,5);
+		jArea5.setBounds(20, 3080, 260, 450);
+		jArea5.setFont(font1);
+		jArea5.setLineWrap(true);
+		jArea5.setBackground(new Color(251,248,211));
+		jPanel.add(jArea5);	
 		
 }		
 }

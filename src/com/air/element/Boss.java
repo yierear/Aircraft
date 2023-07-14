@@ -84,8 +84,8 @@ public class Boss extends ElementObj{
 	public String toString() {
 		int x=this.getX();
 		int y=this.getY()+getH();
-		int w=30;
-		int h=30;
+		int w=40;
+		int h=40;
 		x+=(this.getW())/2;
 		String fireType="";	//子弹类型
 		switch(bossType) {
