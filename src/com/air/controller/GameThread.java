@@ -200,9 +200,10 @@ public class GameThread extends Thread{
 	/**
 	 * 游戏切换关卡
 	 */
-	private void gameOver() {
+	private void gameOver() {		
 //		失败界面
 		if(!Play.life) {//分数条件
+			GameLevel.setLevel(1);
 			GameLoad.next("2");
 			try {
 				sleep(5000);
@@ -210,10 +211,7 @@ public class GameThread extends Thread{
 				// TODO 自动生成的 catch 块
 				e.printStackTrace();
 			}
-		}
-		
-//		关卡递增
-		if(!GameLevel.flag && GameLevel.getLevel()<6)
+		}else if(!GameLevel.flag && GameLevel.getLevel()<6) //关卡递增
 			GameLevel.setLevel(GameLevel.getLevel()+1);
 //		GameLevel.flag = false;
 		
