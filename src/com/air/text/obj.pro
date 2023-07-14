@@ -5,4 +5,3 @@ enemy=com.air.element.Enemy
 prop=com.air.element.Prop
 enemyfire=com.air.element.EnemyFire
 boss=com.air.element.Boss
-explode=com.air.element.Explode
