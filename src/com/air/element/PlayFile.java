@@ -59,7 +59,7 @@ public class PlayFile extends ElementObj{
 	public void showElement(Graphics g) {
 		ImageIcon icon1 = GameLoad.imgMap.get(fireType);
 		this.setIcon(icon1);
-		this.setATK(fireType);
+		this.ATKtype(fireType);
 		g.drawImage(this.getIcon().getImage(), 
 				this.getX()-20, this.getY()-8, 
 				this.getW(), this.getH(), null);
@@ -84,7 +84,7 @@ public class PlayFile extends ElementObj{
 		PlayFile.fireType = Play.getPlayAndFire()+"fireType";
 	}
 	
-	public void setATK(String fireType) {
+	public void ATKtype(String fireType) {
 		// TODO 自动生成的方法存根
 		switch(fireType) {
 		case "1fireType": this.ATK = 1; break;
@@ -97,6 +97,7 @@ public class PlayFile extends ElementObj{
 	public int getATK() {
 		return ATK;
 	}
+	
 }
 
 

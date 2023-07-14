@@ -34,6 +34,7 @@ public class Enemy extends ElementObj{
 		enemyType=split[4];
 		ImageIcon icon = GameLoad.imgMap.get(enemyType);
 		this.setIcon(icon);
+		HpType(enemyType);
 		return this;
 	}
 	
@@ -107,8 +108,7 @@ public class Enemy extends ElementObj{
 		return "x:"+x+",y:"+y+",w:"+w+",h:"+h+",f:"+this.fx+",type:"+fireType;
 	}
 	
-	@Override
-	public void setHp(int hp) {
+	public void HpType(String enemyType) {
 		// TODO 自动生成的方法存根
 		switch(enemyType) {
 		case "1enemy": this.hp = 3; break;
@@ -120,5 +120,13 @@ public class Enemy extends ElementObj{
 		case "7enemy": this.hp = 40; break;
 		}
 	}
+	public int getHp() {
+		return hp;
+	}
+	public void setHp(int hp) {
+		this.hp = hp;
+	}
+	
+	
 	
 }
