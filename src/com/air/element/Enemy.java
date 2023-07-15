@@ -5,9 +5,11 @@ import java.util.Random;
 
 import javax.swing.ImageIcon;
 
+import com.air.controller.GameThread;
 import com.air.manager.ElementManager;
 import com.air.manager.GameElement;
 import com.air.manager.GameLoad;
+import com.air.show.GameLevel;
 
 public class Enemy extends ElementObj{
 	private int speed = 1;
@@ -110,5 +112,13 @@ public class Enemy extends ElementObj{
 	}
 	public void setHp(int hp) {
 		this.hp = hp;
+	}
+	
+	@Override
+	public void setLive(boolean live) {
+		// TODO 自动生成的方法存根
+		super.setLive(live);
+		if(live == false)
+			GameThread.setScore(GameThread.getScore()+5); 
 	}
 }
