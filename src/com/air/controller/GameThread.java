@@ -67,6 +67,7 @@ public class GameThread extends Thread{
 			List<ElementObj> enemyfires = em.getElementsByKey(GameElement.ENEMYFILE);//敌人子弹
 			List<ElementObj> plays = em.getElementsByKey(GameElement.PLAY);//玩家
 			List<ElementObj> props = em.getElementsByKey(GameElement.PROP);//道具
+			
 			moveAndUpdate(all, gameTime);//	游戏元素自动化方法
 			
 //			加载敌人NPC
@@ -79,7 +80,12 @@ public class GameThread extends Thread{
 			ElementPK(bosses,fires,1);//boss和玩家子弹
 			ElementPK(plays, enemyfires,1);//玩家和敌人/Boss子弹	
 			ElementPK(plays, props,0);//玩家和道具
-
+//			int sc=0;			
+//			if (sc!=score) {
+//				System.out.println(score);
+//				sc=score;
+//			}
+			
 			if(getScore()==50*GameLevel.getLevel()) {//分数条件
 				if(GameLevel.getLevel() == 6)
 				{
@@ -147,8 +153,15 @@ public class GameThread extends Thread{
 //								System.out.println(character instanceof Enemy);
 								if(character instanceof Enemy)
 									score += 5; //大boss则得分多
-								else 
-									score += 15*GameLevel.getLevel();  
+								else {
+									if (score+15*GameLevel.getLevel()<50*GameLevel.getLevel()) {
+										score += 15*GameLevel.getLevel(); 
+									}else {
+										score=50*GameLevel.getLevel();//如果boss加分后超过过关分数，则令分数等于过关分数
+									}
+									 
+								}
+									
 								character.setLive(false);	//碰到子弹 血量无 人物死亡
 							}
 						}
