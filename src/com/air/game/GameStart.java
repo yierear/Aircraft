@@ -4,6 +4,7 @@ import com.air.controller.GameListener;
 import com.air.controller.GameThread;
 import com.air.show.GameJFrame;
 import com.air.show.GameMainJPanel;
+import com.air.show.Music;
 
 public class GameStart {
 	/**
@@ -12,6 +13,12 @@ public class GameStart {
 	 */
 	public static void main(String[] args) {
 		// TODO 自动生成的方法存根
+		
+//		  背景音乐启动
+		Music audioPlayWave = new Music("background.wav");// 开音乐
+		audioPlayWave.start();
+		@SuppressWarnings("unused")
+	   int musicOpenLab = 1;
 		
 		GameJFrame gj = new GameJFrame();
 //		实例化面板，注入到JFrame中

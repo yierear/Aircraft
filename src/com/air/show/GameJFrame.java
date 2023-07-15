@@ -50,7 +50,7 @@ public class GameJFrame extends JFrame{
 	}
 	
 	//启动方法	
-	public void start() {		
+	public void start() {
 		if(jPanel != null) {
 			this.add(jPanel);
 			this.add(ljPanel);
