@@ -144,7 +144,7 @@ public class GameThread extends Thread{
 						if (flag==1) {//子弹和敌人&玩家
 							character.setHp(character.getHp()-thing.getATK());
 							if(character.getHp()==0) {
-								System.out.println(character instanceof Enemy);
+//								System.out.println(character instanceof Enemy);
 								if(character instanceof Enemy)
 									score += 5; //大boss则得分多
 								else 
