@@ -67,9 +67,9 @@ public class GameJFrame extends JFrame{
 		if(keyListener != null) {
 			this.addKeyListener(keyListener);
 		}
-//		if(thread != null) {
-//			thread.start(); //启动线程
-//		}
+		if(thread != null) {
+			thread.start(); //启动线程
+		}
 		this.setVisible(true);
 		
 		if(this.jPanel instanceof Runnable) {
@@ -139,9 +139,14 @@ public class GameJFrame extends JFrame{
 //						else
 //							thread.notify();
 //					}			
-					if(thread != null) {
-						thread.start(); //点击开始游戏后再启动线程
-					}
+//					if(thread != null) {
+//						try {
+//							thread.start(); //点击开始游戏后再启动线程
+//						} catch (Exception e1) {
+//							// TODO 自动生成的 catch 块
+//							e1.printStackTrace();
+//						}
+//					}
 				} else if (str.equals("选择关卡")) {
 					cardLayout.show(jPanel, "gl");	
 				}else if(str.equals("退出游戏")) {
