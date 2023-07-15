@@ -16,6 +16,8 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.ScrollPaneConstants;
 
+import com.air.controller.GameThread;
+
 public class GameJFrame extends JFrame{
 	public static int GameX = 800;
 	public static int GameY = 838;
@@ -57,7 +59,7 @@ public class GameJFrame extends JFrame{
 			Thread th = new Thread(ljPanel);
 			th.start();
 			this.add(ajPanel);
-			addButton(ajPanel, "开始游戏",615,50);	
+			addButton(ajPanel, "开始游戏",615,50);
 			addButton(ajPanel, "游戏说明", 615,130);
 			addButton(ajPanel, "选择关卡",615,210);
 			addButton(ajPanel, "退出游戏",615,290);			
@@ -65,9 +67,9 @@ public class GameJFrame extends JFrame{
 		if(keyListener != null) {
 			this.addKeyListener(keyListener);
 		}
-		if(thread != null) {
-			thread.start(); //启动线程
-		}
+//		if(thread != null) {
+//			thread.start(); //启动线程
+//		}
 		this.setVisible(true);
 		
 		if(this.jPanel instanceof Runnable) {
@@ -136,8 +138,11 @@ public class GameJFrame extends JFrame{
 //							thread.re;
 //						else
 //							thread.notify();
-//					}					
-				}else if (str.equals("选择关卡")) {
+//					}			
+					if(thread != null) {
+						thread.start(); //点击开始游戏后再启动线程
+					}
+				} else if (str.equals("选择关卡")) {
 					cardLayout.show(jPanel, "gl");	
 				}else if(str.equals("退出游戏")) {
 					cardLayout.show(jPanel, "gb");
