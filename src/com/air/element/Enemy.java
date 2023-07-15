@@ -98,20 +98,28 @@ public class Enemy extends ElementObj{
 	public void HpType(String enemyType) {
 		// TODO 自动生成的方法存根
 		switch(enemyType) {
-		case "1enemy": this.hp = 3; break;
-		case "2enemy": this.hp = 5; break;
-		case "3enemy": this.hp = 10; break;
-		case "4enemy": this.hp = 15; break;
-		case "5enemy": this.hp = 20; break;
-		case "6enemy": this.hp = 30; break;
+		case "1enemy": this.hp = 1; break;
+		case "2enemy": this.hp = 4; break;
+		case "3enemy": this.hp = 8; break;
+		case "4enemy": this.hp = 16; break;
+		case "5enemy": this.hp = 24; break;
+		case "6enemy": this.hp = 32; break;
 		case "7enemy": this.hp = 40; break;
 		}
 	}
-	public int getHp() {
+	/**
+	 * HP指代enemy类的HP
+	 * @return
+	 */
+	public int getHP() {
 		return hp;
 	}
-	public void setHp(int hp) {
-		this.hp = hp;
+	public void setHP(int hP) {
+		this.hp=hP;
+		if(hp<=0) {
+			hp=0;
+			this.setLive(false);
+		}	
 	}
 
 }

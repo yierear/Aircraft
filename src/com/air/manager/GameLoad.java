@@ -185,8 +185,8 @@ public class GameLoad {
 		loadObj();
 		Random random = new Random();
 		int propx,propy,num;
-		for (int i = 0; i < mapid*30; i++) {//道具数等于关卡*15
-			propy=-800-random.nextInt(6000);
+		for (int i = 0; i < mapid*40; i++) {//道具数等于关卡*15
+			propy=-800-random.nextInt(10000);
 			propx=random.nextInt(600);			
 			num=random.nextInt(4)+1;//道具 1~4
 			String propStr=propx+","+propy+",30,30,"+num+"prop";
@@ -199,10 +199,11 @@ public class GameLoad {
 	
 	/**
 	 * 加载玩家
+	 * @param mapid 
 	 * */
-	public static void loadPlay() {
+	public static void loadPlay(int mapid) {
 		loadObj();
-		String playStr="200,500,up";
+		String playStr="200,500,up,"+mapid+"";
 //		String playStr="200,500,20,20,up";//x,y,图片
 		ElementObj playobj=getObj("play");  
 		ElementObj play = playobj.createElement(playStr);

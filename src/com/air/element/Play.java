@@ -20,6 +20,7 @@ public class Play extends ElementObj{
 	public static boolean life = true;
 	
 	private static int playAndFire = 1;//传参决定玩家和子弹类型
+	private int skinNum;//皮肤数量
 	private int gapTime = 31;//发射子弹时间间隔
 	
 	//	变量专门用来记录当前主角面向的方向,默认为是up
@@ -42,6 +43,7 @@ public class Play extends ElementObj{
 		if(icon2 == null) {
 			icon2 = GameLoad.imgMap.get("up");
 		}
+		this.skinNum=Integer.parseInt(split[3]);
 		this.setH(100);
 		this.setW(70);
 		this.setIcon(icon2);
@@ -67,7 +69,10 @@ public class Play extends ElementObj{
 	public void keyClick(boolean bl,int key) { //只有按下或者鬆開才會 调用这个方法
 //		System.out.println("测试："+key);
 		Random random = new Random();
-		int ran=random.nextInt(5)+1;
+		if (skinNum==6) {
+			skinNum=5;
+		}
+		int ran=random.nextInt(skinNum)+1;
 		Play.setPlayAndFire(ran);
 		if(bl) {//按下
 			switch(key) {  

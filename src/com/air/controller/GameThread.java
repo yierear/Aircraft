@@ -48,7 +48,7 @@ public class GameThread extends Thread{
 		GameLoad.loadImg();//加载图片
 		GameLoad.MapLoad(GameLevel.getLevel());//传等级
 //		加载主角
-		GameLoad.loadPlay();//可带参数，单机还是2人		
+		GameLoad.loadPlay(GameLevel.getLevel());//可带参数，单机还是2人		
 //		加载敌人NPC
 		GameLoad.loadNpc(GameLevel.getLevel());
 //		加载BOSS
