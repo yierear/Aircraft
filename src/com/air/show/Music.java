@@ -68,7 +68,7 @@ public class Music extends Thread {
 				return;
 			} finally {
 				auline.drain();
-//auline.close();
+				//auline.close();
 			}
 		}
 	}
