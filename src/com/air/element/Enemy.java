@@ -113,12 +113,5 @@ public class Enemy extends ElementObj{
 	public void setHp(int hp) {
 		this.hp = hp;
 	}
-	
-	@Override
-	public void setLive(boolean live) {
-		// TODO 自动生成的方法存根
-		super.setLive(live);
-		if(live == false)
-			GameThread.setScore(GameThread.getScore()+5); 
-	}
+
 }

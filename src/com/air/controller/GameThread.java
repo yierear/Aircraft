@@ -134,12 +134,21 @@ public class GameThread extends Thread{
 							character.setLive(false);
 						}else if(thing.getHp()==0) {
 							thing.setLive(false);
+							if(thing instanceof Enemy)
+								score += 5; //大boss则得分多
+							else 
+								score += 15*GameLevel.getLevel();
 						}
 					}else {
 						thing.setLive(false);
 						if (flag==1) {//子弹和敌人&玩家
 							character.setHp(character.getHp()-thing.getATK());
-							if(character.getHp()==0) {									 
+							if(character.getHp()==0) {
+								System.out.println(character instanceof Enemy);
+								if(character instanceof Enemy)
+									score += 5; //大boss则得分多
+								else 
+									score += 15*GameLevel.getLevel();  
 								character.setLive(false);	//碰到子弹 血量无 人物死亡
 							}
 						}

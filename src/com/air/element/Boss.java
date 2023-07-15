@@ -121,13 +121,5 @@ public class Boss extends ElementObj{
 			this.setLive(false);
 		}
 	}
-	
-	@Override
-	public void setLive(boolean live) {
-		// TODO 自动生成的方法存根
-		super.setLive(live);
-		if(live == false)
-			GameThread.setScore(GameThread.getScore()+15*GameLevel.getLevel()); 
-	}
-	
+
 }
