@@ -134,21 +134,16 @@ public class GameThread extends Thread{
 							character.setLive(false);
 						}else if(thing.getHp()==0) {
 							thing.setLive(false);
-							if(thing instanceof Boss)
-								score += 15*GameLevel.getLevel(); //大boss则得分多
-							else 
-								score += 5;
+							score += 5;
 						}
 					}else {
 						thing.setLive(false);
 						if (flag==1) {//子弹和敌人&玩家
 							character.setHp(character.getHp()-thing.getATK());
 							if(character.getHp()==0) {
-								character.setLive(false);	//碰到子弹 血量无 人物死亡
-								if(character instanceof Boss)
-									score += 5*GameLevel.getLevel(); //大boss则得分多
-								else if(character instanceof Enemy)
+								if(character instanceof Enemy)
 									score += 5;  
+								character.setLive(false);	//碰到子弹 血量无 人物死亡
 							}
 						}
 						else if (flag==0 && thing instanceof Prop) {//道具和玩家

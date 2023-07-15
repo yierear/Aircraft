@@ -5,6 +5,7 @@ import java.awt.Graphics;
 import javax.swing.ImageIcon;
 import com.air.manager.GameLoad;
 import com.air.show.GameLevel;
+import com.air.controller.GameThread;
 import com.air.manager.ElementManager;
 import com.air.manager.GameElement;
 
@@ -121,5 +122,12 @@ public class Boss extends ElementObj{
 		}
 	}
 	
+	@Override
+	public void setLive(boolean live) {
+		// TODO 自动生成的方法存根
+		super.setLive(live);
+		if(live == false)
+			GameThread.setScore(GameThread.getScore()+15*GameLevel.getLevel()); 
+	}
 	
 }
