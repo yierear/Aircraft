@@ -148,7 +148,9 @@ public class GameThread extends Thread{
 					}else {
 						thing.setLive(false);
 						if (flag==1) {//子弹和敌人&玩家
+//							System.out.println(character+":"+character.getHp());
 							character.setHp(character.getHp()-thing.getATK());
+							
 							if(character.getHp()==0) {
 //								System.out.println(character instanceof Enemy);
 								if(character instanceof Enemy)

@@ -112,11 +112,11 @@ public class Enemy extends ElementObj{
 	 * HP指代enemy类的HP
 	 * @return
 	 */
-	public int getHP() {
+	public int getHp() {
 		return hp;
 	}
-	public void setHP(int hP) {
-		this.hp=hP;
+	public void setHp(int hp) {
+		this.hp=hp;
 		if(hp<=0) {
 			hp=0;
 			this.setLive(false);
