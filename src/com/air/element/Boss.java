@@ -85,10 +85,11 @@ public class Boss extends ElementObj{
 	public String toString() {
 		int x=this.getX();
 		int y=this.getY()+getH();
-		int w=40;
-		int h=40;
+		int w=50;
+		int h=50;
 		x+=(this.getW())/2;
 		String fireType="";	//子弹类型
+		String type="boss";//敌机类型
 		switch(bossType) {
 		case "1boss": fireType="1fireType"; break;
 		case "2boss": fireType="1fireType"; break;
@@ -97,7 +98,7 @@ public class Boss extends ElementObj{
 		case "5boss": fireType="4fireType"; break;
 		case "6boss": fireType="5fireType"; break;
 		}
-		return "x:"+x+",y:"+y+",w:"+w+",h:"+h+",f:"+this.fx+",type:"+fireType;
+		return "x:"+x+",y:"+y+",w:"+w+",h:"+h+",f:"+this.fx+",firetype:"+fireType+",type:"+type;
 	}
 	
 	public void HpType(String bossType) {

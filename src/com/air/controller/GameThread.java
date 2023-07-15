@@ -70,7 +70,7 @@ public class GameThread extends Thread{
 			moveAndUpdate(all, gameTime);//	游戏元素自动化方法
 			
 //			加载敌人NPC
-			if(!plays.isEmpty() && gameTime%200==0) {
+			if(!plays.isEmpty() && gameTime%150==0) {
 				GameLoad.loadNpc(GameLevel.getLevel());
 			}
 

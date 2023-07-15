@@ -83,6 +83,7 @@ public class Enemy extends ElementObj{
 		int w=10;
 		int h=10;
 		String fireType="";	//子弹类型
+		String type="enemy";//敌机类型
 		switch(enemyType) {
 		case "1enemy": fireType="1fireType"; break;
 		case "2enemy": fireType="1fireType"; break;
@@ -92,7 +93,7 @@ public class Enemy extends ElementObj{
 		case "6enemy": fireType="5fireType"; break;
 		case "7enemy": fireType="5fireType"; break;
 		}
-		return "x:"+x+",y:"+y+",w:"+w+",h:"+h+",f:"+this.fx+",type:"+fireType;
+		return "x:"+x+",y:"+y+",w:"+w+",h:"+h+",f:"+this.fx+",firetype:"+fireType+",type:"+type;
 	}
 	
 	public void HpType(String enemyType) {

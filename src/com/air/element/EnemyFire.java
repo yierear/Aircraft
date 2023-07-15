@@ -10,8 +10,9 @@ public class EnemyFire extends ElementObj{
 	private int attack;//攻击力
 	private int moveNum=3;//移动速度值
 	private String fx;
-	private String fireType;
+	private String fireType="";
 	private int ATK;
+	private String type="boss";//敌机类型
 
 	public EnemyFire() {}//一个空的构造方法
 	
@@ -28,13 +29,17 @@ public class EnemyFire extends ElementObj{
 			case "f":this.fx=split2[1]; 
 //				System.out.println(split2[1]); 
 				break;
-			case "type":
+			case "firetype":
 				this.fireType=split2[1]; 
 				ImageIcon icon1 = GameLoad.imgMap.get(split2[1]);
 				this.setIcon(icon1);
-				ATKtype(fireType);
-				break;				
+				break;
+			case "type":
+				this.type=split2[1];
+//				System.out.println(type);
+				break;
 			}
+			ATKtype(fireType,type);
 		}
 		return this;
 	}
@@ -55,14 +60,39 @@ public class EnemyFire extends ElementObj{
 		this.setY(this.getY()+this.moveNum);
 	}
 	
-	public void ATKtype(String fireType) {
+	public void ATKtype(String fireType,String type) {
 		// TODO 自动生成的方法存根
 		switch(fireType) {
-		case "1fireType": this.ATK = 2; break;
-		case "2fireType": this.ATK = 4; break;
-		case "3fireType": this.ATK = 6; break;
-		case "4fireType": this.ATK = 8; break;
-		case "5fireType": this.ATK = 10; break;
+		case "1fireType": 
+			switch(type) {
+			case "boss":this.ATK = 8; break;
+			case "enemy":this.ATK = 2; break;
+			}
+			break;
+		case "2fireType": 
+			switch(type) {
+			case "boss":this.ATK = 16; break;
+			case "enemy":this.ATK = 4; break;
+			}
+			break;
+		case "3fireType": 
+			switch(type) {
+			case "boss":this.ATK = 24; break;
+			case "enemy":this.ATK = 6; break;
+			}
+			break;
+		case "4fireType":
+			switch(type) {
+			case "boss":this.ATK = 32; break;
+			case "enemy":this.ATK = 8; break;
+			}
+			break;
+		case "5fireType": 
+			switch(type) {
+			case "boss":this.ATK = 40; break;
+			case "enemy":this.ATK = 10; break;
+			}
+			break;
 		}
 	}
 
