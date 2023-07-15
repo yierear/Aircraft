@@ -86,7 +86,7 @@ public class GameThread extends Thread{
 //				sc=score;
 //			}
 			
-			if(getScore()==50*GameLevel.getLevel()) {//分数条件
+			if(getScore()>=50*GameLevel.getLevel()) {//分数条件
 				if(GameLevel.getLevel() == 6)
 				{
 					GameLoad.next("1");
@@ -156,12 +156,7 @@ public class GameThread extends Thread{
 								if(character instanceof Enemy)
 									score += 5; //大boss则得分多
 								else {
-									if (score+15*GameLevel.getLevel()<50*GameLevel.getLevel()) {
-										score += 15*GameLevel.getLevel(); 
-									}else {
-										score=50*GameLevel.getLevel();//如果boss加分后超过过关分数，则令分数等于过关分数
-									}
-									 
+									 score += 15*GameLevel.getLevel(); 
 								}
 									
 								character.setLive(false);	//碰到子弹 血量无 人物死亡
