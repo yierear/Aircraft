@@ -135,7 +135,7 @@ public class GameThread extends Thread{
 						}else if(thing.getHp()==0) {
 							thing.setLive(false);
 							if(thing instanceof Boss)
-								score += 5*GameLevel.getLevel(); //大boss则得分多
+								score += 15*GameLevel.getLevel(); //大boss则得分多
 							else 
 								score += 5;
 						}
