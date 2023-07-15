@@ -134,15 +134,12 @@ public class GameThread extends Thread{
 							character.setLive(false);
 						}else if(thing.getHp()==0) {
 							thing.setLive(false);
-							score += 5;
 						}
 					}else {
 						thing.setLive(false);
 						if (flag==1) {//子弹和敌人&玩家
 							character.setHp(character.getHp()-thing.getATK());
-							if(character.getHp()==0) {
-								if(character instanceof Enemy)
-									score += 5;  
+							if(character.getHp()==0) {									 
 								character.setLive(false);	//碰到子弹 血量无 人物死亡
 							}
 						}
